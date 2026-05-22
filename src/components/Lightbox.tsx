@@ -1,13 +1,19 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { HDRImage } from "./HDRImage";
 
 export type LightboxPhoto = {
   src: string;
   sdrSrc: string | null;
 };
+
+// Minimum gap between navigation clicks. Each Next/Prev triggers a fresh
+// HDR-AVIF decode that allocates an EDR buffer; Chrome's GPU process can
+// only hold so many concurrent EDR allocations before crashing. 350 ms
+// gives the previous decode time to settle and its buffer time to release.
+const NAV_THROTTLE_MS = 350;
 
 export function Lightbox({
   photo,
@@ -24,12 +30,21 @@ export function Lightbox({
   count: number;
   index: number;
 }) {
+  const lastNavAt = useRef(0);
+  const throttledNav = (fn: () => void) => () => {
+    const now = Date.now();
+    if (now - lastNavAt.current < NAV_THROTTLE_MS) return;
+    lastNavAt.current = now;
+    fn();
+  };
+  const tNext = throttledNav(onNext);
+  const tPrev = throttledNav(onPrev);
   useEffect(() => {
     if (!photo) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
-      else if (e.key === "ArrowRight") onNext();
-      else if (e.key === "ArrowLeft") onPrev();
+      else if (e.key === "ArrowRight") tNext();
+      else if (e.key === "ArrowLeft") tPrev();
     };
     document.body.style.overflow = "hidden";
     // Signal lightbox-open. The custom cursor watches this and hides itself
@@ -78,16 +93,12 @@ export function Lightbox({
             className="relative flex-1 px-6 md:px-20 pb-20"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* No transform / scale animation on the wrapper — Framer's scale
-                creates a compositor layer that, combined with the HDR image,
-                can crash Chrome's GPU process. Plain opacity fade only. */}
-            <motion.div
-              key={photo.src}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative h-full w-full"
-            >
+            {/* No motion wrapper, no per-photo key. Each photo change just
+                swaps the <img src>, so the browser releases the old EDR
+                buffer cleanly before allocating the next one. Remounting
+                via key was leaving multiple HDR layers in flight, which
+                pushed Chrome's GPU process over the edge. */}
+            <div className="relative h-full w-full">
               <HDRImage
                 src={photo.src}
                 sdrSrc={photo.sdrSrc}
@@ -97,19 +108,17 @@ export function Lightbox({
                 className="object-contain"
                 priority
               />
-            </motion.div>
+            </div>
 
             <button
-              onClick={onPrev}
+              onClick={tPrev}
               className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-              data-cursor="link"
             >
               ← Prev
             </button>
             <button
-              onClick={onNext}
+              onClick={tNext}
               className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-              data-cursor="link"
             >
               Next →
             </button>
