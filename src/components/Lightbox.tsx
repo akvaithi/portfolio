@@ -1,18 +1,23 @@
 "use client";
 
-import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect } from "react";
+import { HDRImage } from "./HDRImage";
+
+export type LightboxPhoto = {
+  src: string;
+  sdrSrc: string | null;
+};
 
 export function Lightbox({
-  src,
+  photo,
   onClose,
   onPrev,
   onNext,
   count,
   index,
 }: {
-  src: string | null;
+  photo: LightboxPhoto | null;
   onClose: () => void;
   onPrev: () => void;
   onNext: () => void;
@@ -20,7 +25,7 @@ export function Lightbox({
   index: number;
 }) {
   useEffect(() => {
-    if (!src) return;
+    if (!photo) return;
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       else if (e.key === "ArrowRight") onNext();
@@ -32,23 +37,26 @@ export function Lightbox({
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKey);
     };
-  }, [src, onClose, onNext, onPrev]);
+  }, [photo, onClose, onNext, onPrev]);
 
   return (
     <AnimatePresence>
-      {src && (
+      {photo && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[90] bg-ink/95 backdrop-blur-2xl flex flex-col"
+          className="fixed inset-0 z-[90] bg-ink/95 flex flex-col"
           onClick={onClose}
           data-lenis-prevent
         >
           <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/70">
             <span>
               {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+              {photo.sdrSrc && (
+                <span className="ml-3 text-acid">HDR</span>
+              )}
             </span>
             <button
               onClick={(e) => {
@@ -61,16 +69,20 @@ export function Lightbox({
               Close ✕
             </button>
           </div>
-          <div className="relative flex-1 px-6 md:px-20 pb-20" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative flex-1 px-6 md:px-20 pb-20"
+            onClick={(e) => e.stopPropagation()}
+          >
             <motion.div
-              key={src}
+              key={photo.src}
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               className="relative h-full w-full"
             >
-              <Image
-                src={src}
+              <HDRImage
+                src={photo.src}
+                sdrSrc={photo.sdrSrc}
                 alt="Selected photograph"
                 fill
                 sizes="100vw"

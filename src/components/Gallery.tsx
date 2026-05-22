@@ -162,7 +162,14 @@ export function Gallery({
       )}
 
       <Lightbox
-        src={lightboxIndex !== null ? filtered[lightboxIndex]?.src ?? null : null}
+        photo={
+          lightboxIndex !== null && filtered[lightboxIndex]
+            ? {
+                src: filtered[lightboxIndex].src,
+                sdrSrc: filtered[lightboxIndex].sdrSrc,
+              }
+            : null
+        }
         index={lightboxIndex ?? 0}
         count={filtered.length}
         onClose={() => setLightboxIndex(null)}

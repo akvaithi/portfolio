@@ -5,6 +5,10 @@ export type Photo = {
   category: "Landscapes" | "Portraits" | "Events";
   subgroup: string | null;
   isVideo: boolean;
+  // SDR sibling file (e.g., `name.sdr.webp`) found next to the AVIF.
+  // Null when the photographer hasn't exported an SDR fallback yet — the
+  // image will silently fall back to the Vercel-optimized SDR path.
+  sdrSrc: string | null;
 };
 
 export const PHOTOS: Photo[] = [
@@ -13,2996 +17,3424 @@ export const PHOTOS: Photo[] = [
     "year": "2023",
     "category": "Events",
     "subgroup": "Architecture Portfolio",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 2 of 4.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Architecture Portfolio",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 3 of 4.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Architecture Portfolio",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 4 of 4.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Architecture Portfolio",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Portraits/Portraits - 1 of 4.avif",
     "year": "2023",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Portraits/Portraits - 2 of 4.avif",
     "year": "2023",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Portraits/Portraits - 3 of 4.avif",
     "year": "2023",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Portraits/Portraits - 4 of 4.avif",
     "year": "2023",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 1 of 4.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Casino Night",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 2 of 4.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Casino Night",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 3 of 4.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Casino Night",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 4 of 4.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Casino Night",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Portraits/Portraits - 1 of 4.avif",
     "year": "2026",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Portraits/Portraits - 2 of 4.avif",
     "year": "2026",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Portraits/Portraits - 3 of 4.avif",
     "year": "2026",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Portraits/Portraits - 4 of 4.avif",
     "year": "2026",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 1 of 5.avif",
     "year": "2026",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 2 of 5.avif",
     "year": "2026",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 3 of 5.avif",
     "year": "2026",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 4 of 5.avif",
     "year": "2026",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 5 of 5.avif",
     "year": "2026",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 1 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 2 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 3 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 4 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 5 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 6 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Charvi Bday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 1 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 2 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 3 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 4 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 5 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 6 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Grad Photos",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 1 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 2 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 3 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 4 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 5 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 6 of 6.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "Salangai Pooja",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 1 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 10 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 2 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 3 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 4 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 5 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 6 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 7 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 8 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 9 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Flock Party",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 1 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 10 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 2 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 3 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 4 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 5 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 6 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 7 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 8 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 9 of 10.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Homecoming",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 1 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 10 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 2 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 3 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 4 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 5 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 6 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 7 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 8 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 9 of 10.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 1 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 10 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 11 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 12 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 2 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 3 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 4 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 5 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 6 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 7 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 8 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Product/Product - 9 of 12.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Product",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 1 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 10 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 11 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 12 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 13 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 2 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 3 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 4 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 5 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 6 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 7 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 8 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Portraits/Portraits - 9 of 13.avif",
     "year": "2024",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 1 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 10 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 11 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 12 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 13 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 14 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 15 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 16 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 2 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 3 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 4 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 5 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 6 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 7 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 8 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 9 of 16.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Prom",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 1 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 10 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 11 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 12 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 13 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 14 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 15 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 16 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 17 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 2 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 3 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 4 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 5 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 6 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 7 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 8 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 9 of 17.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Charvi's Birthday",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 1 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 10 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 11 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 12 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 13 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 14 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 15 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 16 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 17 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 18 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 19 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 2 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 20 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 3 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 4 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 5 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 6 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 7 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 8 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 9 of 20.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "Pearadox Graduation",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 1 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 10 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 11 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 12 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 13 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 14 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 15 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 16 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 17 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 18 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 19 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 2 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 20 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 3 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 4 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 5 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 6 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 7 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 8 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 9 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Garba @ TAMU",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 1 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 10 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 11 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 12 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 13 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 14 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 15 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 16 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 17 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 18 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 19 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 2 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 20 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 3 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 4 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 5 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 6 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 7 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 8 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 9 of 20.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "Lunarfest 2024",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 1 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 10 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 11 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 12 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 13 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 14 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 15 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 16 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 17 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 18 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 19 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 2 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 20 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 21 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 22 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 3 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 4 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 5 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 6 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 7 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 8 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 9 of 22.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 1 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 10 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 11 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 12 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 13 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 14 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 15 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 16 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 17 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 18 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 19 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 2 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 20 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 21 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 22 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 23 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 24 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 3 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 4 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 5 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 6 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 7 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 8 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 9 of 24.avif",
     "year": "2023",
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 1 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 10 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 11 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 12 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 13 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 14 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 15 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 16 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 17 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 18 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 19 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 2 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 20 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 21 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 22 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 23 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 24 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 25 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 3 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 4 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 5 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 6 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 7 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 8 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Portraits/Portraits - 9 of 25.avif",
     "year": "2025",
     "category": "Portraits",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 1 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 10 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 11 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 12 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 13 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 14 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 15 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 16 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 17 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 18 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 19 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 2 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 20 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 21 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 22 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 23 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 24 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 25 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 26 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 3 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 4 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 5 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 6 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 7 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 8 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 9 of 26.avif",
     "year": "2023",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 1 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 10 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 11 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 12 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 13 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 14 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 15 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 16 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 17 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 18 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 19 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 2 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 20 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 21 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 22 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 23 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 24 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 25 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 26 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 27 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 3 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 4 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 5 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 6 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 7 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 8 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 9 of 27.avif",
     "year": "2025",
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 1 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 10 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 11 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 12 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 13 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 14 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 15 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 16 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 17 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 18 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 19 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 2 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 20 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 21 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 22 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 23 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 24 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 25 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 26 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 27 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 28 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 29 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 3 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 30 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 31 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 32 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 4 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 5 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 6 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 7 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 8 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 9 of 32.avif",
     "year": "2024",
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 1 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 10 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 11 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 12 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 13 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 14 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 15 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 16 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 17 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 18 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 19 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 2 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 20 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 21 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 22 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 23 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 24 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 25 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 26 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 27 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 28 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 29 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 3 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 30 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 31 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 32 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 33 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 34 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 35 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 36 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 37 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 4 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 5 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 6 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 7 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 8 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 9 of 37.avif",
     "year": "2024",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 1 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 10 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 11 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 12 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 13 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 14 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 15 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 16 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 17 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 18 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 19 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 2 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 20 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 21 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 22 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 23 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 24 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 25 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 26 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 27 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 28 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 29 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 3 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 30 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 31 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 32 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 33 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 34 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 35 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 36 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 37 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 38 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 39 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 4 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 40 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 41 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 42 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 43 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 44 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 45 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 46 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 47 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 48 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 5 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 6 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 7 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 8 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 9 of 48.avif",
     "year": "2025",
     "category": "Landscapes",
     "subgroup": null,
-    "isVideo": false
+    "isVideo": false,
+    "sdrSrc": null
   }
 ];
 

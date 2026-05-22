@@ -1,8 +1,8 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Reveal, MaskedLines, SplitWords } from "@/components/Reveal";
 import { Clock } from "@/components/Clock";
+import { HDRImage } from "@/components/HDRImage";
 import { Footer } from "@/components/Footer";
 import { PHOTOS } from "@/data/photos";
 
@@ -13,15 +13,15 @@ export const metadata: Metadata = {
 };
 
 // Use a mood-driven landscape behind the hero — never a random portrait.
-const HERO_IMG =
+const HERO =
   PHOTOS.find(
     (p) =>
       p.category === "Landscapes" &&
       p.year === "2024" &&
       p.src.includes("Landscapes - 22")
-  )?.src ??
-  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2024")?.src ??
-  PHOTOS.find((p) => p.category === "Landscapes")?.src;
+  ) ??
+  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2024") ??
+  PHOTOS.find((p) => p.category === "Landscapes");
 
 const CHANNELS = [
   {
@@ -55,10 +55,11 @@ export default function Contact() {
     <>
       {/* ────────── HERO ────────── */}
       <section className="relative pt-40 md:pt-52 pb-24 md:pb-32 overflow-hidden">
-        {HERO_IMG && (
+        {HERO && (
           <div className="absolute inset-0">
-            <Image
-              src={HERO_IMG}
+            <HDRImage
+              src={HERO.src}
+              sdrSrc={HERO.sdrSrc}
               alt="Atmosphere — a landscape from the personal archive"
               fill
               priority

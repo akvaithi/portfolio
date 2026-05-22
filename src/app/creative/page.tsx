@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal, MaskedLines, SplitWords } from "@/components/Reveal";
 import { Marquee } from "@/components/Marquee";
 import { Gallery } from "@/components/Gallery";
+import { HDRImage } from "@/components/HDRImage";
 import { Footer } from "@/components/Footer";
 import { PHOTOS, YEARS, CATEGORIES } from "@/data/photos";
 
@@ -24,8 +24,9 @@ export default function Creative() {
       <section className="relative h-[88vh] min-h-[680px] w-full overflow-hidden">
         <div className="absolute inset-0">
           {HERO && (
-            <Image
+            <HDRImage
               src={HERO.src}
+              sdrSrc={HERO.sdrSrc}
               alt="Lead frame from the archive"
               fill
               priority

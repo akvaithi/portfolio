@@ -6,6 +6,7 @@ import { Marquee } from "@/components/Marquee";
 import { Clock } from "@/components/Clock";
 import { CyclingTile } from "@/components/CyclingTile";
 import { ProjectHero } from "@/components/ProjectHero";
+import { HDRImage } from "@/components/HDRImage";
 import { Footer } from "@/components/Footer";
 import { PROJECTS } from "@/data/projects";
 import { PHOTOS } from "@/data/photos";
@@ -14,9 +15,9 @@ function pick(arr: typeof PHOTOS, predicate: (p: (typeof PHOTOS)[number]) => boo
   return arr.find(predicate);
 }
 
-const HERO_IMG =
-  pick(PHOTOS, (p) => p.year === "2025" && p.category === "Landscapes")?.src ??
-  PHOTOS[0]?.src;
+const HERO =
+  pick(PHOTOS, (p) => p.year === "2025" && p.category === "Landscapes") ??
+  PHOTOS[0];
 
 // Pool of landscape frames for the cycling "Through the Lens" mosaic. Kept
 // intentionally small — each tile cycles through this subset, and every
@@ -48,9 +49,10 @@ export default function Home() {
       {/* ───────────── HERO ───────────── */}
       <section className="relative h-screen min-h-[760px] w-full overflow-hidden">
         <div className="absolute inset-0">
-          {HERO_IMG && (
-            <Image
-              src={HERO_IMG}
+          {HERO && (
+            <HDRImage
+              src={HERO.src}
+              sdrSrc={HERO.sdrSrc}
               alt="Atmosphere — a landscape from the personal archive"
               fill
               priority
