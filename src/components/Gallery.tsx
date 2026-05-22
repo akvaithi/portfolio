@@ -128,12 +128,16 @@ export function Gallery({
             data-cursor-label="View"
             className="group relative aspect-[4/5] overflow-hidden rounded-sm bg-ink-soft"
           >
+            {/* SDR thumbnail (.webp) served straight from /public — no
+                optimizer, no HDR pipeline. Falls back to the primary src
+                if no SDR sibling exists for some reason. */}
             <Image
-              src={p.src}
+              src={p.sdrSrc ?? p.src}
               alt={`${p.category} ${p.year}`}
               fill
               loading="lazy"
               decoding="async"
+              unoptimized
               sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
               className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
             />

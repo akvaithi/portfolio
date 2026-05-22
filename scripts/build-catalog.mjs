@@ -14,7 +14,9 @@ const IMG_ROOT = join(ROOT, "public", "images");
 
 const IMG_EXT = new Set([".avif", ".jpeg", ".jpg", ".png", ".webp"]);
 const VID_EXT = new Set([".mp4", ".mov", ".webm"]);
-const SDR_SUFFIXES = [".sdr.webp", ".sdr.jpg", ".sdr.jpeg"];
+// Anything other than the primary HDR format gets paired as an SDR fallback
+// when it shares the same base name as a sibling AVIF.
+const SDR_EXTS = [".webp", ".jpg", ".jpeg"];
 
 async function walk(dir) {
   const out = [];
@@ -40,13 +42,13 @@ function ext(p) {
   return i >= 0 ? p.slice(i).toLowerCase() : "";
 }
 
-// Drop the AVIF extension and look for any of the SDR-sibling variants.
+// Look for an SDR sibling (same base name, different extension).
 async function findSdrSibling(absAvif) {
   const base = absAvif.replace(/\.avif$/i, "");
-  for (const suf of SDR_SUFFIXES) {
+  for (const ext of SDR_EXTS) {
     try {
-      await stat(base + suf);
-      return base + suf;
+      await stat(base + ext);
+      return base + ext;
     } catch {
       /* sibling not present */
     }
@@ -54,7 +56,15 @@ async function findSdrSibling(absAvif) {
   return null;
 }
 
+// Build a set of every SDR file that *is* paired with an AVIF, so we can skip
+// adding those WebP/JPEG files as standalone photos in the catalog.
 const all = await walk(IMG_ROOT);
+const sdrSiblings = new Set();
+for (const abs of all) {
+  if (ext(abs) !== ".avif") continue;
+  const sibling = await findSdrSibling(abs);
+  if (sibling) sdrSiblings.add(sibling);
+}
 
 const photos = [];
 const heroes = {};
@@ -66,14 +76,15 @@ for (const abs of all) {
   const e = ext(abs);
   if (!IMG_EXT.has(e) && !VID_EXT.has(e)) continue;
 
-  // skip the SDR sibling itself — only the AVIF/JPEG/PNG primary gets a
-  // catalog entry; the SDR variant attaches to the primary.
-  if (rel.toLowerCase().includes(".sdr.")) continue;
+  // Skip any file that's been identified as an SDR sibling of an AVIF —
+  // those attach to their AVIF primary, they don't get their own entry.
+  if (sdrSiblings.has(abs)) continue;
+  // Skip HEIC files; browser support is too narrow to ship as a primary.
+  if (e === ".heic") continue;
 
   const isVideo = VID_EXT.has(e);
   const src = "/images/" + rel;
 
-  // For AVIF primaries, look for an SDR sibling
   let sdrSrc = null;
   if (e === ".avif") {
     const sibling = await findSdrSibling(abs);

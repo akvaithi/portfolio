@@ -30,12 +30,16 @@ type HDRImageProps = Omit<ImageProps, "src"> & {
  */
 export function HDRImage({ src, sdrSrc, alt, ...rest }: HDRImageProps) {
   if (!sdrSrc) {
-    return <Image src={src} alt={alt} {...rest} />;
+    // No SDR sibling — render the source as-is, unoptimized, so we don't
+    // engage Vercel's image optimizer (per the test-mode config).
+    return <Image src={src} alt={alt} unoptimized {...rest} />;
   }
   return (
     <picture>
       <source srcSet={src} type="image/avif" media="(dynamic-range: high)" />
-      <Image src={sdrSrc} alt={alt} {...rest} />
+      {/* SDR fallback. unoptimized: serve the raw WebP straight from /public,
+          no Vercel transcoding. */}
+      <Image src={sdrSrc} alt={alt} unoptimized {...rest} />
     </picture>
   );
 }

@@ -19,27 +19,29 @@ const HERO =
   pick(PHOTOS, (p) => p.year === "2025" && p.category === "Landscapes") ??
   PHOTOS[0];
 
-// Pool of landscape frames for the cycling "Through the Lens" mosaic. Kept
-// intentionally small — each tile cycles through this subset, and every
-// new entry burns one round-trip + image decode, so we'd rather show 18
-// strong frames in rotation than dilute it across 90 average ones.
+// Pool of landscape frames for the "Through the Lens" mosaic. For the
+// six-tile grid we use the SDR sibling (.webp) instead of the AVIF, since
+// the HDR pipeline saturates the EDR compositor when many images are
+// on-screen at once. SDR is plenty for grid-thumbnail use.
 const LANDSCAPE_POOL = PHOTOS.filter(
   (p) => p.category === "Landscapes" && p.year >= "2024"
 )
   .slice(0, 18)
-  .map((p) => p.src);
+  .map((p) => p.sdrSrc ?? p.src);
 
-// Use a moodier landscape (not a portrait or random gallery image) so the
-// "Operator" section reads as a cinematic vignette, not a stray person photo.
-const OPERATOR_LANDSCAPE =
+// Operator section landscape. SDR sibling preferred so the parallax stays
+// out of the EDR pipeline (it's full-bleed but isn't the page's hero).
+const OPERATOR_LANDSCAPE_PHOTO =
   PHOTOS.find(
     (p) =>
       p.category === "Landscapes" &&
       p.year === "2024" &&
       p.src.includes("Landscapes - 12")
-  )?.src ??
-  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2024")?.src ??
-  PHOTOS.find((p) => p.category === "Landscapes")?.src;
+  ) ??
+  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2024") ??
+  PHOTOS.find((p) => p.category === "Landscapes");
+const OPERATOR_LANDSCAPE =
+  OPERATOR_LANDSCAPE_PHOTO?.sdrSrc ?? OPERATOR_LANDSCAPE_PHOTO?.src;
 
 export default function Home() {
   const featured = PROJECTS.slice(0, 3);
@@ -411,6 +413,7 @@ export default function Home() {
                     fill
                     loading="lazy"
                     decoding="async"
+                    unoptimized
                     sizes={tile.sizes}
                     className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.04]"
                   />
