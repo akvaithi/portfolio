@@ -18,10 +18,12 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   const [shouldSmooth, setShouldSmooth] = useState(false);
 
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const touch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
-    const lowCpu = (navigator.hardwareConcurrency ?? 8) < 4;
-    setShouldSmooth(!reduced && !touch && !lowCpu);
+    // Temporarily disabled across the board — Lenis was found to interact
+    // poorly with the page's many IntersectionObservers + Framer Motion
+    // springs on certain machines, causing scroll freezes at the mosaic
+    // section. Native scroll is good enough; we can revisit later behind a
+    // feature flag.
+    setShouldSmooth(false);
   }, []);
 
   if (!shouldSmooth) return <>{children}</>;
