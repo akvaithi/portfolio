@@ -144,9 +144,11 @@ export default function Creative() {
               <h2 className="mt-4 display-xl text-[clamp(2rem,5vw,4rem)] tracking-tighter">
                 <SplitWords text="A million views" />
                 <br />
-                <span className="font-serif italic iris-text">
-                  <SplitWords text="of teaching how things work." delay={0.1} />
-                </span>
+                <SplitWords
+                  text="of teaching how things work."
+                  delay={0.1}
+                  className="font-serif italic iris-text"
+                />
               </h2>
             </div>
             <a

@@ -440,9 +440,11 @@ export default function Home() {
             <h2 className="display-mega text-[clamp(2.2rem,6.5vw,7rem)] tracking-tighter">
               <SplitWords text="If you're" />
               <br />
-              <span className="font-serif italic iris-text">
-                <SplitWords text="building something" delay={0.1} />
-              </span>
+              <SplitWords
+                text="building something"
+                delay={0.1}
+                className="font-serif italic iris-text"
+              />
               <br />
               <SplitWords text="that shouldn't exist yet —" delay={0.2} />
             </h2>

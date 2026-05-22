@@ -107,9 +107,11 @@ export default function Contact() {
             <p className="eyebrow text-cream/50">§ — Direct lines</p>
             <h2 className="mt-4 display-xl text-[clamp(2rem,4.5vw,3.6rem)] tracking-tighter">
               <SplitWords text="No form." />{" "}
-              <span className="iris-text font-serif italic">
-                <SplitWords text="Just the channels." delay={0.1} />
-              </span>
+              <SplitWords
+                text="Just the channels."
+                delay={0.1}
+                className="iris-text font-serif italic"
+              />
             </h2>
           </div>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/45 max-w-md">

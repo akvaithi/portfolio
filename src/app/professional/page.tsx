@@ -323,9 +323,11 @@ export default function Professional() {
             <h2 className="display-mega text-[clamp(2rem,5.5vw,5.4rem)] tracking-tighter">
               <SplitWords text="Have a system" />
               <br />
-              <span className="font-serif italic iris-text">
-                <SplitWords text="worth building?" delay={0.15} />
-              </span>
+              <SplitWords
+                text="worth building?"
+                delay={0.15}
+                className="font-serif italic iris-text"
+              />
             </h2>
           </div>
 
