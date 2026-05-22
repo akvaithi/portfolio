@@ -3,28 +3,39 @@
 import { motion, useInView, type Variants } from "framer-motion";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-// Guarantee that any reveal eventually plays. We watch IntersectionObserver
-// through Framer's useInView, then OR it with a fallback timer so even if the
-// observer never fires (mount-already-visible races, transition timing,
-// Lenis-driven scroll quirks) the animation still runs.
+// Reveal sequencing rules:
+//   - `eager` → play on mount, no scroll check. Use this for above-the-fold
+//     hero text that needs to be visible immediately.
+//   - On mount, if the element is *already* in the viewport (e.g. early
+//     sections on a tall page), play immediately. This catches the race
+//     where IntersectionObserver doesn't fire because the element was
+//     visible before the observer attached.
+//   - Otherwise, follow scroll position via Framer's useInView.
+//
+// Critically, there is no blanket "play after Nms regardless" — that was
+// causing every section to animate on page load before the user scrolled.
 function useReliableReveal<T extends HTMLElement = HTMLDivElement>(
   eager: boolean,
   amount: number = 0.05
 ) {
   const ref = useRef<T>(null);
   const inView = useInView(ref, { once: true, amount });
-  const [forced, setForced] = useState(false);
+  const [mountVisible, setMountVisible] = useState(false);
 
   useEffect(() => {
     if (eager) {
-      setForced(true);
+      setMountVisible(true);
       return;
     }
-    const id = setTimeout(() => setForced(true), 800);
-    return () => clearTimeout(id);
+    const node = ref.current;
+    if (!node) return;
+    const r = node.getBoundingClientRect();
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const onScreen = r.top < vh && r.bottom > 0;
+    if (onScreen) setMountVisible(true);
   }, [eager]);
 
-  return { ref, visible: eager || forced || inView };
+  return { ref, visible: eager || mountVisible || inView };
 }
 
 type RevealProps = {
