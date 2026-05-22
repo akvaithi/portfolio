@@ -389,35 +389,19 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Live mosaic — six tiles, each independently cycling through the
-              landscape pool on staggered intervals so the grid feels alive. */}
+          {/* DEBUG: static placeholders to isolate mosaic as freeze cause */}
           <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
             {[
-              { wide: true,  span: "col-span-2 md:col-span-3 aspect-[16/10]", seed: 0,  interval: 4800 },
-              { wide: false, span: "col-span-1 md:col-span-1 aspect-[3/4]",   seed: 7,  interval: 6200 },
-              { wide: false, span: "col-span-1 md:col-span-1 aspect-[3/4]",   seed: 14, interval: 5400 },
-              { wide: true,  span: "col-span-2 md:col-span-3 aspect-[16/10]", seed: 21, interval: 5800 },
-              { wide: false, span: "col-span-1 md:col-span-1 aspect-[3/4]",   seed: 28, interval: 6800 },
-              { wide: false, span: "col-span-1 md:col-span-1 aspect-[3/4]",   seed: 35, interval: 5200 },
-            ].map((tile, i) => (
-              <Reveal
-                key={i}
-                delay={i * 0.05}
-                className={`${tile.span} relative`}
-              >
-                <CyclingTile
-                  pool={LANDSCAPE_POOL}
-                  seed={tile.seed}
-                  interval={tile.interval}
-                  mountDelay={i * 220}
-                  className="absolute inset-0"
-                  sizes={
-                    tile.wide
-                      ? "(max-width: 768px) 100vw, 50vw"
-                      : "(max-width: 768px) 50vw, 17vw"
-                  }
-                />
-              </Reveal>
+              "col-span-2 md:col-span-3 aspect-[16/10]",
+              "col-span-1 md:col-span-1 aspect-[3/4]",
+              "col-span-1 md:col-span-1 aspect-[3/4]",
+              "col-span-2 md:col-span-3 aspect-[16/10]",
+              "col-span-1 md:col-span-1 aspect-[3/4]",
+              "col-span-1 md:col-span-1 aspect-[3/4]",
+            ].map((span, i) => (
+              <div key={i} className={`${span} relative bg-ink-soft rounded-sm flex items-center justify-center`}>
+                <span className="font-mono text-cream/30 text-xs">tile {i + 1}</span>
+              </div>
             ))}
           </div>
 
