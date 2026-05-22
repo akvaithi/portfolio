@@ -63,7 +63,6 @@ export default function Contact() {
               fill
               priority
               sizes="100vw"
-              unoptimized
               className="object-cover drift"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/65 to-ink" />

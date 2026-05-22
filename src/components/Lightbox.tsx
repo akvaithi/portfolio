@@ -74,7 +74,6 @@ export function Lightbox({
                 alt="Selected photograph"
                 fill
                 sizes="100vw"
-                unoptimized
                 className="object-contain"
                 priority
               />

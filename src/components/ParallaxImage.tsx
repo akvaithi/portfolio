@@ -40,7 +40,6 @@ export function ParallaxImage({
           fill
           priority={priority}
           sizes={sizes ?? "100vw"}
-          unoptimized
           className="object-cover"
         />
       </motion.div>
