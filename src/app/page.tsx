@@ -389,18 +389,31 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* DEBUG: static placeholders to isolate mosaic as freeze cause */}
+          {/* Six landscape tiles. Static next/image inside a CSS grid — no
+              cycling, no IntersectionObserver, no Framer Motion wrapping.
+              Earlier versions with simultaneous mount + crossfade were the
+              proximate cause of a JS-thread freeze on first scroll. */}
           <div className="grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4">
             {[
-              "col-span-2 md:col-span-3 aspect-[16/10]",
-              "col-span-1 md:col-span-1 aspect-[3/4]",
-              "col-span-1 md:col-span-1 aspect-[3/4]",
-              "col-span-2 md:col-span-3 aspect-[16/10]",
-              "col-span-1 md:col-span-1 aspect-[3/4]",
-              "col-span-1 md:col-span-1 aspect-[3/4]",
-            ].map((span, i) => (
-              <div key={i} className={`${span} relative bg-ink-soft rounded-sm flex items-center justify-center`}>
-                <span className="font-mono text-cream/30 text-xs">tile {i + 1}</span>
+              { src: LANDSCAPE_POOL[0],  span: "col-span-2 md:col-span-3 aspect-[16/10]", sizes: "(max-width: 768px) 100vw, 50vw" },
+              { src: LANDSCAPE_POOL[3],  span: "col-span-1 md:col-span-1 aspect-[3/4]",   sizes: "(max-width: 768px) 50vw, 17vw" },
+              { src: LANDSCAPE_POOL[6],  span: "col-span-1 md:col-span-1 aspect-[3/4]",   sizes: "(max-width: 768px) 50vw, 17vw" },
+              { src: LANDSCAPE_POOL[9],  span: "col-span-2 md:col-span-3 aspect-[16/10]", sizes: "(max-width: 768px) 100vw, 50vw" },
+              { src: LANDSCAPE_POOL[12], span: "col-span-1 md:col-span-1 aspect-[3/4]",   sizes: "(max-width: 768px) 50vw, 17vw" },
+              { src: LANDSCAPE_POOL[15], span: "col-span-1 md:col-span-1 aspect-[3/4]",   sizes: "(max-width: 768px) 50vw, 17vw" },
+            ].map((tile, i) => (
+              <div key={i} className={`${tile.span} relative overflow-hidden rounded-sm bg-ink-soft`}>
+                {tile.src && (
+                  <Image
+                    src={tile.src}
+                    alt={`Landscape ${i + 1}`}
+                    fill
+                    loading="lazy"
+                    decoding="async"
+                    sizes={tile.sizes}
+                    className="object-cover transition-transform duration-[1.4s] ease-out hover:scale-[1.04]"
+                  />
+                )}
               </div>
             ))}
           </div>
