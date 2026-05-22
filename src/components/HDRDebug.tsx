@@ -57,14 +57,15 @@ export function HDRDebug() {
           <span className={drHigh ? "text-acid-cool" : "text-rust"}>
             {drHigh === null ? "…" : drHigh ? "HIGH ✓" : "STANDARD ✗"}
           </span>
+          <span className="text-cream/45"> (informational only)</span>
         </div>
         <div>
           mode: <span className="text-acid">{mode}</span>
         </div>
-        <div className="text-cream/55">
-          {drHigh
-            ? "browser will pick HDR AVIF when mode=auto"
-            : "browser will pick SDR WebP when mode=auto"}
+        <div className="text-cream/55 max-w-[16rem]">
+          gain-map AVIFs are served to all AVIF-capable browsers; macOS uses
+          display headroom to render HDR. dynamic-range query above is just
+          informational.
         </div>
       </div>
       <div className="flex gap-1">
