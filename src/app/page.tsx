@@ -18,10 +18,15 @@ const HERO_IMG =
   pick(PHOTOS, (p) => p.year === "2025" && p.category === "Landscapes")?.src ??
   PHOTOS[0]?.src;
 
-// Pool of strong landscape frames for the cycling "Through the Lens" mosaic.
+// Pool of landscape frames for the cycling "Through the Lens" mosaic. Kept
+// intentionally small — each tile cycles through this subset, and every
+// new entry burns one round-trip + image decode, so we'd rather show 18
+// strong frames in rotation than dilute it across 90 average ones.
 const LANDSCAPE_POOL = PHOTOS.filter(
   (p) => p.category === "Landscapes" && p.year >= "2024"
-).map((p) => p.src);
+)
+  .slice(0, 18)
+  .map((p) => p.src);
 
 // Use a moodier landscape (not a portrait or random gallery image) so the
 // "Operator" section reads as a cinematic vignette, not a stray person photo.
@@ -404,6 +409,7 @@ export default function Home() {
                   pool={LANDSCAPE_POOL}
                   seed={tile.seed}
                   interval={tile.interval}
+                  mountDelay={i * 220}
                   className="absolute inset-0"
                   sizes={
                     tile.wide

@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Lightbox } from "./Lightbox";
 import type { Photo } from "@/data/photos";
 
@@ -11,11 +10,10 @@ type Filter = {
   category: "Landscapes" | "Portraits" | "Events" | "ALL";
 };
 
-const INITIAL_BATCH = 32;
-const STEP_BATCH = 32;
+const INITIAL_BATCH = 16;
+const STEP_BATCH = 24;
 
 const aspectFor = (i: number) => {
-  // pseudo-random varied aspects for a more editorial feel
   const cycle = i % 7;
   if (cycle === 0) return "aspect-[4/5]";
   if (cycle === 1) return "aspect-[3/4]";
@@ -25,6 +23,74 @@ const aspectFor = (i: number) => {
   if (cycle === 5) return "aspect-[2/3]";
   return "aspect-[5/4]";
 };
+
+/**
+ * One gallery item — only mounts the <Image> after its placeholder slot enters
+ * the viewport. Keeps the cost of opening the page bounded, regardless of how
+ * many photos are below the fold.
+ */
+function GalleryItem({
+  photo,
+  index,
+  onOpen,
+}: {
+  photo: Photo;
+  index: number;
+  onOpen: () => void;
+}) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node || mounted) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0]?.isIntersecting) {
+          setMounted(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+    io.observe(node);
+    return () => io.disconnect();
+  }, [mounted]);
+
+  return (
+    <button
+      ref={ref}
+      onClick={onOpen}
+      data-cursor="media"
+      data-cursor-label="View"
+      className={`group relative mb-3 md:mb-4 block w-full overflow-hidden rounded-sm break-inside-avoid bg-ink-soft ${aspectFor(
+        index
+      )}`}
+    >
+      {mounted && (
+        <Image
+          src={photo.src}
+          alt={`${photo.category} ${photo.year}`}
+          fill
+          loading="lazy"
+          decoding="async"
+          unoptimized
+          sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+          className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+        />
+      )}
+      <div className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/15" />
+      <div className="pointer-events-none absolute left-3 bottom-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="rounded-full bg-ink/70 px-2 py-1 backdrop-blur">
+          {photo.year}
+        </span>
+        <span className="rounded-full bg-ink/70 px-2 py-1 backdrop-blur">
+          {photo.category}
+        </span>
+      </div>
+    </button>
+  );
+}
 
 export function Gallery({
   photos,
@@ -47,7 +113,6 @@ export function Gallery({
     );
   }, [photos, filter]);
 
-  // Reset paging whenever filter changes
   useEffect(() => {
     setVisibleCount(INITIAL_BATCH);
   }, [filter]);
@@ -140,53 +205,18 @@ export function Gallery({
         </div>
       </div>
 
-      {/* Mosaic */}
-      <motion.div
-        layout
-        className="columns-2 md:columns-3 xl:columns-4 gap-3 md:gap-4"
-      >
-        <AnimatePresence mode="popLayout">
-          {shown.map((p, i) => (
-            <motion.button
-              key={p.src}
-              layout
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{
-                duration: 0.5,
-                delay: (i % 12) * 0.02,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              onClick={() => openLightbox(i)}
-              data-cursor="media"
-              data-cursor-label="View"
-              className={`group relative mb-3 md:mb-4 block w-full overflow-hidden rounded-sm break-inside-avoid ${aspectFor(
-                i
-              )}`}
-            >
-              <Image
-                src={p.src}
-                alt={`${p.category} ${p.year}`}
-                fill
-                loading="lazy"
-                unoptimized
-                sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-                className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.06]"
-              />
-              <div className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/15" />
-              <div className="pointer-events-none absolute left-3 bottom-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream opacity-0 transition-opacity group-hover:opacity-100">
-                <span className="rounded-full bg-ink/70 px-2 py-1 backdrop-blur">
-                  {p.year}
-                </span>
-                <span className="rounded-full bg-ink/70 px-2 py-1 backdrop-blur">
-                  {p.category}
-                </span>
-              </div>
-            </motion.button>
-          ))}
-        </AnimatePresence>
-      </motion.div>
+      {/* Mosaic — plain columns, no FLIP/AnimatePresence (those were thrashing
+          layout on 30+ items and freezing the tab). */}
+      <div className="columns-2 md:columns-3 xl:columns-4 gap-3 md:gap-4">
+        {shown.map((p, i) => (
+          <GalleryItem
+            key={`${filter.year}-${filter.category}-${p.src}`}
+            photo={p}
+            index={i}
+            onOpen={() => openLightbox(i)}
+          />
+        ))}
+      </div>
 
       {/* manual load-more */}
       {remaining > 0 && (
@@ -200,14 +230,6 @@ export function Gallery({
             className="rounded-full border border-cream/20 px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-cream hover:text-ink transition-colors"
           >
             Load {Math.min(STEP_BATCH, remaining)} more · {remaining} remaining
-          </button>
-          <button
-            type="button"
-            onClick={() => setVisibleCount(filtered.length)}
-            data-cursor="link"
-            className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 hover:text-cream"
-          >
-            or show all {filtered.length}
           </button>
         </div>
       )}
