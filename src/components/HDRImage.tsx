@@ -21,25 +21,22 @@ function readForceMode(): ForceMode {
 /**
  * Hero / lightbox image with gain-map HDR.
  *
- * Important: gain-map AVIFs don't go through `(dynamic-range: high)`. macOS
- * engages the EDR pipeline whenever a gain-map image is rendered AND the
- * display has brightness headroom — including the MacBook Air's Liquid
- * Retina. So we serve the AVIF unconditionally to AVIF-supporting browsers
- * and use the WebP only as a format fallback for ancient browsers.
+ * Renders the AVIF directly as the `<img src>` — **no <picture>/<source>
+ * wrapper**. Why: Chromium has a subtle bug where a `<picture>` element
+ * whose `<source>` picks an HDR AVIF but whose fallback `<img src>` points
+ * at an SDR file fails to allocate an EDR layer for the displayed image.
+ * The image *loads* as AVIF (correct `currentSrc`) but renders as SDR
+ * because the renderer makes its HDR decision based on the static `src`
+ * attribute, not the resolved one. Skipping `<picture>` sidesteps this
+ * entirely.
  *
- *   <picture>
- *     <source srcset="hero.avif" type="image/avif" />   ← gain-map HDR
- *     <img src="hero.webp" />                            ← format fallback
- *   </picture>
- *
- * Browsers that don't understand AVIF (basically just IE-era browsers at this
- * point) fall back to the WebP `<img>`. AVIF-supporting browsers pick the
- * AVIF, and macOS handles EDR rendering automatically when the display has
- * headroom.
+ * AVIF support is ~96% (Chrome 85+, Safari 16+, Firefox 113+, Edge 121+),
+ * so a `<picture>`-based fallback for the rest is a poor trade against
+ * losing HDR on every Apple display with headroom.
  *
  * Query overrides for testing:
- *   ?hdr=force → render AVIF as a plain <img>, no <picture> (skips fallback)
- *   ?hdr=sdr   → render the WebP only, never the AVIF
+ *   ?hdr=sdr   → render the WebP instead of the AVIF
+ *   ?hdr=force → same as default (AVIF as plain <img>), kept for symmetry
  *
  * All variants are passed `unoptimized` so files come straight from /public.
  */
@@ -50,22 +47,9 @@ export function HDRImage({ src, sdrSrc, alt, ...rest }: HDRImageProps) {
     setMode(readForceMode());
   }, []);
 
-  // No SDR sibling — just render the AVIF directly. Should be rare.
-  if (!sdrSrc) {
-    return <Image src={src} alt={alt} unoptimized {...rest} />;
-  }
-
-  if (mode === "hdr") {
-    return <Image src={src} alt={alt} unoptimized {...rest} />;
-  }
-  if (mode === "sdr") {
+  if (mode === "sdr" && sdrSrc) {
     return <Image src={sdrSrc} alt={alt} unoptimized {...rest} />;
   }
-
-  return (
-    <picture>
-      <source srcSet={src} type="image/avif" />
-      <Image src={sdrSrc} alt={alt} unoptimized {...rest} />
-    </picture>
-  );
+  // auto + force-hdr both serve the AVIF directly as a plain <img>
+  return <Image src={src} alt={alt} unoptimized {...rest} />;
 }
