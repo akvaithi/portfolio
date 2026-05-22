@@ -10,8 +10,8 @@ type Filter = {
   category: "Landscapes" | "Portraits" | "Events" | "ALL";
 };
 
-const INITIAL_BATCH = 16;
-const STEP_BATCH = 24;
+const INITIAL_BATCH = 8;
+const STEP_BATCH = 16;
 
 const aspectFor = (i: number) => {
   const cycle = i % 7;
@@ -51,7 +51,7 @@ function GalleryItem({
           io.disconnect();
         }
       },
-      { rootMargin: "600px 0px" }
+      { rootMargin: "200px 0px" }
     );
     io.observe(node);
     return () => io.disconnect();
@@ -74,7 +74,6 @@ function GalleryItem({
           fill
           loading="lazy"
           decoding="async"
-          unoptimized
           sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
           className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
         />
