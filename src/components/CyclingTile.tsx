@@ -3,9 +3,9 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-// Crossfade through a pool of images at a given interval. Each tile picks an
-// independent starting index + interval so the grid feels alive but never
-// synchronized. Pool is shuffled-deterministically per tile via the seed.
+// Crossfade through a pool of images at a given interval. Only two image
+// layers are mounted at any time — the visible one and the next-up one we're
+// fading toward — so a grid of tiles doesn't balloon the DOM.
 export function CyclingTile({
   pool,
   className,
@@ -21,24 +21,35 @@ export function CyclingTile({
   alt?: string;
   sizes?: string;
 }) {
-  // Deterministic shuffle by seed: rotate the pool so each tile starts on a
-  // different image, ensuring the same image isn't shown in multiple tiles at
-  // once (when seed values are distinct < pool length).
-  const ordered = pool
-    .slice(seed % pool.length)
-    .concat(pool.slice(0, seed % pool.length));
-
-  const [i, setI] = useState(0);
+  const startIndex = pool.length ? seed % pool.length : 0;
+  const [current, setCurrent] = useState(startIndex);
+  const [next, setNext] = useState((startIndex + 1) % Math.max(pool.length, 1));
+  const [showNext, setShowNext] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
-    if (ordered.length < 2 || hovered) return;
-    const id = setInterval(
-      () => setI((n) => (n + 1) % ordered.length),
-      interval
-    );
+    if (pool.length < 2 || hovered) return;
+    const id = setInterval(() => {
+      // start the crossfade to `next`
+      setShowNext(true);
+      // after the fade completes, promote `next` to `current` and stage a new `next`
+      const promote = setTimeout(() => {
+        setCurrent((c) => {
+          const promoted = (c + 1) % pool.length;
+          setNext((promoted + 1) % pool.length);
+          return promoted;
+        });
+        setShowNext(false);
+      }, 1400);
+      return () => clearTimeout(promote);
+    }, interval);
     return () => clearInterval(id);
-  }, [ordered.length, interval, hovered]);
+  }, [pool.length, interval, hovered]);
+
+  if (!pool.length) return null;
+
+  const currentSrc = pool[current];
+  const nextSrc = pool[next];
 
   return (
     <div
@@ -48,26 +59,36 @@ export function CyclingTile({
       data-cursor="media"
       data-cursor-label="Cycle"
     >
-      {ordered.map((src, idx) => (
-        <div
-          key={src}
-          className={`absolute inset-0 transition-[opacity,transform] ease-out ${
-            idx === i
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-[1.04] pointer-events-none"
-          }`}
-          style={{ transitionDuration: "1600ms" }}
-        >
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes={sizes ?? "(max-width: 768px) 50vw, 25vw"}
-            loading="lazy"
-            className="object-cover"
-          />
-        </div>
-      ))}
+      <div
+        className={`absolute inset-0 transition-opacity ease-out ${
+          showNext ? "opacity-0" : "opacity-100"
+        }`}
+        style={{ transitionDuration: "1400ms" }}
+      >
+        <Image
+          src={currentSrc}
+          alt={alt}
+          fill
+          sizes={sizes ?? "(max-width: 768px) 50vw, 25vw"}
+          unoptimized
+          className="object-cover"
+        />
+      </div>
+      <div
+        className={`absolute inset-0 transition-opacity ease-out ${
+          showNext ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ transitionDuration: "1400ms" }}
+      >
+        <Image
+          src={nextSrc}
+          alt={alt}
+          fill
+          sizes={sizes ?? "(max-width: 768px) 50vw, 25vw"}
+          unoptimized
+          className="object-cover"
+        />
+      </div>
     </div>
   );
 }

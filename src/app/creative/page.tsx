@@ -30,6 +30,7 @@ export default function Creative() {
               fill
               priority
               sizes="100vw"
+              unoptimized
               className="object-cover drift"
             />
           )}

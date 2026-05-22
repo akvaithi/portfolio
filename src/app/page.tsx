@@ -50,6 +50,7 @@ export default function Home() {
               fill
               priority
               sizes="100vw"
+              unoptimized
               className="object-cover drift"
             />
           )}
