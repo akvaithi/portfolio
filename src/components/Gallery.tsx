@@ -10,10 +10,10 @@ type Filter = {
   category: "Landscapes" | "Portraits" | "Events" | "ALL";
 };
 
-// Show a small initial batch and require the user to click for more. This
-// keeps the number of <Image> elements bounded, which is the single biggest
-// thing keeping the tab responsive.
-const INITIAL_BATCH = 12;
+// Bounded initial batch — the single biggest factor in keeping the tab
+// responsive on lower-end devices. Each batch is small enough that even
+// slow GPUs can decode them concurrently without locking the main thread.
+const INITIAL_BATCH = 8;
 const STEP_BATCH = 12;
 
 export function Gallery({
@@ -27,7 +27,16 @@ export function Gallery({
 }) {
   const [filter, setFilter] = useState<Filter>({ year: "ALL", category: "ALL" });
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
+  const [visibleCount, setVisibleCount] = useState(4);
+
+  // Two-pass reveal: first row immediately, the rest after the browser
+  // has had a moment to finish painting + decoding the first batch. Also
+  // resets when the filter changes so heavy filter switches stay responsive.
+  useEffect(() => {
+    setVisibleCount(4);
+    const id = setTimeout(() => setVisibleCount(INITIAL_BATCH), 400);
+    return () => clearTimeout(id);
+  }, [filter]);
 
   const filtered = useMemo(
     () =>
@@ -39,9 +48,6 @@ export function Gallery({
     [photos, filter]
   );
 
-  useEffect(() => {
-    setVisibleCount(INITIAL_BATCH);
-  }, [filter]);
 
   const shown = filtered.slice(0, visibleCount);
   const remaining = filtered.length - shown.length;
