@@ -140,7 +140,7 @@ export function Gallery({
   return (
     <>
       {/* Filters */}
-      <div className="sticky top-[72px] z-30 -mx-6 md:-mx-10 mb-10 border-y border-cream/10 bg-ink/85 backdrop-blur-xl">
+      <div className="sticky top-[72px] z-30 -mx-6 md:-mx-10 mb-10 border-y border-cream/10 bg-ink">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-4 flex flex-wrap gap-x-8 gap-y-3 items-center">
           <span className="eyebrow text-cream/45">Year</span>
           <button

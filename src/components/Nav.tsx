@@ -36,9 +36,7 @@ export function Nav() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
-          scrolled
-            ? "bg-ink/70 backdrop-blur-xl border-b border-cream/5"
-            : "bg-transparent"
+          scrolled ? "bg-ink border-b border-cream/5" : "bg-transparent"
         }`}
       >
         <div className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 md:px-10">
