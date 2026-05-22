@@ -115,6 +115,18 @@ html.lenis body {
   }
 }
 
+/* Lightbox is open: hide the custom cursor (mix-blend-difference would
+   crash Chrome's GPU process when blending against HDR pixels) and
+   restore the native cursor so the user can still interact. */
+body[data-lightbox="open"] [data-cursor-root] {
+  display: none !important;
+}
+body[data-lightbox="open"],
+body[data-lightbox="open"] a,
+body[data-lightbox="open"] button {
+  cursor: auto !important;
+}
+
 /* ------- type system ------- */
 .font-serif {
   font-family: var(--font-serif), Georgia, serif;

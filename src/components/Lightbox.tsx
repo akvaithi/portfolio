@@ -32,9 +32,14 @@ export function Lightbox({
       else if (e.key === "ArrowLeft") onPrev();
     };
     document.body.style.overflow = "hidden";
+    // Signal lightbox-open. The custom cursor watches this and hides itself
+    // — mix-blend-difference cursors over HDR images crash Chrome's GPU
+    // process (the compositor can't blend pixel values above 1.0).
+    document.body.dataset.lightbox = "open";
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
+      delete document.body.dataset.lightbox;
       window.removeEventListener("keydown", onKey);
     };
   }, [photo, onClose, onNext, onPrev]);
@@ -73,11 +78,14 @@ export function Lightbox({
             className="relative flex-1 px-6 md:px-20 pb-20"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* No transform / scale animation on the wrapper — Framer's scale
+                creates a compositor layer that, combined with the HDR image,
+                can crash Chrome's GPU process. Plain opacity fade only. */}
             <motion.div
               key={photo.src}
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="relative h-full w-full"
             >
               <HDRImage

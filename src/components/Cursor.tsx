@@ -69,6 +69,7 @@ export function Cursor() {
     <>
       <motion.div
         aria-hidden
+        data-cursor-root
         className="pointer-events-none fixed left-0 top-0 z-[200] hidden md:flex items-center justify-center rounded-full mix-blend-difference"
         style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%" }}
         animate={{
