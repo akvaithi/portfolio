@@ -5,6 +5,7 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import { Nav } from "@/components/Nav";
 import { Cursor } from "@/components/Cursor";
 import { PageTransition } from "@/components/PageTransition";
+import { HDRDebug } from "@/components/HDRDebug";
 
 const sans = Inter_Tight({
   variable: "--font-sans",
@@ -57,6 +58,7 @@ export default function RootLayout({
           <Nav />
           <PageTransition>{children}</PageTransition>
         </SmoothScroll>
+        <HDRDebug />
       </body>
     </html>
   );
