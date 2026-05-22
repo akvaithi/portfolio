@@ -52,20 +52,31 @@ body::before {
     );
 }
 
-/* iridescent text — mint → periwinkle → orchid */
+/* iridescent text — mint → periwinkle → orchid.
+   The solid-color fallback runs first so any browser that doesn't fully
+   support background-clip:text (or any rendering quirk involving nested
+   masks / stacking contexts) still shows readable text instead of an
+   invisible cutout. Browsers that DO support it overwrite the color via
+   the `text-fill-color: transparent` below. */
 .iris-text {
-  background-image: linear-gradient(
-    115deg,
-    var(--color-acid-cool) 0%,
-    var(--color-acid) 45%,
-    var(--color-acid-warm) 100%
-  );
-  background-size: 200% 100%;
-  background-position: 0% 50%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: iris-shimmer 9s ease-in-out infinite;
+  color: var(--color-acid);
+}
+
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .iris-text {
+    background-image: linear-gradient(
+      115deg,
+      var(--color-acid-cool) 0%,
+      var(--color-acid) 45%,
+      var(--color-acid-warm) 100%
+    );
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: iris-shimmer 9s ease-in-out infinite;
+  }
 }
 
 @keyframes iris-shimmer {

@@ -70,6 +70,38 @@ const lineVariants: Variants = {
   }),
 };
 
+// Pull styling classes out of the wrapper-level className and re-apply them
+// to the inner text-bearing span. Necessary for things like `iris-text`
+// (which uses `background-clip: text` + `color: transparent`) — when applied
+// only at the wrapper, the inner mask container creates a stacking context
+// that breaks the clip, and the text renders invisible.
+function classApplyToInner(className: string | undefined): {
+  wrapper: string;
+  inner: string;
+} {
+  if (!className) return { wrapper: "", inner: "" };
+  const tokens = className.split(/\s+/).filter(Boolean);
+  const INNER = new Set([
+    "iris-text",
+    "text-acid",
+    "text-acid-deep",
+    "text-acid-cool",
+    "text-acid-warm",
+    "text-rust",
+    "text-cream",
+    "text-ink",
+    "font-serif",
+    "italic",
+  ]);
+  const inner: string[] = [];
+  const wrapper: string[] = [];
+  for (const t of tokens) {
+    if (INNER.has(t)) inner.push(t);
+    else wrapper.push(t);
+  }
+  return { wrapper: wrapper.join(" "), inner: inner.join(" ") };
+}
+
 export function MaskedLines({
   lines,
   className,
@@ -82,12 +114,13 @@ export function MaskedLines({
   eager?: boolean;
 }) {
   const { ref, visible } = useReliableReveal<HTMLSpanElement>(eager);
+  const split = classApplyToInner(className);
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={split.wrapper}>
       {lines.map((line, i) => (
         <span key={i} className="reveal-mask !block">
           <motion.span
-            className="block"
+            className={`block ${split.inner}`}
             variants={lineVariants}
             initial="hidden"
             animate={visible ? "visible" : "hidden"}
@@ -116,12 +149,13 @@ export function SplitWords({
 }) {
   const words = text.split(" ");
   const { ref, visible } = useReliableReveal<HTMLSpanElement>(eager);
+  const split = classApplyToInner(className);
   return (
-    <span ref={ref} className={className}>
+    <span ref={ref} className={split.wrapper}>
       {words.map((w, i) => (
         <span key={i} className="reveal-mask inline-block mr-[0.22em]">
           <motion.span
-            className="block"
+            className={`block ${split.inner}`}
             initial={{ y: "110%" }}
             animate={visible ? { y: "0%" } : { y: "110%" }}
             transition={{
