@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local-only design references + dev scratch (kept on disk, not published)
+_inspiration.png
+scripts/scroll-shot.mjs
+scripts/dbg.mjs

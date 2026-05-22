@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# akvaithi.tech — personal portfolio
 
-## Getting Started
+The portfolio site for [Arun Vaithianathan](https://linkedin.com/in/akvaithi) — chemical engineer, control-systems builder, and commercial photographer at Texas A&M.
 
-First, run the development server:
+Built across four pages — **Home · Professional · Creative · Contact** — with editorial-dark visual direction, smooth scroll, cinematic image rotations, and an iridescent accent palette.
+
+## Stack
+
+- **Next.js 16** (App Router, Turbopack) + **React 19** + **TypeScript**
+- **Tailwind v4** for styling
+- **Framer Motion** for entrance reveals, page transitions, and magnetic hover
+- **Lenis** for the smooth-scroll layer
+- A typed photo + hero catalog generated from `public/images/`
+
+## Development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # production build — all four pages prerender as static
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Asset pipeline
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The Creative gallery (~428 frames) and the Professional case-study heroes are sourced from `public/images/`. Whenever the folder contents change, regenerate the typed catalog:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+node scripts/build-catalog.mjs
+```
 
-## Learn More
+This writes `src/data/photos.ts` and `src/data/heroes.ts`, which the pages consume directly.
 
-To learn more about Next.js, take a look at the following resources:
+## Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Production deployment runs on Vercel.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All code is MIT-licensed. Photography and hero imagery in `public/images/` is © Arun Vaithianathan — all rights reserved.
