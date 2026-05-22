@@ -130,9 +130,9 @@ export default function Creative() {
         </div>
       </section>
 
-      {/* ─────── GALLERY ─────── */}
+      {/* ─────── GALLERY (temporarily disabled for perf debugging) ─────── */}
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 pb-32">
-        <Gallery photos={PHOTOS} years={YEARS} categories={CATEGORIES} />
+        <div className="text-cream/50 font-mono text-xs">gallery disabled (debug)</div>
       </section>
 
       {/* ─────── YOUTUBE ─────── */}
