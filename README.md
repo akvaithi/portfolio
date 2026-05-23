@@ -1,4 +1,4 @@
-# akvaithi.tech — personal portfolio
+# akvaithi.page — personal portfolio
 
 The portfolio site for [Arun Vaithianathan](https://linkedin.com/in/akvaithi) — chemical engineer, control-systems builder, and commercial photographer at Texas A&M.
 

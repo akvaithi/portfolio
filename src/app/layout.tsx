@@ -30,7 +30,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://akvaithi.tech"),
+  metadataBase: new URL("https://akvaithi.page"),
   title: {
     default: "Arun Vaithianathan — Multi-Scale Builder",
     template: "%s · Arun Vaithianathan",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     "photography",
     "portfolio",
   ],
-  authors: [{ name: "Arun Vaithianathan", url: "https://akvaithi.tech" }],
+  authors: [{ name: "Arun Vaithianathan", url: "https://akvaithi.page" }],
   creator: "Arun Vaithianathan",
   publisher: "Arun Vaithianathan",
   alternates: {
@@ -73,8 +73,8 @@ export const metadata: Metadata = {
     description:
       "Chemical engineer at Texas A&M. Synthesizing graphite, stabilizing underwater robots, shipping web tools, and shooting commercial photography.",
     type: "website",
-    url: "https://akvaithi.tech",
-    siteName: "akvaithi.tech",
+    url: "https://akvaithi.page",
+    siteName: "akvaithi.page",
     locale: "en_US",
   },
   twitter: {
@@ -91,8 +91,8 @@ const personJsonLd = {
   "@type": "Person",
   name: "Arun Vaithianathan",
   alternateName: ["Arun Keshav Vaithianathan", "akvaithi"],
-  url: "https://akvaithi.tech",
-  image: "https://akvaithi.tech/opengraph-image",
+  url: "https://akvaithi.page",
+  image: "https://akvaithi.page/opengraph-image",
   email: "mailto:akvaithi.tech@gmail.com",
   jobTitle: "Chemical Engineering Student · Control Systems Lead · Photographer",
   affiliation: [

@@ -69,7 +69,7 @@ export default async function OG() {
               borderRadius: 999,
             }}
           />
-          Portfolio · akvaithi.tech
+          Portfolio · akvaithi.page
         </div>
 
         {/* big name */}

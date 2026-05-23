@@ -68,7 +68,7 @@ export default async function TwitterImage() {
               borderRadius: 999,
             }}
           />
-          Portfolio · akvaithi.tech
+          Portfolio · akvaithi.page
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div

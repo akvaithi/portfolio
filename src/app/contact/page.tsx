@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "Contact · Arun Vaithianathan",
     description:
       "Direct lines — email, LinkedIn, GitHub, résumé. Open to deep-tech, climate, robotics, and photography commissions.",
-    url: "https://akvaithi.tech/contact",
+    url: "https://akvaithi.page/contact",
     type: "website",
   },
 };

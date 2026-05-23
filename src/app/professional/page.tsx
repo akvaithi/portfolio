@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Professional · Arun Vaithianathan",
     description:
       "Built case studies: ROV control systems, Aggie Research Finder, petroleum coke → battery-grade graphite, Tube Furnace Calculator, and more.",
-    url: "https://akvaithi.tech/professional",
+    url: "https://akvaithi.page/professional",
     type: "website",
   },
 };

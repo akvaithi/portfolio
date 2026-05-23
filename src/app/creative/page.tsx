@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Creative · Arun Vaithianathan",
     description:
       "Photography service + YouTube channel. Brand, portrait, event, product, landscape — plus deep technical tutorials.",
-    url: "https://akvaithi.tech/creative",
+    url: "https://akvaithi.page/creative",
     type: "website",
   },
 };
