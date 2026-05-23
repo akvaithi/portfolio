@@ -186,6 +186,29 @@ export default function Professional() {
                       ))}
                     </div>
                   </Reveal>
+
+                  {p.link && (
+                    <Reveal delay={0.55}>
+                      <a
+                        href={p.link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        data-cursor="link"
+                        className="group mt-8 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-acid hover:text-cream"
+                      >
+                        <span>Visit live</span>
+                        <span className="text-cream/45 truncate">
+                          {p.link.label}
+                        </span>
+                        <span
+                          aria-hidden
+                          className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+                        >
+                          ↗
+                        </span>
+                      </a>
+                    </Reveal>
+                  )}
                 </div>
               </div>
 
@@ -320,7 +343,7 @@ export default function Professional() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-7">
             <p className="eyebrow text-cream/50 mb-6">§ — Reach</p>
-            <h2 className="display-mega text-[clamp(2rem,5.5vw,5.4rem)] tracking-tighter">
+            <h2 className="display-mega text-[clamp(1.7rem,4.4vw,4.4rem)] tracking-tighter">
               <SplitWords text="Have a system" />
               <br />
               <SplitWords

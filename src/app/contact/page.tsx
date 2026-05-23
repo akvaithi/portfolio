@@ -12,15 +12,15 @@ export const metadata: Metadata = {
     "Direct lines — email, LinkedIn, GitHub, résumé. No form, just the channels.",
 };
 
-// Use a mood-driven landscape behind the hero — never a random portrait.
+// Latest landscape — 2026 set, lighter overlay so the gain-map HDR survives.
 const HERO =
   PHOTOS.find(
     (p) =>
       p.category === "Landscapes" &&
-      p.year === "2024" &&
-      p.src.includes("Landscapes - 22")
+      p.year === "2026" &&
+      p.src.includes("Landscapes - 3 of 5")
   ) ??
-  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2024") ??
+  PHOTOS.find((p) => p.category === "Landscapes" && p.year === "2026") ??
   PHOTOS.find((p) => p.category === "Landscapes");
 
 const CHANNELS = [
@@ -66,8 +66,11 @@ export default function Contact() {
               sizes="100vw"
               className="object-cover drift"
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-ink/65 to-ink" />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/30 to-transparent" />
+            {/* Lighter overlays so the gain-map HDR pop survives. Vertical
+                gradient only fades the bottom into the page; horizontal
+                gradient gives the headline some shade on the left. */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/15 to-ink" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-transparent to-transparent" />
           </div>
         )}
 
@@ -105,17 +108,17 @@ export default function Contact() {
         <div className="mb-12 flex items-end justify-between flex-wrap gap-4">
           <div>
             <p className="eyebrow text-cream/50">§ — Direct lines</p>
-            <h2 className="mt-4 display-xl text-[clamp(2rem,4.5vw,3.6rem)] tracking-tighter">
-              <SplitWords text="No form." />{" "}
+            <h2 className="mt-4 display-xl text-[clamp(1.6rem,3.6vw,3rem)] tracking-tighter">
+              <SplitWords text="Four ways" />{" "}
               <SplitWords
-                text="Just the channels."
+                text="to reach me."
                 delay={0.1}
                 className="iris-text font-serif italic"
               />
             </h2>
           </div>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/45 max-w-md">
-            Pick whichever feels right — they all reach me.
+            Pick whichever feels right — every one of them reaches me.
           </p>
         </div>
 

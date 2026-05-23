@@ -15,9 +15,10 @@ function pick(arr: typeof PHOTOS, predicate: (p: (typeof PHOTOS)[number]) => boo
   return arr.find(predicate);
 }
 
-const HERO =
-  pick(PHOTOS, (p) => p.year === "2025" && p.category === "Landscapes") ??
-  PHOTOS[0];
+// Dedicated home hero — lives at /public/images/HERO Home.avif (not in a
+// year folder so the catalog doesn't pick it up). We use the AVIF directly
+// for the gain-map HDR pop on capable displays.
+const HOME_HERO_SRC = "/images/HERO Home.avif";
 
 // Pool of landscape frames for the "Through the Lens" mosaic. For the
 // six-tile grid we use the SDR sibling (.webp) instead of the AVIF, since
@@ -51,17 +52,15 @@ export default function Home() {
       {/* ───────────── HERO ───────────── */}
       <section className="relative h-screen min-h-[760px] w-full overflow-hidden">
         <div className="absolute inset-0">
-          {HERO && (
-            <HDRImage
-              src={HERO.src}
-              sdrSrc={HERO.sdrSrc}
-              alt="Atmosphere — a landscape from the personal archive"
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover drift"
-            />
-          )}
+          <HDRImage
+            src={HOME_HERO_SRC}
+            sdrSrc={null}
+            alt="Home hero — gain-map HDR landscape"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover drift"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
         </div>
@@ -441,7 +440,7 @@ export default function Home() {
             <p className="eyebrow text-cream/50 sticky top-28">§ 06 — Reach</p>
           </div>
           <div className="col-span-12 md:col-span-10">
-            <h2 className="display-mega text-[clamp(2.2rem,6.5vw,7rem)] tracking-tighter">
+            <h2 className="display-mega text-[clamp(1.8rem,5vw,5.4rem)] tracking-tighter">
               <SplitWords text="If you're" />
               <br />
               <SplitWords
@@ -452,16 +451,16 @@ export default function Home() {
               <br />
               <SplitWords text="that shouldn't exist yet —" delay={0.2} />
             </h2>
-            <div className="mt-12 flex flex-wrap items-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center gap-5">
               <Link
                 href="/contact"
                 data-cursor="link"
-                className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid transition-colors"
+                className="group inline-flex items-center gap-5 rounded-full border border-cream/20 bg-cream text-ink px-10 py-6 font-mono text-sm uppercase tracking-[0.18em] hover:bg-acid transition-colors"
               >
                 Open a channel
                 <span
                   aria-hidden
-                  className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
+                  className="inline-block text-lg transition-transform duration-300 ease-out group-hover:translate-x-1"
                 >
                   →
                 </span>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal, MaskedLines, SplitWords } from "@/components/Reveal";
 import { Marquee } from "@/components/Marquee";
@@ -16,6 +17,27 @@ export const metadata: Metadata = {
 const HERO =
   PHOTOS.find((p) => p.year === "2025" && p.category === "Landscapes" && p.src.includes(" 10 ")) ??
   PHOTOS.find((p) => p.year === "2025" && p.category === "Landscapes");
+
+// Featured YouTube videos. Drop a real video ID into `id` for each entry and
+// the card will pull its thumbnail straight from YouTube. With id="" the card
+// falls back to a "Add video ID" placeholder + links to the channel.
+const FEATURED_VIDEOS: { id: string; title: string; views: string }[] = [
+  {
+    id: "",
+    title: "Python automation for self-hosted Linux",
+    views: "Most-watched",
+  },
+  {
+    id: "",
+    title: "Home-lab server architecture, end to end",
+    views: "Series favorite",
+  },
+  {
+    id: "",
+    title: "Hardware deep-dive — single-board picks for 2026",
+    views: "Recent",
+  },
+];
 
 export default function Creative() {
   return (
@@ -141,7 +163,7 @@ export default function Creative() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
               <p className="eyebrow text-cream/50">§ — The Other Stuff · YouTube</p>
-              <h2 className="mt-4 display-xl text-[clamp(2rem,5vw,4rem)] tracking-tighter">
+              <h2 className="mt-4 display-xl text-[clamp(1.6rem,4vw,3.4rem)] tracking-tighter">
                 <SplitWords text="A million views" />
                 <br />
                 <SplitWords
@@ -152,7 +174,7 @@ export default function Creative() {
               </h2>
             </div>
             <a
-              href="https://youtube.com/@arunvaithianathan"
+              href="https://www.youtube.com/@akvaithi"
               target="_blank"
               rel="noreferrer"
               data-cursor="link"
@@ -211,9 +233,58 @@ export default function Creative() {
             ))}
           </div>
 
-          <div className="mt-14 flex flex-wrap items-center gap-5">
+          {/* featured videos — fill in actual video IDs from the channel
+              for the previews. Until then the cards link to the channel. */}
+          <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+            {FEATURED_VIDEOS.map((v) => (
+              <a
+                key={v.id || v.title}
+                href={
+                  v.id
+                    ? `https://www.youtube.com/watch?v=${v.id}`
+                    : "https://www.youtube.com/@akvaithi"
+                }
+                target="_blank"
+                rel="noreferrer"
+                data-cursor="media"
+                data-cursor-label="Watch"
+                className="group relative aspect-video overflow-hidden rounded-sm bg-ink-mute border border-cream/10 hover:border-acid/50 transition-colors"
+              >
+                {v.id ? (
+                  <Image
+                    src={`https://img.youtube.com/vi/${v.id}/maxresdefault.jpg`}
+                    alt={v.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    unoptimized
+                    className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center font-mono text-[10px] uppercase tracking-[0.22em] text-cream/40">
+                    Add video ID
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/20 to-transparent" />
+                <div className="absolute inset-x-4 bottom-3 flex items-end justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-serif italic text-lg leading-tight line-clamp-2">
+                      {v.title}
+                    </p>
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
+                      {v.views}
+                    </p>
+                  </div>
+                  <span className="size-9 flex items-center justify-center rounded-full bg-cream text-ink shrink-0 group-hover:bg-acid transition-colors">
+                    ▶
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-5">
             <a
-              href="https://youtube.com/@arunvaithianathan"
+              href="https://www.youtube.com/@akvaithi"
               target="_blank"
               rel="noreferrer"
               data-cursor="link"
@@ -239,17 +310,19 @@ export default function Creative() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-8">
             <p className="eyebrow text-ink/60 mb-6">§ — Commission</p>
-            <h2 className="display-mega text-[clamp(1.9rem,5.5vw,5.4rem)] tracking-tighter">
-              <SplitWords text="Need photography" />
+            <h2 className="display-mega text-[clamp(1.6rem,4.4vw,4.4rem)] tracking-tighter">
+              <SplitWords text="Have a moment" />
               <br />
-              <span className="font-serif italic text-rust">
-                <SplitWords text="for a thing you're building?" delay={0.15} />
-              </span>
+              <SplitWords
+                text="worth remembering?"
+                delay={0.15}
+                className="font-serif italic text-rust"
+              />
             </h2>
           </div>
           <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-6 md:items-end">
             <p className="font-serif italic text-xl leading-snug measure">
-              Brand · portrait · product · event · landscape. Editorial sequencing and color included.
+              Graduations, weddings, garba nights, conferences, milestone portraits — bring me the occasion, I&apos;ll bring the camera.
             </p>
             <Link
               href="/contact"

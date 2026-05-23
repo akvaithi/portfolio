@@ -79,7 +79,10 @@ export const PROJECTS: Project[] = [
       { label: "Departments", value: "20+" },
     ],
     heroes: H["Aggie Reseach Finder"] ?? [],
-    link: { label: "aggie-research-finder.vercel.app", href: "#" },
+    link: {
+      label: "aggie-research-finder.vercel.app",
+      href: "https://aggie-research-finder.vercel.app",
+    },
     displayMode: "screenshot",
     screenshotBg: "cream",
   },
@@ -139,7 +142,10 @@ export const PROJECTS: Project[] = [
       { label: "Deployment", value: "Vercel" },
     ],
     heroes: H["Tube Furnace"] ?? [],
-    link: { label: "tube-furnace-calculator.vercel.app", href: "#" },
+    link: {
+      label: "tube-furnace-calculator.vercel.app",
+      href: "https://tube-furnace-calculator.vercel.app",
+    },
     displayMode: "screenshot",
     screenshotBg: "ink",
   },
@@ -233,7 +239,15 @@ export const PROJECTS: Project[] = [
       "Collaborated with founders and GNC specialists to evaluate technical overlap between commercial drone software (5G architectures) and underwater robotics control systems.",
     ],
     stack: ["Venture capital", "Technology commercialization", "Strategy"],
-    heroes: H["Aggies in Tech"] ?? [],
+    // Lead with the Meta-Silicon-Valley group shot — strongest visual,
+    // immediately recognizable, sells the residency. Other AiT photos stay
+    // available in the carousel.
+    heroes: (() => {
+      const all = H["Aggies in Tech"] ?? [];
+      const heroPick = all.find((a) => a.src.includes("1778885608481"));
+      const rest = all.filter((a) => a !== heroPick);
+      return heroPick ? [heroPick, ...rest] : all;
+    })(),
   },
 ];
 

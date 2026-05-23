@@ -16,6 +16,19 @@ type Filter = {
 const INITIAL_BATCH = 8;
 const STEP_BATCH = 12;
 
+// Tiny deterministic PRNG — gives us stable shuffles per seed (no hydration
+// mismatch) but a fresh order every time we bump the seed.
+function mulberry32(seed: number) {
+  let s = seed >>> 0;
+  return function () {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
 export function Gallery({
   photos,
   years,
@@ -38,15 +51,42 @@ export function Gallery({
     return () => clearTimeout(id);
   }, [filter]);
 
-  const filtered = useMemo(
-    () =>
-      photos.filter(
-        (p) =>
-          (filter.year === "ALL" || p.year === filter.year) &&
-          (filter.category === "ALL" || p.category === filter.category)
-      ),
-    [photos, filter]
-  );
+  // Fresh random ordering on mount + on every filter change, so the gallery
+  // doesn't look identical visit-to-visit.
+  useEffect(() => {
+    setShuffleSeed(Math.floor(Math.random() * 1e9));
+  }, [filter]);
+
+  // Re-shuffle nonce — bumps on every filter change so the same year+series
+  // doesn't always present the same first row.
+  const [shuffleSeed, setShuffleSeed] = useState(0);
+
+  const filtered = useMemo(() => {
+    const matched = photos.filter(
+      (p) =>
+        (filter.year === "ALL" || p.year === filter.year) &&
+        (filter.category === "ALL" || p.category === filter.category)
+    );
+    // Bucket by year desc (latest first), shuffle within each bucket.
+    const byYear: Record<string, typeof matched> = {};
+    for (const p of matched) {
+      (byYear[p.year] ??= []).push(p);
+    }
+    const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a));
+    const out: typeof matched = [];
+    // tiny seeded shuffle so we get stable order per render but different
+    // between mounts/filter changes
+    const rand = mulberry32(shuffleSeed + 1);
+    for (const y of years) {
+      const bucket = byYear[y];
+      for (let i = bucket.length - 1; i > 0; i--) {
+        const j = Math.floor(rand() * (i + 1));
+        [bucket[i], bucket[j]] = [bucket[j], bucket[i]];
+      }
+      out.push(...bucket);
+    }
+    return out;
+  }, [photos, filter, shuffleSeed]);
 
 
   const shown = filtered.slice(0, visibleCount);
