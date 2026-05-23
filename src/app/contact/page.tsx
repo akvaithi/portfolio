@@ -7,9 +7,17 @@ import { Footer } from "@/components/Footer";
 import { PHOTOS } from "@/data/photos";
 
 export const metadata: Metadata = {
-  title: "Contact — Arun Vaithianathan",
+  title: "Contact",
   description:
-    "Direct lines — email, LinkedIn, GitHub, résumé. No form, just the channels.",
+    "Get in touch with Arun Vaithianathan — email, LinkedIn, GitHub, and résumé. Open to deep-tech, climate, robotics, 0→1 software, and photography commissions.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact · Arun Vaithianathan",
+    description:
+      "Direct lines — email, LinkedIn, GitHub, résumé. Open to deep-tech, climate, robotics, and photography commissions.",
+    url: "https://akvaithi.tech/contact",
+    type: "website",
+  },
 };
 
 // Latest landscape — 2026 set, lighter overlay so the gain-map HDR survives.

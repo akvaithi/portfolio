@@ -9,9 +9,17 @@ import { Footer } from "@/components/Footer";
 import { PHOTOS, YEARS, CATEGORIES } from "@/data/photos";
 
 export const metadata: Metadata = {
-  title: "Creative — Arun Vaithianathan",
+  title: "Creative",
   description:
-    "Commercial photography service plus a self-hosted YouTube channel. Selected frames from 2023–2026.",
+    "Commercial photography service — brand, portrait, event, product, landscape — and a self-hosted YouTube channel on Python automation, Linux home-labs, and hardware architectures. 427-frame archive from 2023–2026.",
+  alternates: { canonical: "/creative" },
+  openGraph: {
+    title: "Creative · Arun Vaithianathan",
+    description:
+      "Photography service + YouTube channel. Brand, portrait, event, product, landscape — plus deep technical tutorials.",
+    url: "https://akvaithi.tech/creative",
+    type: "website",
+  },
 };
 
 const HERO =

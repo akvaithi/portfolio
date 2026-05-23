@@ -9,9 +9,17 @@ import { PROJECTS, EXPERIENCES, AWARDS, SKILLS } from "@/data/projects";
 import { HEROES } from "@/data/heroes";
 
 export const metadata: Metadata = {
-  title: "Professional — Arun Vaithianathan",
+  title: "Professional",
   description:
-    "Case studies in chemical engineering, control systems, materials synthesis, and 0→1 software.",
+    "Case studies in chemical engineering, control systems, materials synthesis, and 0→1 software — including underwater ROV PID control, the Aggie Research Finder, petroleum-coke-to-graphite research, and the Tube Furnace Program Calculator.",
+  alternates: { canonical: "/professional" },
+  openGraph: {
+    title: "Professional · Arun Vaithianathan",
+    description:
+      "Built case studies: ROV control systems, Aggie Research Finder, petroleum coke → battery-grade graphite, Tube Furnace Calculator, and more.",
+    url: "https://akvaithi.tech/professional",
+    type: "website",
+  },
 };
 
 const scaleLabel = (s: "molecular" | "digital" | "creative") =>
