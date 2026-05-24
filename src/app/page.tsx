@@ -59,7 +59,9 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            className="object-cover drift"
+            // Bias the crop toward the left half on mobile so the subject
+            // (face) stays in frame; recenter on tablet+.
+            className="object-cover object-[30%_center] md:object-center drift"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
@@ -175,15 +177,16 @@ export default function Home() {
             </h2>
             <Reveal delay={0.3} className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
               <p className="text-cream/75 leading-relaxed text-lg">
-                My brain lives at the intersection of <em>molecular design</em>, <em>closed-loop
-                software</em>, and <em>high-production media</em>. I treat every project — a graphite
-                synthesis, a PID loop, a frame on a card — as a system to be optimized end-to-end.
+                I&apos;m a chemical engineering student at Texas A&amp;M, but
+                most of what I end up working on sits between three things:
+                materials in a furnace, code on a board, and a camera in my
+                hand. Different scales, same instinct — figure out how the
+                system works, then build something with it.
               </p>
               <p className="text-cream/75 leading-relaxed text-lg">
-                I don&apos;t wait for permission. I build the CLI, deploy the web app, wire the
-                breadboard, or roll cameras to validate the concept. The highest leverage comes
-                from being able to sit with process engineers, software developers, and VCs and
-                speak all three languages fluently.
+                I tend to move fast on things I want to see exist. A repo, a
+                deploy, a breadboard, a short video — whatever gets the idea
+                out of my head and into something I can show someone.
               </p>
             </Reveal>
           </div>

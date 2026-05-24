@@ -50,12 +50,6 @@ const CHANNELS = [
     href: "https://github.com/akvaithi",
     aside: "Inspect the code · open issues · trade pull requests.",
   },
-  {
-    label: "Résumé",
-    value: "résumé.pdf",
-    href: "/resume.pdf",
-    aside: "Full one-page PDF — last updated May 2026.",
-  },
 ];
 
 export default function Contact() {
@@ -117,7 +111,7 @@ export default function Contact() {
           <div>
             <p className="eyebrow text-cream/50">§ — Direct lines</p>
             <h2 className="mt-4 display-xl text-[clamp(1.6rem,3.6vw,3rem)] tracking-tighter">
-              <SplitWords text="Four ways" />{" "}
+              <SplitWords text="Three ways" />{" "}
               <SplitWords
                 text="to reach me."
                 delay={0.1}

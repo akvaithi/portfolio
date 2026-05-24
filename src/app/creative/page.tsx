@@ -26,25 +26,12 @@ const HERO =
   PHOTOS.find((p) => p.year === "2025" && p.category === "Landscapes" && p.src.includes(" 10 ")) ??
   PHOTOS.find((p) => p.year === "2025" && p.category === "Landscapes");
 
-// Featured YouTube videos. Drop a real video ID into `id` for each entry and
-// the card will pull its thumbnail straight from YouTube. With id="" the card
-// falls back to a "Add video ID" placeholder + links to the channel.
+// Featured YouTube videos. Card pulls its thumbnail straight from YouTube
+// via img.youtube.com/vi/{id}/maxresdefault.jpg.
 const FEATURED_VIDEOS: { id: string; title: string; views: string }[] = [
-  {
-    id: "",
-    title: "Python automation for self-hosted Linux",
-    views: "Most-watched",
-  },
-  {
-    id: "",
-    title: "Home-lab server architecture, end to end",
-    views: "Series favorite",
-  },
-  {
-    id: "",
-    title: "Hardware deep-dive — single-board picks for 2026",
-    views: "Recent",
-  },
+  { id: "CdLvTaBCYyA", title: "Featured", views: "Watch on YouTube" },
+  { id: "qCMWeNndqtQ", title: "Featured", views: "Watch on YouTube" },
+  { id: "lpRgjEq4JoY", title: "Featured", views: "Watch on YouTube" },
 ];
 
 export default function Creative() {

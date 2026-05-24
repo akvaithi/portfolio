@@ -6,6 +6,10 @@ const nextConfig: NextConfig = {
     // were getting JS-thread freezes when many tiles entered the viewport at
     // once on home. WebP decode is hardware-accelerated more broadly.
     formats: ["image/webp"],
+    remotePatterns: [
+      { protocol: "https", hostname: "img.youtube.com" },
+      { protocol: "https", hostname: "i.ytimg.com" },
+    ],
     // local AVIF/JPEG inside /public/images already optimized — minimize processing
     deviceSizes: [480, 768, 1080, 1440, 1920, 2560],
     imageSizes: [128, 256, 384, 512, 768],
