@@ -22,8 +22,17 @@ export const metadata: Metadata = {
   },
 };
 
-const scaleLabel = (s: "molecular" | "digital" | "creative") =>
-  s === "molecular" ? "I — Molecular" : s === "digital" ? "II — Digital" : "III — Creative";
+const scaleLabel = (s: "molecular" | "digital" | "creative") => {
+  // Plain descriptive labels — replaced the previous I/II/III manifesto.
+  switch (s) {
+    case "molecular":
+      return "Research";
+    case "digital":
+      return "Engineering";
+    case "creative":
+      return "Outreach & Programs";
+  }
+};
 
 // Rotating hero — only frames from the HERO Images folder, no landscapes.
 // Software-screenshot projects are excluded from the cinematic banner since a
@@ -352,10 +361,10 @@ export default function Professional() {
           <div className="md:col-span-7">
             <p className="eyebrow text-cream/50 mb-6">§ — Reach</p>
             <h2 className="display-mega text-[clamp(1.7rem,4.4vw,4.4rem)] tracking-tighter">
-              <SplitWords text="Have a system" />
+              <SplitWords text="Want to talk" />
               <br />
               <SplitWords
-                text="worth building?"
+                text="about a project?"
                 delay={0.15}
                 className="font-serif italic iris-text"
               />
@@ -364,12 +373,12 @@ export default function Professional() {
 
           <div className="md:col-span-5">
             <Reveal>
-              <p className="eyebrow text-cream/50 mb-4">What to send</p>
+              <p className="eyebrow text-cream/50 mb-4">Open to</p>
               <ul className="divide-y divide-cream/10 border-y border-cream/10">
                 {[
-                  ["A prototype", "A repo, a screenshot, a rough sketch — anything tangible."],
-                  ["A constraint", "What can't change. That's where the interesting work lives."],
-                  ["A timeline", "Even rough. \"Some time this semester\" works."],
+                  ["Internships", "Chemical engineering · materials · energy · climate."],
+                  ["Research", "Undergrad research opportunities, especially in catalysis or energy storage."],
+                  ["Collaborations", "Robotics, software, or photography projects."],
                 ].map(([t, s]) => (
                   <li key={t} className="py-4 grid grid-cols-[1fr_2fr] gap-6 items-baseline">
                     <span className="font-serif italic text-2xl">{t}</span>

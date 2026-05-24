@@ -82,7 +82,7 @@ export default function Home() {
             <div className="col-span-12 md:col-span-9">
               <Reveal delay={0.4} y={0}>
                 <p className="eyebrow text-acid mb-6">
-                  ✦ Portfolio · Arun Keshav Vaithianathan · Multi-Scale Builder
+                  ✦ Portfolio · Arun Keshav Vaithianathan
                 </p>
               </Reveal>
               <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
@@ -90,12 +90,10 @@ export default function Home() {
               </h1>
               <Reveal delay={0.9}>
                 <p className="mt-8 max-w-2xl text-cream/80 text-base md:text-lg leading-relaxed">
-                  Chemical engineer at Texas A&amp;M. I build at three scales —
-                  <span className="text-cream"> molecular</span>,
-                  <span className="text-cream"> digital</span>, and
-                  <span className="text-cream"> creative</span> — synthesizing graphite from refinery
-                  byproduct, stabilizing underwater robots, shipping web tools used by 3,000+ peers,
-                  and shooting commercial photography on the side.
+                  Chemical engineering student at Texas A&amp;M — 3.918 GPA, Craig and Galen Brown
+                  Engineering Honors. Researching catalytic graphitization in the lab, leading
+                  control systems on the MATE ROV team, co-founding the Aggie Research Finder
+                  (3,000+ users), and shooting commercial photography on the side.
                 </p>
               </Reveal>
             </div>
@@ -194,44 +192,40 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ───────────── THE THREE SCALES ───────────── */}
+      {/* ───────────── CURRENT FOCUS ───────────── */}
       <section className="bg-ink-soft py-32 md:py-48 border-y border-cream/5">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
           <div className="mb-16 flex items-end justify-between">
-            <p className="eyebrow text-cream/50">§ 02 — Three Scales of Engineering</p>
+            <p className="eyebrow text-cream/50">§ 02 — Current Focus</p>
             <p className="hidden md:block font-mono text-xs uppercase tracking-[0.22em] text-cream/50">
-              I.  Molecular &nbsp;·&nbsp; II.  Digital &nbsp;·&nbsp; III.  Creative
+              Research &nbsp;·&nbsp; Engineering &nbsp;·&nbsp; Photography
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4">
             {[
               {
-                num: "I",
-                title: "Molecular & Physical",
-                body: "Synthesizing battery-grade graphite from waste petroleum coke. Assessing carbon-capture and hydrogen tech. Designing SIL-rated industrial safety interlocks.",
-                stack: ["Tube furnace 1600 °C", "XRD", "SIL · 2oo2", "SAE J1939"],
+                title: "Research",
+                body: "Catalytic conversion of petroleum coke into battery-grade graphite at the Texas A&M College of Engineering. Material synthesis via high-energy ball milling and iron catalyst integration; XRD characterization.",
+                stack: ["Tube furnace 1600 °C", "Fe catalyst", "XRD"],
               },
               {
-                num: "II",
-                title: "Digital & System",
-                body: "Closed-loop PID for an underwater ROV. Real-time photogrammetry into RealityKit. Web tools indexing 1,770+ faculty profiles for 3,000+ users.",
-                stack: ["Python · ArduSub", "Pi 5 + Navigator", "Next.js · Vercel", "RTSP · OpenCV"],
+                title: "Engineering",
+                body: "Control Systems Lead on Oceanus ThinkTank's MATE ROV: closed-loop PID on a Raspberry Pi 5 + BR Navigator stack, live RTSP photogrammetry into RealityKit. Co-founder of the Aggie Research Finder.",
+                stack: ["Python · ArduSub", "Pi 5 + Navigator", "Next.js · Vercel"],
               },
               {
-                num: "III",
-                title: "Distribution & Creative",
-                body: "Commercial photography, brand storytelling, and a self-hosted education channel with 2.2k subscribers and 1M+ views. 80+ client engagements.",
-                stack: ["Commercial photography", "Color · Editorial", "YouTube · 1M+ views", "Brand systems"],
+                title: "Photography",
+                body: "Commercial photography commissions since 2020 — brand, portrait, event, product, landscape. Plus a self-hosted YouTube channel (2.2k subscribers, 1M+ views) covering Python, Linux, and hardware.",
+                stack: ["80+ client shoots", "1M+ YouTube views", "Editorial color"],
               },
             ].map((scale, i) => (
               <Reveal
-                key={scale.num}
+                key={scale.title}
                 delay={i * 0.1}
                 className="relative flex flex-col gap-6 border-t border-cream/15 pt-8"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-serif italic text-acid text-4xl">{scale.num}</span>
                   <span className="eyebrow text-cream/40">
                     {String(i + 1).padStart(2, "0")} / 03
                   </span>
@@ -271,18 +265,14 @@ export default function Home() {
           </div>
           <div className="col-span-12 md:col-span-5 bg-cream text-ink flex items-center">
             <div className="px-8 py-20 md:px-14">
-              <p className="eyebrow text-ink/60 mb-8">§ 03 — Operator</p>
-              <h3 className="font-serif italic text-[clamp(2.4rem,4.5vw,4rem)] leading-[1] tracking-tight">
-                <SplitWords text="Move fast." />
+              <p className="eyebrow text-ink/60 mb-8">§ 03 — Outside the lab</p>
+              <h3 className="font-serif italic text-[clamp(2rem,3.6vw,3.2rem)] leading-[1.05] tracking-tight">
+                <SplitWords text="Photography commissions" />
                 <br />
-                <SplitWords text="Build the prototype." delay={0.15} />
-                <br />
-                <SplitWords text="Bridge the room." delay={0.3} className="text-rust" />
+                <SplitWords text="since 2020." delay={0.15} className="text-rust" />
               </h3>
-              <p className="mt-10 text-ink/75 leading-relaxed text-lg measure">
-                The fastest way to learn is to put something into the wild — a CLI, a deployment,
-                a breadboard, a video. Outside of building you&apos;ll find me on the road,
-                hacking self-hosted infrastructure, or out shooting with a camera.
+              <p className="mt-8 text-ink/75 leading-relaxed text-lg measure">
+                Texas Exchange for Energy &amp; Climate Entrepreneurship fellow at Greentown Labs. Cohort member in the Aggies in Tech program at the Mays Business School. Spent four years programming for FRC Pearadox 5414 — three trips to the FRC World Championship.
               </p>
               <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 font-mono text-xs uppercase tracking-[0.18em] text-ink/70">
                 <span>YouTube · 2.2k subs</span>
@@ -340,11 +330,7 @@ export default function Home() {
                   </div>
                   <div className="col-span-12 md:col-span-5">
                     <p className="eyebrow text-acid">
-                      {p.scale === "molecular"
-                        ? "I — Molecular"
-                        : p.scale === "digital"
-                          ? "II — Digital"
-                          : "III — Creative"}
+                      {p.role}
                     </p>
                     <h3 className="mt-4 display-xl text-3xl md:text-4xl tracking-tight leading-[1.05]">
                       {p.title}
@@ -382,7 +368,7 @@ export default function Home() {
             <div>
               <p className="eyebrow text-cream/50">§ 05 — Through the Lens</p>
               <h2 className="mt-4 display-xl text-[clamp(2.2rem,5vw,4rem)] tracking-tighter">
-                <SplitWords text="A second discipline." />
+                <SplitWords text="Photography." />
               </h2>
             </div>
             <Link
@@ -445,15 +431,13 @@ export default function Home() {
           </div>
           <div className="col-span-12 md:col-span-10">
             <h2 className="display-mega text-[clamp(1.8rem,5vw,5.4rem)] tracking-tighter">
-              <SplitWords text="If you're" />
+              <SplitWords text="Have something" />
               <br />
               <SplitWords
-                text="building something"
+                text="to talk about?"
                 delay={0.1}
                 className="font-serif italic iris-text"
               />
-              <br />
-              <SplitWords text="that shouldn't exist yet —" delay={0.2} />
             </h2>
             <div className="mt-10 flex flex-wrap items-center gap-5">
               <Link

@@ -83,9 +83,8 @@ export default function Contact() {
           </h1>
           <Reveal delay={0.6} eager>
             <p className="mt-10 max-w-2xl font-serif italic text-2xl md:text-3xl leading-snug">
-              I&apos;m energized by people with an obsessive drive to pull ideas out of their heads
-              and force them into physical reality. Critique my code, propose a project, or just
-              say hi.
+              Email is usually fastest. LinkedIn for intros and recruiting. GitHub if you
+              want to look at the code. Happy to talk about anything in the portfolio.
             </p>
           </Reveal>
         </div>
@@ -182,12 +181,12 @@ export default function Contact() {
             </ul>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <p className="eyebrow text-cream/50 mb-6">§ — When sending</p>
+            <p className="eyebrow text-cream/50 mb-6">§ — Open to</p>
             <ul className="divide-y divide-cream/10 border-y border-cream/10">
               {[
-                ["A prototype", "A repo, a screenshot, a rough sketch — anything tangible."],
-                ["A constraint", "What can't change. That's where the interesting work lives."],
-                ["A timeline", "Even rough. \"Some time this semester\" works."],
+                ["Internships", "Chem-E, materials, energy, climate, robotics."],
+                ["Undergrad research", "Especially in catalysis, energy storage, or process safety."],
+                ["Photography commissions", "Brand, portrait, event, product, landscape."],
               ].map(([t, s]) => (
                 <li key={t} className="py-5 grid grid-cols-[1fr_2fr] gap-6 items-baseline">
                   <span className="font-serif italic text-2xl">{t}</span>
@@ -217,10 +216,10 @@ export default function Contact() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 md:col-span-9">
             <h2 className="font-serif italic text-[clamp(2rem,5.5vw,5rem)] leading-[0.98] tracking-tight">
-              <SplitWords text="Build something good." />
+              <SplitWords text="Thanks for stopping by." />
               <br />
               <SplitWords
-                text="Then build the next thing."
+                text="Talk soon."
                 delay={0.15}
                 className="iris-text"
               />

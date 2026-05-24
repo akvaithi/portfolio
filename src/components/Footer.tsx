@@ -8,8 +8,8 @@ export function Footer() {
         <div className="col-span-2 md:col-span-2">
           <p className="eyebrow text-cream/50">© {year} — Arun Vaithianathan</p>
           <p className="mt-4 max-w-md font-serif text-2xl leading-tight">
-            <span className="italic">If you&apos;re building in deep tech,
-            climate, robotics, or 0→1 software</span> — I want to know what you&apos;re shipping.
+            <span className="italic">Chemical engineering at Texas A&amp;M.</span>
+            {" "}Research, robotics, software, and photography.
           </p>
         </div>
         <div>

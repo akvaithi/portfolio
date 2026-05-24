@@ -32,11 +32,11 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://akvaithi.page"),
   title: {
-    default: "Arun Vaithianathan — Multi-Scale Builder",
+    default: "Arun Vaithianathan — Portfolio",
     template: "%s · Arun Vaithianathan",
   },
   description:
-    "Chemical engineer at Texas A&M, control-systems builder, and photographer. Working across molecular synthesis, closed-loop software, and commissioned photography.",
+    "Chemical engineering student at Texas A&M (3.918 GPA, Honors). Research in catalytic graphitization, control systems on a MATE ROV, web tools used by 3,000+ peers, and commercial photography.",
   keywords: [
     "Arun Vaithianathan",
     "akvaithi",
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Arun Vaithianathan — Multi-Scale Builder",
+    title: "Arun Vaithianathan — Portfolio",
     description:
-      "Chemical engineer at Texas A&M. Synthesizing graphite, stabilizing underwater robots, shipping web tools, and shooting commercial photography.",
+      "Chemical engineering student at Texas A&M. Research, control systems, web tools, and photography.",
     type: "website",
     url: "https://akvaithi.page",
     siteName: "akvaithi.page",
@@ -79,9 +79,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arun Vaithianathan — Multi-Scale Builder",
+    title: "Arun Vaithianathan — Portfolio",
     description:
-      "Chemical engineer at Texas A&M. Multi-scale builder — molecular synthesis, closed-loop software, and commissioned photography.",
+      "Chemical engineering student at Texas A&M. Research, control systems, web tools, and photography.",
     creator: "@akvaithi",
   },
 };
