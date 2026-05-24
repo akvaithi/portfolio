@@ -59,9 +59,10 @@ export default function Home() {
             fill
             priority
             sizes="100vw"
-            // Bias the crop toward the left half on mobile so the subject
-            // (face) stays in frame; recenter on tablet+.
-            className="object-cover object-[30%_center] md:object-center drift"
+            // Shift the image left on mobile so the right portion stays
+            // visible (where the subject sits in this composition); recenter
+            // on tablet+ where the full frame fits.
+            className="object-cover object-[75%_center] md:object-center drift"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/20 to-ink" />
           <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent" />
