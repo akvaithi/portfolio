@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+// Prerendered at build — see the note in opengraph-image.tsx.
 export const alt =
   "Arun Vaithianathan — Chemical engineer, control-systems builder, photographer";
 export const size = { width: 1200, height: 630 };

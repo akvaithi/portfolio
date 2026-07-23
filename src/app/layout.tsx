@@ -115,10 +115,14 @@ const personJsonLd = {
     "Photography",
     "Cinematography",
   ],
+  // sameAs is how Google merges these profiles into one entity. The profiles
+  // that already rank for "Arun Vaithianathan" are the ones worth listing —
+  // they carry this domain's identity until it earns its own.
   sameAs: [
     "https://linkedin.com/in/akvaithi",
     "https://github.com/akvaithi",
     "https://www.youtube.com/@akvaithi",
+    "https://www.instagram.com/akvaithi.hdr/",
   ],
 };
 

@@ -1,6 +1,9 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
+// No `runtime = "edge"`: this image is static markup with no request-time
+// data, so the default runtime prerenders it once at build instead of
+// re-rasterizing on every hit (~4s cold). Social scrapers give up well before
+// that, which is how you get link previews with no image.
 export const alt =
   "Arun Vaithianathan — Chemical engineer, control-systems builder, photographer";
 export const size = { width: 1200, height: 630 };

@@ -21,6 +21,21 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ["framer-motion", "lenis"],
   },
+  // www.akvaithi.page was serving a 200 with content identical to the apex —
+  // two crawlable copies of every page. Canonical tags already point at the
+  // apex, but a 308 is the unambiguous signal and stops the duplicate from
+  // being fetched at all. Keep this even if the redirect is also set at the
+  // Vercel/Cloudflare layer; it costs nothing and survives a DNS reshuffle.
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.akvaithi.page" }],
+        destination: "https://akvaithi.page/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
