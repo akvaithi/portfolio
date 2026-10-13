@@ -76,7 +76,7 @@ export default function Professional() {
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-                <MaskedLines lines={["The", "Work", "Log."]} eager />
+                <MaskedLines lines={["Selected", "Work."]} eager />
               </h1>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
@@ -248,9 +248,9 @@ export default function Professional() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
           <div className="mb-16 flex items-end justify-between">
             <div>
-              <p className="eyebrow text-cream/50">§ — Experience Timeline</p>
+              <p className="eyebrow text-cream/50">§ — Timeline</p>
               <h2 className="mt-4 display-xl text-[clamp(2rem,4.5vw,3.6rem)] tracking-tighter">
-                <SplitWords text="Where I have been." />
+                <SplitWords text="Experience." />
               </h2>
             </div>
             <a
@@ -297,7 +297,7 @@ export default function Professional() {
         <div className="md:col-span-7">
           <p className="eyebrow text-cream/50 mb-6">§ — Awards & Recognition</p>
           <h2 className="display-xl text-[clamp(2rem,4.5vw,3.4rem)] tracking-tighter mb-12">
-            <SplitWords text="Marks on the wall." />
+            <SplitWords text="Awards." />
           </h2>
           <ul className="divide-y divide-cream/10 border-y border-cream/10">
             {AWARDS.map((a, i) => (
@@ -359,12 +359,12 @@ export default function Professional() {
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 border-t border-cream/10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-7">
-            <p className="eyebrow text-cream/50 mb-6">§ — Reach</p>
+            <p className="eyebrow text-cream/50 mb-6">§ — Contact</p>
             <h2 className="display-mega text-[clamp(1.7rem,4.4vw,4.4rem)] tracking-tighter">
-              <SplitWords text="Want to talk" />
+              <SplitWords text="Hiring for" />
               <br />
               <SplitWords
-                text="about a project?"
+                text="Summer 2027?"
                 delay={0.15}
                 className="font-serif italic iris-text"
               />
@@ -393,7 +393,7 @@ export default function Professional() {
                   data-cursor="link"
                   className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
                 >
-                  Open a channel
+                  Contact
                   <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">
                     →
                   </span>

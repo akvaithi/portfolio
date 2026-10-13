@@ -42,13 +42,13 @@ const CHANNELS = [
     label: "LinkedIn",
     value: "/in/akvaithi",
     href: "https://linkedin.com/in/akvaithi",
-    aside: "Best for intros, cohorts, fellowships, and recruiting threads.",
+    aside: "Recruiting and introductions.",
   },
   {
     label: "GitHub",
     value: "@akvaithi",
     href: "https://github.com/akvaithi",
-    aside: "Inspect the code · open issues · trade pull requests.",
+    aside: "Project code.",
   },
 ];
 
@@ -77,14 +77,13 @@ export default function Contact() {
         )}
 
         <div className="relative mx-auto max-w-[1600px] px-6 md:px-10">
-          <p className="eyebrow text-cream/60 mb-8">04 — Open a channel</p>
+          <p className="eyebrow text-cream/60 mb-8">04 — Contact</p>
           <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-            <MaskedLines lines={["Let's", "trade", "ideas."]} eager />
+            <MaskedLines lines={["Get in", "touch."]} eager />
           </h1>
           <Reveal delay={0.6} eager>
             <p className="mt-10 max-w-2xl font-serif italic text-2xl md:text-3xl leading-snug">
-              Email is usually fastest. LinkedIn for intros and recruiting. GitHub if you
-              want to look at the code. Happy to talk about anything in the portfolio.
+              Email is fastest. LinkedIn works for recruiting, and my code is on GitHub.
             </p>
           </Reveal>
         </div>
@@ -108,19 +107,16 @@ export default function Contact() {
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32">
         <div className="mb-12 flex items-end justify-between flex-wrap gap-4">
           <div>
-            <p className="eyebrow text-cream/50">§ — Direct lines</p>
+            <p className="eyebrow text-cream/50">§ — Links</p>
             <h2 className="mt-4 display-xl text-[clamp(1.6rem,3.6vw,3rem)] tracking-tighter">
-              <SplitWords text="Three ways" />{" "}
+              <SplitWords text="Email, LinkedIn," />{" "}
               <SplitWords
-                text="to reach me."
+                text="GitHub."
                 delay={0.1}
                 className="iris-text font-serif italic"
               />
             </h2>
           </div>
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/45 max-w-md">
-            Pick whichever feels right — every one of them reaches me.
-          </p>
         </div>
 
         <ul className="divide-y divide-cream/10 border-y border-cream/10">
@@ -171,7 +167,7 @@ export default function Contact() {
       <section className="bg-ink-soft border-y border-cream/5 py-24 md:py-32">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-6">
-            <p className="eyebrow text-cream/50 mb-6">§ — Look for me at</p>
+            <p className="eyebrow text-cream/50 mb-6">§ — Where I am</p>
             <ul className="space-y-3 text-cream/85 font-serif text-2xl leading-snug">
               <li>· The Green Lab · Texas A&amp;M Chemical Engineering</li>
               <li>· Oceanus ThinkTank · MATE ROV</li>
@@ -198,7 +194,7 @@ export default function Contact() {
               data-cursor="link"
               className="group mt-10 inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
             >
-              Compose email
+              Email me
               <span
                 aria-hidden
                 className="inline-block transition-transform duration-300 ease-out group-hover:translate-x-1"
@@ -215,10 +211,10 @@ export default function Contact() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 md:col-span-9">
             <h2 className="font-serif italic text-[clamp(2rem,5.5vw,5rem)] leading-[0.98] tracking-tight">
-              <SplitWords text="Thanks for stopping by." />
+              <SplitWords text="Thanks for" />
               <br />
               <SplitWords
-                text="Talk soon."
+                text="reading."
                 delay={0.15}
                 className="iris-text"
               />

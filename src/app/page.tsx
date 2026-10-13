@@ -162,25 +162,23 @@ export default function Home() {
       <section className="relative mx-auto max-w-[1600px] px-6 py-32 md:px-10 md:py-48">
         <div className="grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-3">
-            <p className="eyebrow text-cream/50 sticky top-28">§ 01 — Thesis</p>
+            <p className="eyebrow text-cream/50 sticky top-28">§ 01 — About</p>
           </div>
           <div className="col-span-12 md:col-span-9">
             <h2 className="font-serif text-[clamp(2rem,5vw,4.4rem)] italic leading-[1.02] tracking-tight measure">
-              <SplitWords text="Most people choose a domain." />
+              <SplitWords text="I work on battery materials" />
               <br />
               <SplitWords
-                text="I chose the seams between them."
+                text="and build the tools around them."
                 delay={0.2}
                 className="iris-text"
               />
             </h2>
             <Reveal delay={0.3} className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
               <p className="text-cream/75 leading-relaxed text-lg">
-                I&apos;m a chemical engineering student at Texas A&amp;M, but
-                most of what I end up working on sits between three things:
-                materials in a furnace, code on a board, and a camera in my
-                hand. Different scales, same instinct — figure out how the
-                system works, then build something with it.
+                I&apos;m a chemical engineering student at Texas A&amp;M. Most
+                of my time goes to three things: graphitization research in the
+                Green Lab, control software for the ROV team, and photography.
               </p>
               <p className="text-cream/75 leading-relaxed text-lg">
                 I started in computer science and switched to chemical
@@ -297,7 +295,7 @@ export default function Home() {
           <div>
             <p className="eyebrow text-cream/50">§ 04 — Selected Work</p>
             <h2 className="mt-4 display-xl text-[clamp(2.2rem,5vw,4rem)] tracking-tighter">
-              <SplitWords text="Selected case studies." />
+              <SplitWords text="Selected work." />
             </h2>
           </div>
           <Link
@@ -372,9 +370,9 @@ export default function Home() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10">
           <div className="mb-12 flex items-end justify-between">
             <div>
-              <p className="eyebrow text-cream/50">§ 05 — Through the Lens</p>
+              <p className="eyebrow text-cream/50">§ 05 — Photography</p>
               <h2 className="mt-4 display-xl text-[clamp(2.2rem,5vw,4rem)] tracking-tighter">
-                <SplitWords text="Photography." />
+                <SplitWords text="Recent landscapes." />
               </h2>
             </div>
             <Link
@@ -382,7 +380,7 @@ export default function Home() {
               data-cursor="link"
               className="hidden md:inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] hover:text-acid"
             >
-              Enter the archive
+              Full gallery
               <span aria-hidden>→</span>
             </Link>
           </div>
@@ -423,7 +421,7 @@ export default function Home() {
               data-cursor="link"
               className="font-mono text-xs uppercase tracking-[0.22em] text-acid"
             >
-              Enter the archive →
+              Full gallery →
             </Link>
           </div>
         </div>
@@ -433,14 +431,14 @@ export default function Home() {
       <section className="mx-auto max-w-[1600px] px-6 py-40 md:px-10 md:py-56 relative">
         <div className="grid grid-cols-12 gap-6">
           <div className="col-span-12 md:col-span-2">
-            <p className="eyebrow text-cream/50 sticky top-28">§ 06 — Reach</p>
+            <p className="eyebrow text-cream/50 sticky top-28">§ 06 — Contact</p>
           </div>
           <div className="col-span-12 md:col-span-10">
             <h2 className="display-mega text-[clamp(1.8rem,5vw,5.4rem)] tracking-tighter">
-              <SplitWords text="Have something" />
+              <SplitWords text="Email me" />
               <br />
               <SplitWords
-                text="to talk about?"
+                text="about anything here."
                 delay={0.1}
                 className="font-serif italic iris-text"
               />
@@ -451,7 +449,7 @@ export default function Home() {
                 data-cursor="link"
                 className="group inline-flex items-center gap-5 rounded-full border border-cream/20 bg-cream text-ink px-10 py-6 font-mono text-sm uppercase tracking-[0.18em] hover:bg-acid transition-colors"
               >
-                Open a channel
+                Contact
                 <span
                   aria-hidden
                   className="inline-block text-lg transition-transform duration-300 ease-out group-hover:translate-x-1"

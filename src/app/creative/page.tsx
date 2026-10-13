@@ -61,12 +61,11 @@ export default function Creative() {
 
         <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
           <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-            <MaskedLines lines={["Through the", "Lens."]} eager />
+            <MaskedLines lines={["Photo", "& Video."]} eager />
           </h1>
           <Reveal delay={0.7} eager className="mt-8 max-w-2xl">
             <p className="font-serif italic text-2xl md:text-3xl leading-snug">
-              A photography business (wedding, portrait, brand) and the{" "}
-              <span className="iris-text">other stuff</span> on YouTube.
+              Wedding, portrait, and brand work, plus a YouTube channel.
             </p>
           </Reveal>
         </div>
@@ -113,11 +112,11 @@ export default function Creative() {
       {/* ─────── INTRO COPY ─────── */}
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32 grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-3">
-          <p className="eyebrow text-cream/50 sticky top-28">§ — Statement</p>
+          <p className="eyebrow text-cream/50 sticky top-28">§ — About</p>
         </div>
         <div className="col-span-12 md:col-span-9">
           <h2 className="font-serif italic text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.05] tracking-tight measure">
-            <SplitWords text="The best technical architecture is useless if nobody understands how to use it." />
+            <SplitWords text="I shoot people and places, and make tutorials about the software I use." />
           </h2>
           <Reveal delay={0.2} className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             <p className="text-cream/75 leading-relaxed text-lg">
@@ -127,9 +126,9 @@ export default function Creative() {
               work to people outside it.
             </p>
             <p className="text-cream/75 leading-relaxed text-lg">
-              YouTube is the other stuff: tutorials on Python automation, Linux,
-              and self-hosted infrastructure, now past 1.2M views and 2,500
-              subscribers.
+              On YouTube I post tutorials on Python automation, Linux, and
+              self-hosted infrastructure. The channel is past 1.2M views and
+              2,500 subscribers.
             </p>
           </Reveal>
         </div>
@@ -139,7 +138,7 @@ export default function Creative() {
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 mb-6">
         <div className="border-t border-cream/10 pt-10 flex items-end justify-between flex-wrap gap-4">
           <h3 className="display-xl text-[clamp(1.8rem,4.5vw,3.4rem)] tracking-tighter">
-            <SplitWords text="The Archive." />
+            <SplitWords text="Gallery." />
           </h3>
           <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/55">
             Filter by year &amp; series — click any frame to enlarge
@@ -157,12 +156,12 @@ export default function Creative() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <p className="eyebrow text-cream/50">§ — The Other Stuff · YouTube</p>
+              <p className="eyebrow text-cream/50">§ — YouTube</p>
               <h2 className="mt-4 display-xl text-[clamp(1.6rem,4vw,3.4rem)] tracking-tighter">
                 <SplitWords text="1.2 million views" />
                 <br />
                 <SplitWords
-                  text="of teaching how things work."
+                  text="on Python, Linux, and self-hosting."
                   delay={0.1}
                   className="font-serif italic iris-text"
                 />
@@ -301,12 +300,12 @@ export default function Creative() {
       <section className="bg-cream text-ink border-y border-ink/10">
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow text-ink/60 mb-6">§ — Commission</p>
+            <p className="eyebrow text-ink/60 mb-6">§ — Booking</p>
             <h2 className="display-mega text-[clamp(1.6rem,4.4vw,4.4rem)] tracking-tighter">
-              <SplitWords text="Have a moment" />
+              <SplitWords text="Booking shoots in" />
               <br />
               <SplitWords
-                text="worth remembering?"
+                text="College Station & Houston."
                 delay={0.15}
                 className="font-serif italic text-rust"
               />
@@ -314,14 +313,14 @@ export default function Creative() {
           </div>
           <div className="col-span-12 md:col-span-4 flex flex-col justify-end gap-6 md:items-end">
             <p className="font-serif italic text-xl leading-snug measure">
-              Graduations, weddings, garba nights, conferences, milestone portraits — bring me the occasion, I&apos;ll bring the camera.
+              Graduations, weddings, garba nights, conferences, and portraits.
             </p>
             <Link
               href="/contact"
               data-cursor="link"
               className="group inline-flex items-center gap-4 rounded-full bg-ink text-cream px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
             >
-              Start a brief
+              Get in touch
               <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">
                 →
               </span>
