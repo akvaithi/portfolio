@@ -44,7 +44,9 @@ const ROTATING_HEROES = (
     .filter(([project]) => !BANNER_EXCLUDE.has(project))
     .flatMap(([, assets]) =>
       assets
-        .filter((a) => !a.isVideo)
+        // Pitch-deck slides are text-heavy; they read as clutter behind
+        // the page heading.
+        .filter((a) => !a.isVideo && !/\/Slide\d+\.png$/i.test(a.src))
         .slice(0, 2)
         .map((a) => a.src)
     )
@@ -55,7 +57,7 @@ export default function Professional() {
   return (
     <>
       {/* ───────────── HERO BANNER ───────────── */}
-      <section className="relative h-[78vh] min-h-[620px] w-full overflow-hidden">
+      <section className="relative h-[78svh] min-h-[560px] w-full overflow-hidden">
         <RotatingHero
           images={ROTATING_HEROES}
           alt="Selected work — rotating"
@@ -64,19 +66,11 @@ export default function Professional() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-ink/10 to-ink" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/55 via-ink/15 to-transparent" />
 
-        {/* HUD overlay */}
-        <div className="absolute inset-x-0 top-24 z-10 mx-auto flex max-w-[1600px] items-center justify-between px-6 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/70 md:px-10">
-          <span>02 — Professional Index</span>
-          <span>
-            {PROJECTS.length} case studies · {EXPERIENCES.length} positions · 2024–2026
-          </span>
-        </div>
-
-        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
+        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1440px] px-4 pb-14 sm:px-6 md:px-10 md:pb-24">
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-                <MaskedLines lines={["Selected", "Work."]} eager />
+                <MaskedLines lines={["Selected", "work"]} eager />
               </h1>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
@@ -92,7 +86,7 @@ export default function Professional() {
 
       {/* ───────────── PERSONAL STATS STRIP ───────────── */}
       <section className="border-b border-cream/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-16 md:py-20">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-16 md:py-20">
           <Reveal className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { v: "3.92", l: "Cumulative GPA · Brown Engineering Honors" },
@@ -104,7 +98,7 @@ export default function Professional() {
                 <p className="font-serif italic text-3xl md:text-5xl iris-text inline-block">
                   {s.v}
                 </p>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55">
                   {s.l}
                 </p>
               </div>
@@ -114,7 +108,7 @@ export default function Professional() {
       </section>
 
       {/* ───────────── CASE STUDIES ───────────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32 space-y-32 md:space-y-48">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-24 md:py-32 space-y-32 md:space-y-48">
         {PROJECTS.map((p, idx) => {
           const hero = p.heroes[0];
           const odd = idx % 2 === 1;
@@ -133,7 +127,6 @@ export default function Professional() {
                         screenshotBg={p.screenshotBg}
                         className="aspect-[16/10]"
                         sizes="(max-width: 768px) 100vw, 60vw"
-                        badge={`CASE ${String(idx + 1).padStart(2, "0")}`}
                       />
                     )}
                   </Reveal>
@@ -156,7 +149,7 @@ export default function Professional() {
                     </p>
                   </Reveal>
                   <Reveal delay={0.2}>
-                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45">
+                    <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/60">
                       {p.location} — {p.period}
                     </p>
                   </Reveal>
@@ -182,7 +175,7 @@ export default function Professional() {
                         {p.metrics.map((m) => (
                           <div key={m.label}>
                             <p className="font-serif italic text-xl text-cream">{m.value}</p>
-                            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/50 mt-1">
+                            <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-cream/60 mt-1">
                               {m.label}
                             </p>
                           </div>
@@ -211,10 +204,10 @@ export default function Professional() {
                         target="_blank"
                         rel="noreferrer"
                         data-cursor="link"
-                        className="group mt-8 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] text-acid hover:text-cream"
+                        className="group mt-8 inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.16em] text-acid hover:text-cream"
                       >
                         <span>Visit live</span>
-                        <span className="text-cream/45 truncate">
+                        <span className="text-cream/60 truncate">
                           {p.link.label}
                         </span>
                         <span
@@ -245,12 +238,12 @@ export default function Professional() {
 
       {/* ───────────── TIMELINE ───────────── */}
       <section className="bg-ink-soft border-y border-cream/5 py-32 md:py-40">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10">
           <div className="mb-16 flex items-end justify-between">
             <div>
-              <p className="eyebrow text-cream/50">§ — Timeline</p>
+              <p className="eyebrow text-cream/60">2024 — 2026</p>
               <h2 className="mt-4 display-xl text-[clamp(2rem,4.5vw,3.6rem)] tracking-tighter">
-                <SplitWords text="Experience." />
+                <SplitWords text="Experience" />
               </h2>
             </div>
             <a
@@ -258,7 +251,7 @@ export default function Professional() {
               target="_blank"
               rel="noreferrer"
               data-cursor="link"
-              className="hidden md:inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] hover:text-acid"
+              className="hidden md:inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.16em] hover:text-acid"
             >
               Full résumé .pdf
               <span aria-hidden>↗</span>
@@ -270,7 +263,7 @@ export default function Professional() {
               <Reveal key={`${e.role}-${i}`} delay={i * 0.03}>
                 <li className="relative">
                   <span className="absolute -left-[34px] md:-left-[46px] top-2 size-2.5 rounded-full bg-acid ring-4 ring-ink-soft" />
-                  <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/50">
+                  <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream/60">
                     {e.period}
                   </p>
                   <h3 className="mt-2 display-xl text-2xl md:text-3xl tracking-tight">
@@ -293,11 +286,10 @@ export default function Professional() {
       </section>
 
       {/* ───────────── AWARDS + EDUCATION ───────────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 grid grid-cols-1 md:grid-cols-12 gap-12">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-32 md:py-40 grid grid-cols-1 md:grid-cols-12 gap-12">
         <div className="md:col-span-7">
-          <p className="eyebrow text-cream/50 mb-6">§ — Awards & Recognition</p>
           <h2 className="display-xl text-[clamp(2rem,4.5vw,3.4rem)] tracking-tighter mb-12">
-            <SplitWords text="Awards." />
+            <SplitWords text="Awards" />
           </h2>
           <ul className="divide-y divide-cream/10 border-y border-cream/10">
             {AWARDS.map((a, i) => (
@@ -316,7 +308,7 @@ export default function Professional() {
         </div>
 
         <div className="md:col-span-5 md:pl-12 md:border-l md:border-cream/10">
-          <p className="eyebrow text-cream/50 mb-6">§ — Education</p>
+          <p className="eyebrow text-cream/60 mb-6">Education</p>
           <h3 className="display-xl text-3xl tracking-tight">Texas A&amp;M University</h3>
           <p className="mt-2 font-serif italic text-xl text-cream/80">
             B.S. Chemical Engineering
@@ -338,11 +330,11 @@ export default function Professional() {
           </ul>
 
           <div className="mt-12 border-t border-cream/10 pt-8">
-            <p className="eyebrow text-cream/50 mb-4">§ — Skills</p>
+            <p className="eyebrow text-cream/60 mb-4">Skills</p>
             <div className="space-y-6">
               {Object.entries(SKILLS).map(([group, items]) => (
                 <div key={group}>
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55 mb-2">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55 mb-2">
                     {group}
                   </p>
                   <p className="text-cream/85 leading-relaxed">
@@ -356,10 +348,9 @@ export default function Professional() {
       </section>
 
       {/* ───────────── CTA ───────────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 border-t border-cream/10">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-32 md:py-40 border-t border-cream/10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
           <div className="md:col-span-7">
-            <p className="eyebrow text-cream/50 mb-6">§ — Contact</p>
             <h2 className="display-mega text-[clamp(1.7rem,4.4vw,4.4rem)] tracking-tighter">
               <SplitWords text="Hiring for" />
               <br />
@@ -373,7 +364,7 @@ export default function Professional() {
 
           <div className="md:col-span-5">
             <Reveal>
-              <p className="eyebrow text-cream/50 mb-4">Open to</p>
+              <p className="eyebrow text-cream/60 mb-4">Open to</p>
               <ul className="divide-y divide-cream/10 border-y border-cream/10">
                 {[
                   ["Summer 2027", "Internship or Spring 2027 co-op in materials R&D, process development, or scale-up."],
@@ -391,7 +382,7 @@ export default function Professional() {
                 <Link
                   href="/contact"
                   data-cursor="link"
-                  className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
+                  className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.16em] hover:bg-acid hover:text-ink transition-colors"
                 >
                   Contact
                   <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">
@@ -401,7 +392,7 @@ export default function Professional() {
                 <a
                   href="mailto:akvaithi.tech@gmail.com"
                   data-cursor="link"
-                  className="font-mono text-xs uppercase tracking-[0.22em] text-cream/65 hover:text-cream"
+                  className="font-mono text-xs uppercase tracking-[0.16em] text-cream/65 hover:text-cream"
                 >
                   akvaithi.tech@gmail.com
                 </a>

@@ -37,7 +37,7 @@ export default function Cloud9() {
 
         <div className="mt-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8 border-b border-cream/10 pb-10">
           <div>
-            <p className="eyebrow text-cream/50">§ — Client Gallery</p>
+            <p className="eyebrow text-cream/50">Client gallery</p>
             <h1 className="mt-4 display-mega text-[clamp(3rem,10vw,9rem)] tracking-tighter">
               Cloud <span className="font-serif italic iris-text">9</span>
             </h1>

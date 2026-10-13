@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Reveal, MaskedLines, SplitWords } from "@/components/Reveal";
-import { Clock } from "@/components/Clock";
 import { HDRImage } from "@/components/HDRImage";
 import { Footer } from "@/components/Footer";
 import { PHOTOS } from "@/data/photos";
@@ -64,7 +63,8 @@ export default function Contact() {
               sdrSrc={HERO.sdrSrc}
               alt="Atmosphere — a landscape from the personal archive"
               fill
-              priority
+              preload
+              fetchPriority="high"
               sizes="100vw"
               className="object-cover drift"
             />
@@ -76,10 +76,9 @@ export default function Contact() {
           </div>
         )}
 
-        <div className="relative mx-auto max-w-[1600px] px-6 md:px-10">
-          <p className="eyebrow text-cream/60 mb-8">04 — Contact</p>
+        <div className="relative mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10">
           <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-            <MaskedLines lines={["Get in", "touch."]} eager />
+            <MaskedLines lines={["Get in", "touch"]} eager />
           </h1>
           <Reveal delay={0.6} eager>
             <p className="mt-10 max-w-2xl font-serif italic text-2xl md:text-3xl leading-snug">
@@ -91,23 +90,20 @@ export default function Contact() {
 
       {/* ────────── STATUS BAR ────────── */}
       <div className="border-y border-cream/10 bg-ink-soft">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/65">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-[0.16em] text-cream/65">
           <span className="flex items-center gap-2">
-            <span className="size-2 rounded-full bg-acid animate-pulse" />
+            <span className="size-2 rounded-full bg-acid-cool" />
             Seeking: Summer 2027 internship or Spring 2027 co-op · materials R&amp;D, process, scale-up
           </span>
-          <span className="hidden md:inline">
-            College Station — <Clock />
-          </span>
-          <span className="ml-auto">akvaithi.tech@gmail.com</span>
+          <span className="md:ml-auto">College Station &amp; Houston</span>
         </div>
       </div>
 
       {/* ────────── DIRECT LINES (centerpiece) ────────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-24 md:py-32">
         <div className="mb-12 flex items-end justify-between flex-wrap gap-4">
           <div>
-            <p className="eyebrow text-cream/50">§ — Links</p>
+            <p className="eyebrow text-cream/60">Links</p>
             <h2 className="mt-4 display-xl text-[clamp(1.6rem,3.6vw,3rem)] tracking-tighter">
               <SplitWords text="Email, LinkedIn," />{" "}
               <SplitWords
@@ -131,19 +127,19 @@ export default function Contact() {
                   className="group grid grid-cols-12 items-center gap-6 py-8 md:py-10"
                 >
                   <div className="col-span-2 md:col-span-1">
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-acid/80">
+                    <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-acid/80">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className="col-span-10 md:col-span-3">
-                    <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45">
+                  <div className="col-span-10 md:col-span-5 min-w-0">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-cream/60">
                       {c.label}
                     </p>
-                    <p className="mt-1 font-serif text-3xl md:text-5xl truncate group-hover:iris-text transition-colors">
+                    <p className="mt-1 font-serif text-[clamp(1.6rem,3.2vw,3rem)] truncate group-hover:iris-text transition-colors">
                       {c.value}
                     </p>
                   </div>
-                  <div className="hidden md:block md:col-span-7">
+                  <div className="hidden md:block md:col-span-5">
                     <p className="text-cream/70 leading-snug font-serif italic text-xl">
                       {c.aside}
                     </p>
@@ -151,7 +147,7 @@ export default function Contact() {
                   <div className="col-span-12 md:col-span-1 md:text-right">
                     <span
                       aria-hidden
-                      className="font-mono text-xs text-cream/45 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-acid"
+                      className="font-mono text-xs text-cream/60 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-acid"
                     >
                       OPEN →
                     </span>
@@ -165,9 +161,9 @@ export default function Contact() {
 
       {/* ────────── LOOK FOR ME AT + SLACK-STYLE NOTE ────────── */}
       <section className="bg-ink-soft border-y border-cream/5 py-24 md:py-32">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 grid grid-cols-12 gap-10">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-6">
-            <p className="eyebrow text-cream/50 mb-6">§ — Where I am</p>
+            <p className="eyebrow text-cream/60 mb-6">Where I am</p>
             <ul className="space-y-3 text-cream/85 font-serif text-2xl leading-snug">
               <li>· The Green Lab · Texas A&amp;M Chemical Engineering</li>
               <li>· Oceanus ThinkTank · MATE ROV</li>
@@ -176,7 +172,7 @@ export default function Contact() {
             </ul>
           </div>
           <div className="col-span-12 md:col-span-6">
-            <p className="eyebrow text-cream/50 mb-6">§ — Open to</p>
+            <p className="eyebrow text-cream/60 mb-6">Open to</p>
             <ul className="divide-y divide-cream/10 border-y border-cream/10">
               {[
                 ["Internships & co-ops", "Summer 2027 or Spring 2027: materials R&D, process development, scale-up."],
@@ -192,7 +188,7 @@ export default function Contact() {
             <a
               href="mailto:akvaithi.tech@gmail.com"
               data-cursor="link"
-              className="group mt-10 inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
+              className="group mt-10 inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.16em] hover:bg-acid hover:text-ink transition-colors"
             >
               Email me
               <span
@@ -208,7 +204,7 @@ export default function Contact() {
 
       {/* ────────── CLOSING ────────── */}
       <section className="py-32 md:py-40">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 grid grid-cols-12 gap-8 items-end">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 grid grid-cols-12 gap-8 items-end">
           <div className="col-span-12 md:col-span-9">
             <h2 className="font-serif italic text-[clamp(2rem,5.5vw,5rem)] leading-[0.98] tracking-tight">
               <SplitWords text="Thanks for" />
@@ -224,7 +220,7 @@ export default function Contact() {
             <Link
               href="/"
               data-cursor="link"
-              className="font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
+              className="font-mono text-xs uppercase tracking-[0.16em] text-cream/70 hover:text-acid"
             >
               ← Back to the top
             </Link>

@@ -9,6 +9,8 @@ export type Project = {
   period: string;
   scale: "molecular" | "digital" | "creative";
   tagline: string;
+  // One line for compact cards (home page).
+  summary: string;
   body: string[];
   stack: string[];
   metrics?: { label: string; value: string }[];
@@ -42,6 +44,8 @@ export const PROJECTS: Project[] = [
     scale: "molecular",
     tagline:
       "Catalytic graphitization of refinery petroleum coke into battery-grade anode graphite, at temperatures well below the industrial baseline. An ARPA-E project with the DOE National Energy Technology Laboratory and Oxbow Carbon.",
+    summary:
+      "Catalytic graphitization well below the industrial baseline. ARPA-E, with NETL and Oxbow Carbon.",
     body: [
       "Run the synthesis route end to end: ball milling and sieving the coke, catalyst mixing, pellet pressing, tube-furnace graphitization, and acid washing to strip residual iron.",
       "My part of the project is the lower-temperature, shorter-hold side: parameter studies across temperature, hold time, catalyst and additive loading, and pellet geometry.",
@@ -84,6 +88,8 @@ export const PROJECTS: Project[] = [
     scale: "digital",
     tagline:
       "A research-discovery platform that matches students to faculty by research interest. It started as the Aggie Research Finder at Texas A&M and now covers 7,864 STEM faculty across 8 universities, with 3,000+ users.",
+    summary:
+      "7,864 faculty across 8 universities, 3,000+ users.",
     body: [
       "Co-founded the platform: upload a résumé, enter research interests, and get matched to faculty by where you want to go rather than where you have been, with an outreach email drafted in one click.",
       "Grew it from a Texas A&M tool into a multi-tenant platform with per-school branding: Texas A&M, Rice, UT Austin, UT Dallas, MIT, Harvard, Michigan, and UCLA.",
@@ -121,6 +127,8 @@ export const PROJECTS: Project[] = [
     scale: "digital",
     tagline:
       "Control software for an 8-thruster, 6-DOF ROV on a Raspberry Pi 5 and Blue Robotics Navigator. The PID loop is bench-tuned and validated in simulation ahead of water testing.",
+    summary:
+      "PID attitude loop validated in 6-DOF simulation.",
     body: [
       "Lead a 3-person subteam (one of five on the vehicle) that owns the control software, the ArduSub simulation, and photogrammetry.",
       "Designed the onboard architecture around 6-DOF inertial data and thruster output, and validated a bench-tuned PID attitude loop in a 6-DOF ArduSub SITL simulation before hardware.",
@@ -155,6 +163,8 @@ export const PROJECTS: Project[] = [
     scale: "digital",
     tagline:
       "A small web app that turns a target temperature and hold time into the furnace's setpoint table, so programs stop being worked out by hand.",
+    summary:
+      "Setpoint tables for the lab furnace, no hand arithmetic.",
     body: [
       "Generates the temperature/time setpoint pairs for the lab's tube furnace: 5 °C/min ramps, the required 20-minute preheat holds at 300, 800, and 1,200 °C, up to 1,600 °C, and a programmed cool to 500 °C before natural cooling.",
       "Built for my own bench work in the Green Lab, to take arithmetic errors out of furnace programming and make runs reproducible.",
@@ -184,6 +194,8 @@ export const PROJECTS: Project[] = [
     scale: "digital",
     tagline:
       "A 48-hour design sprint on keeping people out of the path of heavy mobile equipment. Our proposal placed 3rd overall.",
+    summary:
+      "3rd overall, Aggies Invent: ExxonMobil.",
     body: [
       "Led the team through a 48-hour design sprint on human-presence detection around cranes, forklifts, excavators, and oilfield trucks.",
       "Proposed a two-stage warning and critical buffer zone from ultra-wideband hard-hat tags fused with AI cameras, tied into the equipment's existing E-stop over SAE J1939 so rental fleets need no modification.",
@@ -213,6 +225,8 @@ export const PROJECTS: Project[] = [
     scale: "digital",
     tagline:
       "Fail-safes and risk mitigation for Chart Industries' air-cooled heat exchanger (ACHE) systems. A design-and-pitch competition; our proposal placed 2nd overall.",
+    summary:
+      "2nd overall, Chart Industries challenge.",
     body: [
       "Proposed fail-safe enhancements organized around the failure modes specific to air-cooled exchangers in process service.",
       "Framed the mitigation as layers of protection, in the style of a LOPA review.",
@@ -234,6 +248,8 @@ export const PROJECTS: Project[] = [
     scale: "creative",
     tagline:
       "A year evaluating early-stage climate technologies and co-leading the committee that ran TEX-E's events across four partner universities.",
+    summary:
+      "Climate-tech assessment and events across four universities.",
     body: [
       "Assessed early-stage carbon capture, hydrogen, and low-carbon fuel technologies for process feasibility and scalability, presenting to fellows and industry practitioners.",
       "Co-led the Ecosystem Builders Committee across four partner universities, organizing energy-transition events.",
@@ -257,6 +273,8 @@ export const PROJECTS: Project[] = [
     scale: "creative",
     tagline:
       "A 40-student cohort on technology commercialization, venture capital, and corporate strategy. Spring 2026 included a Bay Area trip to LinkedIn, Google, Meta, Perplexity, Roku, and Visa.",
+    summary:
+      "One of 40 in the Mays business and technology cohort.",
     body: [
       "Selected as one of 40 students for the cohort; completing the Aggies in Tech Business & Technology Certificate.",
       "Visited LinkedIn, Google, Meta, Perplexity, Roku, Visa, and the Computer History Museum on the Spring 2026 Bay Area trip, funded by the Aggies in Tech West Coast Scholarship.",

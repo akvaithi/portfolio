@@ -4,6 +4,8 @@ export type HeroAsset = {
   isVideo: boolean;
   name: string;
   sdrSrc: string | null;
+  thumb: string | null;
+  tone: string | null;
 };
 export const HEROES: Record<string, HeroAsset[]> = {
   "Aggie Reseach Finder": [
@@ -11,19 +13,25 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.56.27 AM.png",
       "isVideo": false,
       "name": "Screenshot 2026-05-21 at 11.56.27 AM.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.56.27 AM",
+      "tone": "#f8f8e8"
     },
     {
       "src": "/images/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.56.51 AM.png",
       "isVideo": false,
       "name": "Screenshot 2026-05-21 at 11.56.51 AM.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.56.51 AM",
+      "tone": "#f8f8f8"
     },
     {
       "src": "/images/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.59.51 AM.png",
       "isVideo": false,
       "name": "Screenshot 2026-05-21 at 11.59.51 AM.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggie Reseach Finder/Screenshot 2026-05-21 at 11.59.51 AM",
+      "tone": "#f8f8e8"
     }
   ],
   "Aggies Invent": [
@@ -31,19 +39,25 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/Aggies Invent/1763160692555.jpeg",
       "isVideo": false,
       "name": "1763160692555.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies Invent/1763160692555",
+      "tone": "#d8d8d8"
     },
     {
       "src": "/images/HERO Images/Aggies Invent/Operation Halo/Slide1.png",
       "isVideo": false,
       "name": "Slide1.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies Invent/Operation Halo/Slide1",
+      "tone": "#981818"
     },
     {
       "src": "/images/HERO Images/Aggies Invent/Operation Halo/Slide7.png",
       "isVideo": false,
       "name": "Slide7.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies Invent/Operation Halo/Slide7",
+      "tone": "#f8f8f8"
     }
   ],
   "Aggies in Tech": [
@@ -51,49 +65,65 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/Aggies in Tech/1778885604419.jpeg",
       "isVideo": false,
       "name": "1778885604419.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885604419",
+      "tone": "#a8a8a8"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885604762.jpeg",
       "isVideo": false,
       "name": "1778885604762.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885604762",
+      "tone": "#080808"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885605165.jpeg",
       "isVideo": false,
       "name": "1778885605165.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885605165",
+      "tone": "#c8c8c8"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885605177.jpeg",
       "isVideo": false,
       "name": "1778885605177.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885605177",
+      "tone": "#b8a888"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885605383.jpeg",
       "isVideo": false,
       "name": "1778885605383.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885605383",
+      "tone": "#080808"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885608199.jpeg",
       "isVideo": false,
       "name": "1778885608199.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885608199",
+      "tone": "#a89898"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885608228.jpeg",
       "isVideo": false,
       "name": "1778885608228.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885608228",
+      "tone": "#080818"
     },
     {
       "src": "/images/HERO Images/Aggies in Tech/1778885608481.jpeg",
       "isVideo": false,
       "name": "1778885608481.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Aggies in Tech/1778885608481",
+      "tone": "#080808"
     }
   ],
   "SEC Ignite": [
@@ -101,19 +131,25 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/SEC Ignite/1764202057842.jpeg",
       "isVideo": false,
       "name": "1764202057842.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/SEC Ignite/1764202057842",
+      "tone": "#e8e8e8"
     },
     {
       "src": "/images/HERO Images/SEC Ignite/ModuStep Presentation/Slide1.png",
       "isVideo": false,
       "name": "Slide1.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/SEC Ignite/ModuStep Presentation/Slide1",
+      "tone": "#f8f8f8"
     },
     {
       "src": "/images/HERO Images/SEC Ignite/ModuStep Presentation/Slide5.png",
       "isVideo": false,
       "name": "Slide5.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/SEC Ignite/ModuStep Presentation/Slide5",
+      "tone": "#f8f8f8"
     }
   ],
   "TEXE": [
@@ -121,25 +157,33 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/TEXE/1755630043188.jpeg",
       "isVideo": false,
       "name": "1755630043188.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/TEXE/1755630043188",
+      "tone": "#a88858"
     },
     {
       "src": "/images/HERO Images/TEXE/1759755839431.jpeg",
       "isVideo": false,
       "name": "1759755839431.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/TEXE/1759755839431",
+      "tone": "#c8b8b8"
     },
     {
       "src": "/images/HERO Images/TEXE/Library - 1 of 1.jpeg",
       "isVideo": false,
       "name": "Library - 1 of 1.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/TEXE/Library - 1 of 1",
+      "tone": "#8848b8"
     },
     {
       "src": "/images/HERO Images/TEXE/Untitled - 1 of 1.jpeg",
       "isVideo": false,
       "name": "Untitled - 1 of 1.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/TEXE/Untitled - 1 of 1",
+      "tone": "#989898"
     }
   ],
   "ThinkTank": [
@@ -147,31 +191,41 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/ThinkTank/iPhone 13 - 2 of 7.jpeg",
       "isVideo": false,
       "name": "iPhone 13 - 2 of 7.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/ThinkTank/iPhone 13 - 2 of 7",
+      "tone": "#080808"
     },
     {
       "src": "/images/HERO Images/ThinkTank/iPhone 13 - 4 of 7.jpeg",
       "isVideo": false,
       "name": "iPhone 13 - 4 of 7.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/ThinkTank/iPhone 13 - 4 of 7",
+      "tone": "#080808"
     },
     {
       "src": "/images/HERO Images/ThinkTank/iPhone 13 - 5 of 7.jpeg",
       "isVideo": false,
       "name": "iPhone 13 - 5 of 7.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/ThinkTank/iPhone 13 - 5 of 7",
+      "tone": "#c8c8c8"
     },
     {
       "src": "/images/HERO Images/ThinkTank/iPhone 13 - 6 of 7.jpeg",
       "isVideo": false,
       "name": "iPhone 13 - 6 of 7.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/ThinkTank/iPhone 13 - 6 of 7",
+      "tone": "#d8c8c8"
     },
     {
       "src": "/images/HERO Images/ThinkTank/iPhone 13 - 7 of 7.jpeg",
       "isVideo": false,
       "name": "iPhone 13 - 7 of 7.jpeg",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/ThinkTank/iPhone 13 - 7 of 7",
+      "tone": "#080808"
     }
   ],
   "Tube Furnace": [
@@ -179,7 +233,9 @@ export const HEROES: Record<string, HeroAsset[]> = {
       "src": "/images/HERO Images/Tube Furnace/Screenshot 2026-05-21 at 12.00.55 PM.png",
       "isVideo": false,
       "name": "Screenshot 2026-05-21 at 12.00.55 PM.png",
-      "sdrSrc": null
+      "sdrSrc": null,
+      "thumb": "/thumbs/HERO Images/Tube Furnace/Screenshot 2026-05-21 at 12.00.55 PM",
+      "tone": "#181828"
     }
   ]
 };

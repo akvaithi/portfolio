@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { SmoothScroll } from "@/components/SmoothScroll";
+import { MotionObserver } from "@/components/MotionObserver";
 import { Nav } from "@/components/Nav";
 import { Cursor } from "@/components/Cursor";
 import { PageTransition } from "@/components/PageTransition";
 import { HDRDebug } from "@/components/HDRDebug";
 
+// All three are variable fonts: leaving out `weight` makes next/font ship
+// one file per style covering every weight, instead of one file per weight.
 const sans = Inter_Tight({
   variable: "--font-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
   display: "swap",
 });
 
 const serif = Fraunces({
   variable: "--font-serif",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "900"],
   style: ["normal", "italic"],
   display: "swap",
 });
@@ -25,7 +25,6 @@ const serif = Fraunces({
 const mono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
   display: "swap",
 });
 
@@ -149,10 +148,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
         <Cursor />
-        <SmoothScroll>
-          <Nav />
-          <PageTransition>{children}</PageTransition>
-        </SmoothScroll>
+        <MotionObserver />
+        <Nav />
+        <PageTransition>{children}</PageTransition>
         <HDRDebug />
       </body>
     </html>

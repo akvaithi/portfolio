@@ -1,33 +1,30 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 
+// Curtain wipe on route change. The curtain is keyed by pathname, so each
+// navigation mounts a fresh one that covers the screen and slides away
+// (CSS keyframes in globals.css). The new page renders immediately
+// underneath: navigation no longer waits for an exit animation. Nothing
+// plays on the first load, so the hero paints straight away.
+//
+// Deliberately not the View Transitions API: it animates snapshots of the
+// old and new pages, and Safari is known to show gain-map images as SDR
+// while transitions run. A plain overlay keeps the HDR heroes out of it.
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
+  const firstPath = useRef(pathname);
+  const navigated = useRef(false);
+  if (pathname !== firstPath.current) navigated.current = true;
 
+  if (!navigated.current) return <div className="relative">{children}</div>;
   return (
-    <AnimatePresence mode="wait" initial={false}>
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 24 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -16 }}
-        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        className="relative"
-      >
-        {/* curtain wipe on route change */}
-        <motion.div
-          aria-hidden
-          className="pointer-events-none fixed inset-0 z-[70] origin-bottom bg-ink"
-          initial={{ scaleY: 1 }}
-          animate={{ scaleY: 0 }}
-          exit={{ scaleY: 1, originY: 0 }}
-          transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
-        />
+    <>
+      <div key={pathname} aria-hidden className="curtain" />
+      <div key={`page-${pathname}`} className="page-enter relative">
         {children}
-      </motion.div>
-    </AnimatePresence>
+      </div>
+    </>
   );
 }

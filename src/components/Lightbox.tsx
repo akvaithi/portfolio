@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { HDRImage } from "./HDRImage";
 
@@ -31,6 +30,8 @@ export function Lightbox({
   index: number;
 }) {
   const lastNavAt = useRef(0);
+  const closeBtn = useRef<HTMLButtonElement>(null);
+  const touchX = useRef<number | null>(null);
   const throttledNav = (fn: () => void) => () => {
     const now = Date.now();
     if (now - lastNavAt.current < NAV_THROTTLE_MS) return;
@@ -39,92 +40,109 @@ export function Lightbox({
   };
   const tNext = throttledNav(onNext);
   const tPrev = throttledNav(onPrev);
+  const isOpen = photo !== null;
+
   useEffect(() => {
-    if (!photo) return;
+    if (!isOpen) return;
+    // Return focus to whatever opened the lightbox when it closes.
+    const opener = document.activeElement as HTMLElement | null;
+    closeBtn.current?.focus();
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
       else if (e.key === "ArrowRight") tNext();
       else if (e.key === "ArrowLeft") tPrev();
     };
     document.body.style.overflow = "hidden";
-    // Signal lightbox-open. The custom cursor watches this and hides itself
-    // — mix-blend-difference cursors over HDR images crash Chrome's GPU
-    // process (the compositor can't blend pixel values above 1.0).
+    // Signal lightbox-open. The custom cursor hides itself (a
+    // mix-blend-difference cursor over HDR images crashes Chrome's GPU
+    // process) and ambient animations pause (globals.css).
     document.body.dataset.lightbox = "open";
     window.addEventListener("keydown", onKey);
     return () => {
       document.body.style.overflow = "";
       delete document.body.dataset.lightbox;
       window.removeEventListener("keydown", onKey);
+      opener?.focus?.();
     };
-  }, [photo, onClose, onNext, onPrev]);
+    // tNext/tPrev are rebuilt each render; the handlers they wrap are what
+    // matter, and those are in the list.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, onClose, onNext, onPrev]);
+
+  if (!photo) return null;
 
   return (
-    <AnimatePresence>
-      {photo && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="fixed inset-0 z-[90] bg-ink/95 flex flex-col"
-          onClick={onClose}
-          data-lenis-prevent
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Photo ${index + 1} of ${count}`}
+      className="lightbox-in fixed inset-0 z-[90] bg-ink/95 flex flex-col"
+      onClick={onClose}
+    >
+      <div className="flex items-center justify-between px-4 sm:px-6 md:px-10 py-5 font-mono text-[11px] uppercase tracking-[0.18em] text-cream/75">
+        <span>
+          {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
+          {photo.sdrSrc && <span className="ml-3 text-acid">HDR</span>}
+        </span>
+        <button
+          ref={closeBtn}
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          className="min-h-11 px-2 hover:text-acid"
+          data-cursor="link"
         >
-          <div className="flex items-center justify-between px-6 md:px-10 py-6 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/70">
-            <span>
-              {String(index + 1).padStart(2, "0")} / {String(count).padStart(2, "0")}
-              {photo.sdrSrc && (
-                <span className="ml-3 text-acid">HDR</span>
-              )}
-            </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onClose();
-              }}
-              className="hover:text-acid"
-              data-cursor="link"
-            >
-              Close ✕
-            </button>
-          </div>
-          <div
-            className="relative flex-1 px-6 md:px-20 pb-20"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* No motion wrapper, no per-photo key. Each photo change just
-                swaps the <img src>, so the browser releases the old EDR
-                buffer cleanly before allocating the next one. Remounting
-                via key was leaving multiple HDR layers in flight, which
-                pushed Chrome's GPU process over the edge. */}
-            <div className="relative h-full w-full">
-              <HDRImage
-                src={photo.src}
-                sdrSrc={photo.sdrSrc}
-                alt="Selected photograph"
-                fill
-                sizes="100vw"
-                className="object-contain"
-                priority
-              />
-            </div>
+          Close ✕
+        </button>
+      </div>
+      <div
+        className="relative flex-1 px-4 md:px-20 pb-16 md:pb-20"
+        onClick={(e) => e.stopPropagation()}
+        onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+        onTouchEnd={(e) => {
+          if (touchX.current === null) return;
+          const dx = e.changedTouches[0].clientX - touchX.current;
+          touchX.current = null;
+          if (Math.abs(dx) > 50) (dx < 0 ? tNext : tPrev)();
+        }}
+      >
+        {/* No per-photo key. Each photo change just swaps the <img src>, so
+            the browser releases the old EDR buffer cleanly before
+            allocating the next one. Remounting via key was leaving multiple
+            HDR layers in flight, which pushed Chrome's GPU process over the
+            edge. */}
+        <div className="relative h-full w-full">
+          <HDRImage
+            src={photo.src}
+            sdrSrc={photo.sdrSrc}
+            alt="Selected photograph"
+            fill
+            sizes="100vw"
+            className="object-contain"
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
 
-            <button
-              onClick={tPrev}
-              className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-            >
-              ← Prev
-            </button>
-            <button
-              onClick={tNext}
-              className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-            >
-              Next →
-            </button>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        <button
+          type="button"
+          onClick={tPrev}
+          aria-label="Previous photo"
+          className="absolute left-1 md:left-6 top-1/2 -translate-y-1/2 min-h-11 px-2 font-mono text-xs uppercase tracking-[0.18em] text-cream/75 hover:text-acid"
+        >
+          ← Prev
+        </button>
+        <button
+          type="button"
+          onClick={tNext}
+          aria-label="Next photo"
+          className="absolute right-1 md:right-6 top-1/2 -translate-y-1/2 min-h-11 px-2 font-mono text-xs uppercase tracking-[0.18em] text-cream/75 hover:text-acid"
+        >
+          Next →
+        </button>
+      </div>
+    </div>
   );
 }

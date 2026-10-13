@@ -18,9 +18,6 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  experimental: {
-    optimizePackageImports: ["framer-motion", "lenis"],
-  },
   // www.akvaithi.page was serving a 200 with content identical to the apex —
   // two crawlable copies of every page. Canonical tags already point at the
   // apex, but a 308 is the unambiguous signal and stops the duplicate from

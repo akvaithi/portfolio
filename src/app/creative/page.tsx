@@ -46,7 +46,8 @@ export default function Creative() {
               sdrSrc={HERO.sdrSrc}
               alt="Lead frame from the archive"
               fill
-              priority
+              preload
+              fetchPriority="high"
               sizes="100vw"
               className="object-cover drift"
             />
@@ -54,14 +55,10 @@ export default function Creative() {
           <div className="absolute inset-0 bg-gradient-to-b from-ink/30 via-ink/15 to-ink" />
         </div>
 
-        <div className="absolute inset-x-0 top-24 z-10 mx-auto flex max-w-[1600px] items-center justify-between px-6 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/70 md:px-10">
-          <span>03 — Creative Archive</span>
-          <span>{PHOTOS.length} frames · 2023 – 2026</span>
-        </div>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1600px] px-6 pb-16 md:px-10 md:pb-24">
+        <div className="absolute inset-x-0 bottom-0 z-10 mx-auto max-w-[1440px] px-4 pb-14 sm:px-6 md:px-10 md:pb-24">
           <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-            <MaskedLines lines={["Photo", "& Video."]} eager />
+            <MaskedLines lines={["Photo", "& video"]} eager />
           </h1>
           <Reveal delay={0.7} eager className="mt-8 max-w-2xl">
             <p className="font-serif italic text-2xl md:text-3xl leading-snug">
@@ -72,47 +69,30 @@ export default function Creative() {
       </section>
 
       {/* ─────── MARQUEE ─────── */}
-      <div className="border-y border-cream/10 bg-ink py-6">
-        <Marquee speed={55}>
+      <div className="border-y border-cream/10 py-4">
+        <Marquee speed={48}>
           {[
-            "Photography",
-            "|",
             "Wedding · Portrait · Brand",
-            "|",
-            "Color grading",
-            "|",
             "Video",
-            "|",
+            "Color grading",
             "80+ client shoots",
-            "|",
             "2,500+ subscribers",
-            "|",
             "1.2M+ views",
-            "|",
-            "Self-hosted infra",
-            "|",
-          ].map((t, i) => {
-            const isSep = t === "|";
-            return (
-              <span
-                key={i}
-                className={
-                  isSep
-                    ? "text-cream/25 font-sans font-light text-[clamp(2rem,6vw,5rem)] leading-none"
-                    : "display-xl text-[clamp(2rem,6vw,5rem)] tracking-tighter text-cream/90 uppercase"
-                }
-              >
+          ].map((t) => (
+            <span key={t} className="flex items-center gap-12">
+              <span className="font-mono text-[13px] uppercase tracking-[0.2em] text-cream/65">
                 {t}
               </span>
-            );
-          })}
+              <span aria-hidden className="text-acid">/</span>
+            </span>
+          ))}
         </Marquee>
       </div>
 
       {/* ─────── INTRO COPY ─────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32 grid grid-cols-12 gap-8">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-24 md:py-32 grid grid-cols-12 gap-8">
         <div className="col-span-12 md:col-span-3">
-          <p className="eyebrow text-cream/50 sticky top-28">§ — About</p>
+          <p className="eyebrow text-cream/60 md:sticky md:top-28">About</p>
         </div>
         <div className="col-span-12 md:col-span-9">
           <h2 className="font-serif italic text-[clamp(1.8rem,3.5vw,3rem)] leading-[1.05] tracking-tight measure">
@@ -135,28 +115,28 @@ export default function Creative() {
       </section>
 
       {/* ─────── ARCHIVE LABEL ─────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 mb-6">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 mb-6">
         <div className="border-t border-cream/10 pt-10 flex items-end justify-between flex-wrap gap-4">
           <h3 className="display-xl text-[clamp(1.8rem,4.5vw,3.4rem)] tracking-tighter">
-            <SplitWords text="Gallery." />
+            <SplitWords text="Gallery" />
           </h3>
-          <p className="font-mono text-xs uppercase tracking-[0.22em] text-cream/55">
+          <p className="font-mono text-xs uppercase tracking-[0.16em] text-cream/55">
             Filter by year &amp; series — click any frame to enlarge
           </p>
         </div>
       </section>
 
       {/* ─────── GALLERY ─────── */}
-      <section className="mx-auto max-w-[1600px] px-6 md:px-10 pb-32">
+      <section className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 pb-32">
         <Gallery photos={PHOTOS} years={YEARS} categories={CATEGORIES} />
       </section>
 
       {/* ─────── YOUTUBE ─────── */}
       <section className="border-y border-cream/10 bg-ink-soft">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-24 md:py-32">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-24 md:py-32">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
-              <p className="eyebrow text-cream/50">§ — YouTube</p>
+              <p className="eyebrow text-cream/60">YouTube</p>
               <h2 className="mt-4 display-xl text-[clamp(1.6rem,4vw,3.4rem)] tracking-tighter">
                 <SplitWords text="1.2 million views" />
                 <br />
@@ -172,7 +152,7 @@ export default function Creative() {
               target="_blank"
               rel="noreferrer"
               data-cursor="link"
-              className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.22em] hover:text-acid"
+              className="group inline-flex items-center gap-3 font-mono text-xs uppercase tracking-[0.16em] hover:text-acid"
             >
               Visit the channel ↗
             </a>
@@ -190,7 +170,7 @@ export default function Creative() {
                 <p className="font-serif italic text-3xl md:text-5xl iris-text inline-block">
                   {s.v}
                 </p>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
+                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55">
                   {s.l}
                 </p>
               </div>
@@ -215,7 +195,7 @@ export default function Creative() {
             ].map((c, i) => (
               <Reveal key={c.title} delay={i * 0.08}>
                 <div className="border-t border-cream/10 pt-6 h-full flex flex-col">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-acid">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-acid">
                     Series 0{i + 1}
                   </p>
                   <h3 className="mt-3 display-xl text-2xl md:text-3xl tracking-tight">
@@ -254,7 +234,7 @@ export default function Creative() {
                     className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
                   />
                 ) : (
-                  <div className="flex h-full w-full items-center justify-center font-mono text-[10px] uppercase tracking-[0.22em] text-cream/40">
+                  <div className="flex h-full w-full items-center justify-center font-mono text-[10px] uppercase tracking-[0.16em] text-cream/60">
                     Add video ID
                   </div>
                 )}
@@ -264,7 +244,7 @@ export default function Creative() {
                     <p className="font-serif italic text-lg leading-tight line-clamp-2">
                       {v.title}
                     </p>
-                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-cream/55">
+                    <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.16em] text-cream/55">
                       {v.views}
                     </p>
                   </div>
@@ -282,7 +262,7 @@ export default function Creative() {
               target="_blank"
               rel="noreferrer"
               data-cursor="link"
-              className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
+              className="group inline-flex items-center gap-4 rounded-full border border-cream/20 bg-cream text-ink px-7 py-4 font-mono text-xs uppercase tracking-[0.16em] hover:bg-acid hover:text-ink transition-colors"
             >
               Watch on YouTube
               <span
@@ -298,9 +278,9 @@ export default function Creative() {
 
       {/* ─────── CTA ─────── */}
       <section className="bg-cream text-ink border-y border-ink/10">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-32 md:py-40 grid grid-cols-12 gap-8">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-32 md:py-40 grid grid-cols-12 gap-8">
           <div className="col-span-12 md:col-span-8">
-            <p className="eyebrow text-ink/60 mb-6">§ — Booking</p>
+            <p className="eyebrow text-ink/70 mb-6">Booking</p>
             <h2 className="display-mega text-[clamp(1.6rem,4.4vw,4.4rem)] tracking-tighter">
               <SplitWords text="Booking shoots in" />
               <br />
@@ -318,7 +298,7 @@ export default function Creative() {
             <Link
               href="/contact"
               data-cursor="link"
-              className="group inline-flex items-center gap-4 rounded-full bg-ink text-cream px-7 py-4 font-mono text-xs uppercase tracking-[0.22em] hover:bg-acid hover:text-ink transition-colors"
+              className="group inline-flex items-center gap-4 rounded-full bg-ink text-cream px-7 py-4 font-mono text-xs uppercase tracking-[0.16em] hover:bg-acid hover:text-ink transition-colors"
             >
               Get in touch
               <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">

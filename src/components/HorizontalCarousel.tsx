@@ -2,8 +2,38 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { thumbSrc, thumbSrcSet } from "@/lib/thumbs";
 
-type CarouselItem = { src: string; isVideo: boolean };
+type CarouselItem = { src: string; isVideo: boolean; thumb?: string | null; tone?: string | null };
+
+// One slide image. Uses the pre-built SDR thumbnails when the catalog has
+// them (no optimizer round-trip), next/image otherwise.
+function SlideImage({
+  item,
+  alt,
+  className,
+}: {
+  item: CarouselItem;
+  alt: string;
+  className: string;
+}) {
+  if (item.thumb) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={thumbSrc(item.thumb)}
+        srcSet={thumbSrcSet(item.thumb)}
+        sizes="(max-width: 768px) 420px, 640px"
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        className={`absolute inset-0 h-full w-full ${className}`}
+      />
+    );
+  }
+  return <Image src={item.src} alt={alt} fill sizes="640px" draggable={false} className={className} />;
+}
 
 export function HorizontalCarousel({
   items,
@@ -49,7 +79,7 @@ export function HorizontalCarousel({
       el.scrollLeft += e.deltaX;
       e.preventDefault();
     }
-    // otherwise vertical-dominant: do nothing, let the page (Lenis) scroll
+    // otherwise vertical-dominant: do nothing, let the page scroll
   };
 
   const scrollBy = (dir: 1 | -1) => {
@@ -61,21 +91,21 @@ export function HorizontalCarousel({
   if (!items?.length) return null;
 
   return (
-    <div className="relative -mx-6 md:-mx-10">
+    <div className="relative -mx-4 sm:-mx-6 md:-mx-10">
       <div
         ref={ref}
         onWheel={onWheel}
-        className="overflow-x-auto"
+        className="overflow-x-auto overscroll-x-contain snap-x snap-mandatory md:snap-none"
         style={{ scrollbarWidth: "none" }}
       >
-        <div className="flex gap-3 px-6 md:px-10 py-2 w-max">
+        <div className="flex gap-3 px-4 sm:px-6 md:px-10 py-2 w-max [&>*]:snap-start">
           {items.map((item, i) => {
             if (displayMode === "screenshot") {
               const isCream = screenshotBg === "cream";
               return (
                 <div
                   key={item.src}
-                  className={`relative aspect-[3/2] h-[280px] md:h-[420px] flex-none overflow-hidden rounded-sm ${
+                  className={`relative aspect-[3/2] h-[240px] sm:h-[300px] md:h-[420px] flex-none overflow-hidden rounded-sm ${
                     isCream ? "bg-cream-mute" : "bg-ink-soft"
                   }`}
                   data-cursor="drag"
@@ -91,13 +121,10 @@ export function HorizontalCarousel({
                     <span className="size-2 rounded-full bg-acid-cool/70" />
                   </div>
                   <div className="absolute inset-x-3 top-8 bottom-3">
-                    <Image
-                      src={item.src}
-                      alt={`Asset ${i + 1}`}
-                      fill
-                      sizes="500px"
+                    <SlideImage
+                      item={item}
+                      alt={`Screenshot ${i + 1}`}
                       className="object-contain object-top pointer-events-none select-none"
-                      draggable={false}
                     />
                   </div>
                 </div>
@@ -106,17 +133,15 @@ export function HorizontalCarousel({
             return (
               <div
                 key={item.src}
-                className="relative aspect-[3/2] h-[280px] md:h-[420px] flex-none overflow-hidden rounded-sm"
+                className="relative aspect-[3/2] h-[240px] sm:h-[300px] md:h-[420px] flex-none overflow-hidden rounded-sm"
+                style={{ backgroundColor: item.tone ?? undefined }}
                 data-cursor="drag"
                 data-cursor-label="Drag"
               >
-                <Image
-                  src={item.src}
-                  alt={`Asset ${i + 1}`}
-                  fill
-                  sizes="500px"
+                <SlideImage
+                  item={item}
+                  alt={`Photo ${i + 1}`}
                   className="object-cover pointer-events-none select-none"
-                  draggable={false}
                 />
               </div>
             );

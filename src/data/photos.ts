@@ -9,6 +9,12 @@ export type Photo = {
   // Null when the photographer hasn't exported an SDR fallback yet — the
   // image will silently fall back to the Vercel-optimized SDR path.
   sdrSrc: string | null;
+  // Stem of the SDR grid thumbnails under /public/thumbs, built by the
+  // catalog script: `${thumb}.480.webp` and `${thumb}.960.webp`. Grid
+  // tiles use these; the lightbox still loads `src` (HDR).
+  thumb: string | null;
+  // Dominant colour of the thumbnail, shown behind the tile while it loads.
+  tone: string | null;
 };
 
 export const PHOTOS: Photo[] = [
@@ -18,7 +24,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Architecture Portfolio",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 1 of 4.webp"
+    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 1 of 4.webp",
+    "thumb": "/thumbs/2023/Events/Architecture Portfolio/Architecture Portfolio - 1 of 4",
+    "tone": "#c8c8d8"
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 2 of 4.avif",
@@ -26,7 +34,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Architecture Portfolio",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 2 of 4.webp"
+    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 2 of 4.webp",
+    "thumb": "/thumbs/2023/Events/Architecture Portfolio/Architecture Portfolio - 2 of 4",
+    "tone": "#d8b868"
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 3 of 4.avif",
@@ -34,7 +44,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Architecture Portfolio",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 3 of 4.webp"
+    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 3 of 4.webp",
+    "thumb": "/thumbs/2023/Events/Architecture Portfolio/Architecture Portfolio - 3 of 4",
+    "tone": "#c8a848"
   },
   {
     "src": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 4 of 4.avif",
@@ -42,7 +54,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Architecture Portfolio",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 4 of 4.webp"
+    "sdrSrc": "/images/2023/Events/Architecture Portfolio/Architecture Portfolio - 4 of 4.webp",
+    "thumb": "/thumbs/2023/Events/Architecture Portfolio/Architecture Portfolio - 4 of 4",
+    "tone": "#c8c8c8"
   },
   {
     "src": "/images/2023/Portraits/Portraits - 1 of 4.avif",
@@ -50,7 +64,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Portraits/Portraits - 1 of 4.webp"
+    "sdrSrc": "/images/2023/Portraits/Portraits - 1 of 4.webp",
+    "thumb": "/thumbs/2023/Portraits/Portraits - 1 of 4",
+    "tone": "#e8e8e8"
   },
   {
     "src": "/images/2023/Portraits/Portraits - 2 of 4.avif",
@@ -58,7 +74,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Portraits/Portraits - 2 of 4.webp"
+    "sdrSrc": "/images/2023/Portraits/Portraits - 2 of 4.webp",
+    "thumb": "/thumbs/2023/Portraits/Portraits - 2 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Portraits/Portraits - 3 of 4.avif",
@@ -66,7 +84,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Portraits/Portraits - 3 of 4.webp"
+    "sdrSrc": "/images/2023/Portraits/Portraits - 3 of 4.webp",
+    "thumb": "/thumbs/2023/Portraits/Portraits - 3 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Portraits/Portraits - 4 of 4.avif",
@@ -74,7 +94,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Portraits/Portraits - 4 of 4.webp"
+    "sdrSrc": "/images/2023/Portraits/Portraits - 4 of 4.webp",
+    "thumb": "/thumbs/2023/Portraits/Portraits - 4 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 1 of 4.avif",
@@ -82,7 +104,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Casino Night",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 1 of 4.webp"
+    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 1 of 4.webp",
+    "thumb": "/thumbs/2024/Events/Casino Night/Casino Night - 1 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 2 of 4.avif",
@@ -90,7 +114,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Casino Night",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 2 of 4.webp"
+    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 2 of 4.webp",
+    "thumb": "/thumbs/2024/Events/Casino Night/Casino Night - 2 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 3 of 4.avif",
@@ -98,7 +124,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Casino Night",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 3 of 4.webp"
+    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 3 of 4.webp",
+    "thumb": "/thumbs/2024/Events/Casino Night/Casino Night - 3 of 4",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Casino Night/Casino Night - 4 of 4.avif",
@@ -106,7 +134,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Casino Night",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 4 of 4.webp"
+    "sdrSrc": "/images/2024/Events/Casino Night/Casino Night - 4 of 4.webp",
+    "thumb": "/thumbs/2024/Events/Casino Night/Casino Night - 4 of 4",
+    "tone": "#181818"
   },
   {
     "src": "/images/2026/Portraits/Portraits - 1 of 4.avif",
@@ -114,7 +144,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Portraits/Portraits - 1 of 4.webp"
+    "sdrSrc": "/images/2026/Portraits/Portraits - 1 of 4.webp",
+    "thumb": "/thumbs/2026/Portraits/Portraits - 1 of 4",
+    "tone": "#c8b8a8"
   },
   {
     "src": "/images/2026/Portraits/Portraits - 2 of 4.avif",
@@ -122,7 +154,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Portraits/Portraits - 2 of 4.webp"
+    "sdrSrc": "/images/2026/Portraits/Portraits - 2 of 4.webp",
+    "thumb": "/thumbs/2026/Portraits/Portraits - 2 of 4",
+    "tone": "#d8e8f8"
   },
   {
     "src": "/images/2026/Portraits/Portraits - 3 of 4.avif",
@@ -130,7 +164,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Portraits/Portraits - 3 of 4.webp"
+    "sdrSrc": "/images/2026/Portraits/Portraits - 3 of 4.webp",
+    "thumb": "/thumbs/2026/Portraits/Portraits - 3 of 4",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2026/Portraits/Portraits - 4 of 4.avif",
@@ -138,7 +174,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Portraits/Portraits - 4 of 4.webp"
+    "sdrSrc": "/images/2026/Portraits/Portraits - 4 of 4.webp",
+    "thumb": "/thumbs/2026/Portraits/Portraits - 4 of 4",
+    "tone": "#383838"
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 1 of 5.avif",
@@ -146,7 +184,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Landscapes/Landscapes - 1 of 5.webp"
+    "sdrSrc": "/images/2026/Landscapes/Landscapes - 1 of 5.webp",
+    "thumb": "/thumbs/2026/Landscapes/Landscapes - 1 of 5",
+    "tone": "#b8d8e8"
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 2 of 5.avif",
@@ -154,7 +194,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Landscapes/Landscapes - 2 of 5.webp"
+    "sdrSrc": "/images/2026/Landscapes/Landscapes - 2 of 5.webp",
+    "thumb": "/thumbs/2026/Landscapes/Landscapes - 2 of 5",
+    "tone": "#68a8d8"
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 3 of 5.avif",
@@ -162,7 +204,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Landscapes/Landscapes - 3 of 5.webp"
+    "sdrSrc": "/images/2026/Landscapes/Landscapes - 3 of 5.webp",
+    "thumb": "/thumbs/2026/Landscapes/Landscapes - 3 of 5",
+    "tone": "#483808"
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 4 of 5.avif",
@@ -170,7 +214,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Landscapes/Landscapes - 4 of 5.webp"
+    "sdrSrc": "/images/2026/Landscapes/Landscapes - 4 of 5.webp",
+    "thumb": "/thumbs/2026/Landscapes/Landscapes - 4 of 5",
+    "tone": "#c8c8c8"
   },
   {
     "src": "/images/2026/Landscapes/Landscapes - 5 of 5.avif",
@@ -178,7 +224,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2026/Landscapes/Landscapes - 5 of 5.webp"
+    "sdrSrc": "/images/2026/Landscapes/Landscapes - 5 of 5.webp",
+    "thumb": "/thumbs/2026/Landscapes/Landscapes - 5 of 5",
+    "tone": "#a8b8c8"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 1 of 6.avif",
@@ -186,7 +234,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 1 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 1 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 1 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 2 of 6.avif",
@@ -194,7 +244,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 2 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 2 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 2 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 3 of 6.avif",
@@ -202,7 +254,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 3 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 3 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 3 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 4 of 6.avif",
@@ -210,7 +264,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 4 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 4 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 4 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 5 of 6.avif",
@@ -218,7 +274,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 5 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 5 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 5 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Charvi Bday/Charvi Bday - 6 of 6.avif",
@@ -226,7 +284,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi Bday",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 6 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Charvi Bday/Charvi Bday - 6 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Charvi Bday/Charvi Bday - 6 of 6",
+    "tone": "#c8c8b8"
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 1 of 6.avif",
@@ -234,7 +294,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Grad Photos",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 1 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 1 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Grad Photos/Grad Photos - 1 of 6",
+    "tone": "#a8a898"
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 3 of 6.avif",
@@ -242,7 +304,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Grad Photos",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 3 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 3 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Grad Photos/Grad Photos - 3 of 6",
+    "tone": "#d8c8c8"
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 4 of 6.avif",
@@ -250,7 +314,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Grad Photos",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 4 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 4 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Grad Photos/Grad Photos - 4 of 6",
+    "tone": "#b8a898"
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 5 of 6.avif",
@@ -258,7 +324,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Grad Photos",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 5 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 5 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Grad Photos/Grad Photos - 5 of 6",
+    "tone": "#383838"
   },
   {
     "src": "/images/2025/Events/Grad Photos/Grad Photos - 6 of 6.avif",
@@ -266,7 +334,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Grad Photos",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 6 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Grad Photos/Grad Photos - 6 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Grad Photos/Grad Photos - 6 of 6",
+    "tone": "#786858"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 1 of 6.avif",
@@ -274,7 +344,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 1 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 1 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 1 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 2 of 6.avif",
@@ -282,7 +354,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 2 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 2 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 2 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 3 of 6.avif",
@@ -290,7 +364,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 3 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 3 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 3 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 4 of 6.avif",
@@ -298,7 +374,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 4 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 4 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 4 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 5 of 6.avif",
@@ -306,7 +384,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 5 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 5 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 5 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 6 of 6.avif",
@@ -314,7 +394,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Salangai Pooja",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 6 of 6.webp"
+    "sdrSrc": "/images/2025/Events/Salangai Pooja/Salangai Pooja - 6 of 6.webp",
+    "thumb": "/thumbs/2025/Events/Salangai Pooja/Salangai Pooja - 6 of 6",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 1 of 10.avif",
@@ -322,7 +404,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 1 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 1 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 1 of 10",
+    "tone": "#88a8c8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 10 of 10.avif",
@@ -330,7 +414,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 10 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 10 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 10 of 10",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 2 of 10.avif",
@@ -338,7 +424,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 2 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 2 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 2 of 10",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 3 of 10.avif",
@@ -346,7 +434,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 3 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 3 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 3 of 10",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 4 of 10.avif",
@@ -354,7 +444,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 4 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 4 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 4 of 10",
+    "tone": "#e8e8d8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 5 of 10.avif",
@@ -362,7 +454,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 5 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 5 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 5 of 10",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 6 of 10.avif",
@@ -370,7 +464,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 6 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 6 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 6 of 10",
+    "tone": "#e8f8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 7 of 10.avif",
@@ -378,7 +474,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 7 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 7 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 7 of 10",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 8 of 10.avif",
@@ -386,7 +484,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 8 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 8 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 8 of 10",
+    "tone": "#b8e8f8"
   },
   {
     "src": "/images/2023/Events/Flock Party/Flock Party - 9 of 10.avif",
@@ -394,7 +494,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Flock Party",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 9 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Flock Party/Flock Party - 9 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Flock Party/Flock Party - 9 of 10",
+    "tone": "#f8f8e8"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 1 of 10.avif",
@@ -402,7 +504,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 1 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 1 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 1 of 10",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 10 of 10.avif",
@@ -410,7 +514,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 10 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 10 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 10 of 10",
+    "tone": "#282828"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 2 of 10.avif",
@@ -418,7 +524,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 2 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 2 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 2 of 10",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 3 of 10.avif",
@@ -426,7 +534,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 3 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 3 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 3 of 10",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 4 of 10.avif",
@@ -434,7 +544,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 4 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 4 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 4 of 10",
+    "tone": "#180818"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 5 of 10.avif",
@@ -442,7 +554,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 5 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 5 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 5 of 10",
+    "tone": "#e8e8d8"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 6 of 10.avif",
@@ -450,7 +564,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 6 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 6 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 6 of 10",
+    "tone": "#181818"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 7 of 10.avif",
@@ -458,7 +574,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 7 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 7 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 7 of 10",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 8 of 10.avif",
@@ -466,7 +584,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 8 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 8 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 8 of 10",
+    "tone": "#a8a898"
   },
   {
     "src": "/images/2023/Events/Homecoming/Homecoming - 9 of 10.avif",
@@ -474,7 +594,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Homecoming",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 9 of 10.webp"
+    "sdrSrc": "/images/2023/Events/Homecoming/Homecoming - 9 of 10.webp",
+    "thumb": "/thumbs/2023/Events/Homecoming/Homecoming - 9 of 10",
+    "tone": "#080818"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 1 of 10.avif",
@@ -482,7 +604,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 1 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 1 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 1 of 10",
+    "tone": "#888838"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 10 of 10.avif",
@@ -490,7 +614,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 10 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 10 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 10 of 10",
+    "tone": "#a8a868"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 2 of 10.avif",
@@ -498,7 +624,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 2 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 2 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 2 of 10",
+    "tone": "#888838"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 3 of 10.avif",
@@ -506,7 +634,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 3 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 3 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 3 of 10",
+    "tone": "#889848"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 4 of 10.avif",
@@ -514,7 +644,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 4 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 4 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 4 of 10",
+    "tone": "#788838"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 5 of 10.avif",
@@ -522,7 +654,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 5 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 5 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 5 of 10",
+    "tone": "#788848"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 6 of 10.avif",
@@ -530,7 +664,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 6 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 6 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 6 of 10",
+    "tone": "#a8a858"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 7 of 10.avif",
@@ -538,7 +674,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 7 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 7 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 7 of 10",
+    "tone": "#889848"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 8 of 10.avif",
@@ -546,7 +684,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 8 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 8 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 8 of 10",
+    "tone": "#889848"
   },
   {
     "src": "/images/2024/Events/Graduation/Graduation - 9 of 10.avif",
@@ -554,7 +694,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 9 of 10.webp"
+    "sdrSrc": "/images/2024/Events/Graduation/Graduation - 9 of 10.webp",
+    "thumb": "/thumbs/2024/Events/Graduation/Graduation - 9 of 10",
+    "tone": "#889848"
   },
   {
     "src": "/images/2023/Events/Product/Product - 1 of 12.avif",
@@ -562,7 +704,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 1 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 1 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 1 of 12",
+    "tone": "#a88808"
   },
   {
     "src": "/images/2023/Events/Product/Product - 10 of 12.avif",
@@ -570,7 +714,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 10 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 10 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 10 of 12",
+    "tone": "#085838"
   },
   {
     "src": "/images/2023/Events/Product/Product - 11 of 12.avif",
@@ -578,7 +724,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 11 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 11 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 11 of 12",
+    "tone": "#180808"
   },
   {
     "src": "/images/2023/Events/Product/Product - 12 of 12.avif",
@@ -586,7 +734,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 12 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 12 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 12 of 12",
+    "tone": "#086838"
   },
   {
     "src": "/images/2023/Events/Product/Product - 2 of 12.avif",
@@ -594,7 +744,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 2 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 2 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 2 of 12",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Product/Product - 3 of 12.avif",
@@ -602,7 +754,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 3 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 3 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 3 of 12",
+    "tone": "#b89808"
   },
   {
     "src": "/images/2023/Events/Product/Product - 4 of 12.avif",
@@ -610,7 +764,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 4 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 4 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 4 of 12",
+    "tone": "#089848"
   },
   {
     "src": "/images/2023/Events/Product/Product - 5 of 12.avif",
@@ -618,7 +774,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 5 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 5 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 5 of 12",
+    "tone": "#088858"
   },
   {
     "src": "/images/2023/Events/Product/Product - 6 of 12.avif",
@@ -626,7 +784,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 6 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 6 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 6 of 12",
+    "tone": "#087838"
   },
   {
     "src": "/images/2023/Events/Product/Product - 7 of 12.avif",
@@ -634,7 +794,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 7 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 7 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 7 of 12",
+    "tone": "#38a868"
   },
   {
     "src": "/images/2023/Events/Product/Product - 8 of 12.avif",
@@ -642,7 +804,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 8 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 8 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 8 of 12",
+    "tone": "#089868"
   },
   {
     "src": "/images/2023/Events/Product/Product - 9 of 12.avif",
@@ -650,7 +814,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Product",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Product/Product - 9 of 12.webp"
+    "sdrSrc": "/images/2023/Events/Product/Product - 9 of 12.webp",
+    "thumb": "/thumbs/2023/Events/Product/Product - 9 of 12",
+    "tone": "#08a868"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 1 of 13.avif",
@@ -658,7 +824,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 1 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 1 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 1 of 13",
+    "tone": "#283808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 10 of 13.avif",
@@ -666,7 +834,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 10 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 10 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 10 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 11 of 13.avif",
@@ -674,7 +844,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 11 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 11 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 11 of 13",
+    "tone": "#082848"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 12 of 13.avif",
@@ -682,7 +854,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 12 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 12 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 12 of 13",
+    "tone": "#081828"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 13 of 13.avif",
@@ -690,7 +864,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 13 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 13 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 13 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 2 of 13.avif",
@@ -698,7 +874,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 2 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 2 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 2 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 3 of 13.avif",
@@ -706,7 +884,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 3 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 3 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 3 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 4 of 13.avif",
@@ -714,7 +894,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 4 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 4 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 4 of 13",
+    "tone": "#182848"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 5 of 13.avif",
@@ -722,7 +904,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 5 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 5 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 5 of 13",
+    "tone": "#380808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 6 of 13.avif",
@@ -730,7 +914,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 6 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 6 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 6 of 13",
+    "tone": "#080818"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 7 of 13.avif",
@@ -738,7 +924,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 7 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 7 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 7 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 8 of 13.avif",
@@ -746,7 +934,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 8 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 8 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 8 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Portraits/Portraits - 9 of 13.avif",
@@ -754,7 +944,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Portraits/Portraits - 9 of 13.webp"
+    "sdrSrc": "/images/2024/Portraits/Portraits - 9 of 13.webp",
+    "thumb": "/thumbs/2024/Portraits/Portraits - 9 of 13",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 1 of 16.avif",
@@ -762,7 +954,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 1 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 1 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 1 of 16",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 10 of 16.avif",
@@ -770,7 +964,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 10 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 10 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 10 of 16",
+    "tone": "#283808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 11 of 16.avif",
@@ -778,7 +974,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 11 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 11 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 11 of 16",
+    "tone": "#d8d8e8"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 12 of 16.avif",
@@ -786,7 +984,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 12 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 12 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 12 of 16",
+    "tone": "#0838b8"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 13 of 16.avif",
@@ -794,7 +994,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 13 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 13 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 13 of 16",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 14 of 16.avif",
@@ -802,7 +1004,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 14 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 14 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 14 of 16",
+    "tone": "#081898"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 15 of 16.avif",
@@ -810,7 +1014,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 15 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 15 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 15 of 16",
+    "tone": "#080818"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 16 of 16.avif",
@@ -818,7 +1024,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 16 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 16 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 16 of 16",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 2 of 16.avif",
@@ -826,7 +1034,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 2 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 2 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 2 of 16",
+    "tone": "#587838"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 3 of 16.avif",
@@ -834,7 +1044,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 3 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 3 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 3 of 16",
+    "tone": "#181818"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 4 of 16.avif",
@@ -842,7 +1054,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 4 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 4 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 4 of 16",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 5 of 16.avif",
@@ -850,7 +1064,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 5 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 5 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 5 of 16",
+    "tone": "#583818"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 6 of 16.avif",
@@ -858,7 +1074,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 6 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 6 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 6 of 16",
+    "tone": "#182808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 7 of 16.avif",
@@ -866,7 +1084,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 7 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 7 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 7 of 16",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 8 of 16.avif",
@@ -874,7 +1094,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 8 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 8 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 8 of 16",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Prom/Prom - 9 of 16.avif",
@@ -882,7 +1104,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Prom",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Prom/Prom - 9 of 16.webp"
+    "sdrSrc": "/images/2024/Events/Prom/Prom - 9 of 16.webp",
+    "thumb": "/thumbs/2024/Events/Prom/Prom - 9 of 16",
+    "tone": "#587838"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 1 of 17.avif",
@@ -890,7 +1114,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 1 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 1 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 1 of 17",
+    "tone": "#888868"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 10 of 17.avif",
@@ -898,7 +1124,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 10 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 10 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 10 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 11 of 17.avif",
@@ -906,7 +1134,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 11 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 11 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 11 of 17",
+    "tone": "#d89848"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 12 of 17.avif",
@@ -914,7 +1144,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 12 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 12 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 12 of 17",
+    "tone": "#b88858"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 13 of 17.avif",
@@ -922,7 +1154,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 13 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 13 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 13 of 17",
+    "tone": "#181808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 14 of 17.avif",
@@ -930,7 +1164,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 14 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 14 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 14 of 17",
+    "tone": "#a88868"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 15 of 17.avif",
@@ -938,7 +1174,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 15 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 15 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 15 of 17",
+    "tone": "#a89878"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 16 of 17.avif",
@@ -946,7 +1184,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 16 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 16 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 16 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 17 of 17.avif",
@@ -954,7 +1194,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 17 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 17 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 17 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 2 of 17.avif",
@@ -962,7 +1204,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 2 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 2 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 2 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 3 of 17.avif",
@@ -970,7 +1214,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 3 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 3 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 3 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 4 of 17.avif",
@@ -978,7 +1224,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 4 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 4 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 4 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 5 of 17.avif",
@@ -986,7 +1234,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 5 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 5 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 5 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 6 of 17.avif",
@@ -994,7 +1244,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 6 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 6 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 6 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 7 of 17.avif",
@@ -1002,7 +1254,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 7 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 7 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 7 of 17",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 8 of 17.avif",
@@ -1010,7 +1264,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 8 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 8 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 8 of 17",
+    "tone": "#a89878"
   },
   {
     "src": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 9 of 17.avif",
@@ -1018,7 +1274,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Charvi's Birthday",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 9 of 17.webp"
+    "sdrSrc": "/images/2024/Events/Charvi's Birthday/Charvi's Birthday - 9 of 17.webp",
+    "thumb": "/thumbs/2024/Events/Charvi's Birthday/Charvi's Birthday - 9 of 17",
+    "tone": "#180808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 1 of 20.avif",
@@ -1026,7 +1284,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 1 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 1 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 1 of 20",
+    "tone": "#083898"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 10 of 20.avif",
@@ -1034,7 +1294,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 10 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 10 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 10 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 11 of 20.avif",
@@ -1042,7 +1304,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 11 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 11 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 11 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 12 of 20.avif",
@@ -1050,7 +1314,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 12 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 12 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 12 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 13 of 20.avif",
@@ -1058,7 +1324,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 13 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 13 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 13 of 20",
+    "tone": "#585858"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 14 of 20.avif",
@@ -1066,7 +1334,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 14 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 14 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 14 of 20",
+    "tone": "#787868"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 15 of 20.avif",
@@ -1074,7 +1344,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 15 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 15 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 15 of 20",
+    "tone": "#787868"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 16 of 20.avif",
@@ -1082,7 +1354,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 16 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 16 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 16 of 20",
+    "tone": "#585858"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 17 of 20.avif",
@@ -1090,7 +1364,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 17 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 17 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 17 of 20",
+    "tone": "#686858"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 18 of 20.avif",
@@ -1098,7 +1374,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 18 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 18 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 18 of 20",
+    "tone": "#686858"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 19 of 20.avif",
@@ -1106,7 +1384,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 19 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 19 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 19 of 20",
+    "tone": "#0858c8"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 2 of 20.avif",
@@ -1114,7 +1394,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 2 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 2 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 2 of 20",
+    "tone": "#181818"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 20 of 20.avif",
@@ -1122,7 +1404,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 20 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 20 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 20 of 20",
+    "tone": "#686858"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 3 of 20.avif",
@@ -1130,7 +1414,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 3 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 3 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 3 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 4 of 20.avif",
@@ -1138,7 +1424,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 4 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 4 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 4 of 20",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 5 of 20.avif",
@@ -1146,7 +1434,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 5 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 5 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 5 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 6 of 20.avif",
@@ -1154,7 +1444,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 6 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 6 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 6 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 7 of 20.avif",
@@ -1162,7 +1454,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 7 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 7 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 7 of 20",
+    "tone": "#181818"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 8 of 20.avif",
@@ -1170,7 +1464,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 8 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 8 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 8 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 9 of 20.avif",
@@ -1178,7 +1474,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Pearadox Graduation",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 9 of 20.webp"
+    "sdrSrc": "/images/2023/Events/Pearadox Graduation/Pearadox Graduation - 9 of 20.webp",
+    "thumb": "/thumbs/2023/Events/Pearadox Graduation/Pearadox Graduation - 9 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 1 of 20.avif",
@@ -1186,7 +1484,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 1 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 1 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 1 of 20",
+    "tone": "#d8d8d8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 10 of 20.avif",
@@ -1194,7 +1494,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 10 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 10 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 10 of 20",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 11 of 20.avif",
@@ -1202,7 +1504,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 11 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 11 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 11 of 20",
+    "tone": "#a8c8e8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 12 of 20.avif",
@@ -1210,7 +1514,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 12 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 12 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 12 of 20",
+    "tone": "#b8c8c8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 13 of 20.avif",
@@ -1218,7 +1524,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 13 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 13 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 13 of 20",
+    "tone": "#281808"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 14 of 20.avif",
@@ -1226,7 +1534,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 14 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 14 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 14 of 20",
+    "tone": "#383838"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 15 of 20.avif",
@@ -1234,7 +1544,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 15 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 15 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 15 of 20",
+    "tone": "#181808"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 16 of 20.avif",
@@ -1242,7 +1554,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 16 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 16 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 16 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 17 of 20.avif",
@@ -1250,7 +1564,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 17 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 17 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 17 of 20",
+    "tone": "#181828"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 18 of 20.avif",
@@ -1258,7 +1574,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 18 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 18 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 18 of 20",
+    "tone": "#282828"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 19 of 20.avif",
@@ -1266,7 +1584,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 19 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 19 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 19 of 20",
+    "tone": "#181818"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 2 of 20.avif",
@@ -1274,7 +1594,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 2 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 2 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 2 of 20",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 20 of 20.avif",
@@ -1282,7 +1604,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 20 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 20 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 20 of 20",
+    "tone": "#a89888"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 3 of 20.avif",
@@ -1290,7 +1614,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 3 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 3 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 3 of 20",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 4 of 20.avif",
@@ -1298,7 +1624,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 4 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 4 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 4 of 20",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 5 of 20.avif",
@@ -1306,7 +1634,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 5 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 5 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 5 of 20",
+    "tone": "#e8e8e8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 6 of 20.avif",
@@ -1314,7 +1644,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 6 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 6 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 6 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 7 of 20.avif",
@@ -1322,7 +1654,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 7 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 7 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 7 of 20",
+    "tone": "#b8d8f8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 8 of 20.avif",
@@ -1330,7 +1664,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 8 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 8 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 8 of 20",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 9 of 20.avif",
@@ -1338,7 +1674,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Garba @ TAMU",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 9 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Garba @ TAMU/Garba @ TAMU - 9 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Garba @ TAMU/Garba @ TAMU - 9 of 20",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 1 of 20.avif",
@@ -1346,7 +1684,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 1 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 1 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 1 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 10 of 20.avif",
@@ -1354,7 +1694,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 10 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 10 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 10 of 20",
+    "tone": "#c8c8b8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 11 of 20.avif",
@@ -1362,7 +1704,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 11 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 11 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 11 of 20",
+    "tone": "#d8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 12 of 20.avif",
@@ -1370,7 +1714,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 12 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 12 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 12 of 20",
+    "tone": "#885848"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 13 of 20.avif",
@@ -1378,7 +1724,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 13 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 13 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 13 of 20",
+    "tone": "#d8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 14 of 20.avif",
@@ -1386,7 +1734,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 14 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 14 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 14 of 20",
+    "tone": "#c8c8b8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 15 of 20.avif",
@@ -1394,7 +1744,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 15 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 15 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 15 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 16 of 20.avif",
@@ -1402,7 +1754,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 16 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 16 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 16 of 20",
+    "tone": "#d8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 17 of 20.avif",
@@ -1410,7 +1764,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 17 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 17 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 17 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 18 of 20.avif",
@@ -1418,7 +1774,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 18 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 18 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 18 of 20",
+    "tone": "#d8d8d8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 19 of 20.avif",
@@ -1426,7 +1784,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 19 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 19 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 19 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 2 of 20.avif",
@@ -1434,7 +1794,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 2 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 2 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 2 of 20",
+    "tone": "#d8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 20 of 20.avif",
@@ -1442,7 +1804,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 20 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 20 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 20 of 20",
+    "tone": "#c8c8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 3 of 20.avif",
@@ -1450,7 +1814,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 3 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 3 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 3 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 4 of 20.avif",
@@ -1458,7 +1824,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 4 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 4 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 4 of 20",
+    "tone": "#d8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 5 of 20.avif",
@@ -1466,7 +1834,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 5 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 5 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 5 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 6 of 20.avif",
@@ -1474,7 +1844,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 6 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 6 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 6 of 20",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 7 of 20.avif",
@@ -1482,7 +1854,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 7 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 7 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 7 of 20",
+    "tone": "#e8d8c8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 8 of 20.avif",
@@ -1490,7 +1864,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 8 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 8 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 8 of 20",
+    "tone": "#e8e8d8"
   },
   {
     "src": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 9 of 20.avif",
@@ -1498,7 +1874,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "Lunarfest 2024",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 9 of 20.webp"
+    "sdrSrc": "/images/2024/Events/Lunarfest 2024/Lunarfest 2024 - 9 of 20.webp",
+    "thumb": "/thumbs/2024/Events/Lunarfest 2024/Lunarfest 2024 - 9 of 20",
+    "tone": "#885848"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 1 of 22.avif",
@@ -1506,7 +1884,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 1 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 1 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 1 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 10 of 22.avif",
@@ -1514,7 +1894,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 10 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 10 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 10 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 11 of 22.avif",
@@ -1522,7 +1904,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 11 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 11 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 11 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 12 of 22.avif",
@@ -1530,7 +1914,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 12 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 12 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 12 of 22",
+    "tone": "#888888"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 13 of 22.avif",
@@ -1538,7 +1924,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 13 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 13 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 13 of 22",
+    "tone": "#888888"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 14 of 22.avif",
@@ -1546,7 +1934,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 14 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 14 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 14 of 22",
+    "tone": "#687878"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 15 of 22.avif",
@@ -1554,7 +1944,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 15 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 15 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 15 of 22",
+    "tone": "#081828"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 16 of 22.avif",
@@ -1562,7 +1954,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 16 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 16 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 16 of 22",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 17 of 22.avif",
@@ -1570,7 +1964,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 17 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 17 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 17 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 18 of 22.avif",
@@ -1578,7 +1974,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 18 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 18 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 18 of 22",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 19 of 22.avif",
@@ -1586,7 +1984,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 19 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 19 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 19 of 22",
+    "tone": "#888888"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 2 of 22.avif",
@@ -1594,7 +1994,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 2 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 2 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 2 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 20 of 22.avif",
@@ -1602,7 +2004,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 20 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 20 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 20 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 21 of 22.avif",
@@ -1610,7 +2014,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 21 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 21 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 21 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 22 of 22.avif",
@@ -1618,7 +2024,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 22 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 22 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 22 of 22",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 3 of 22.avif",
@@ -1626,7 +2034,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 3 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 3 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 3 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 4 of 22.avif",
@@ -1634,7 +2044,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 4 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 4 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 4 of 22",
+    "tone": "#989898"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 5 of 22.avif",
@@ -1642,7 +2054,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 5 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 5 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 5 of 22",
+    "tone": "#888888"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 6 of 22.avif",
@@ -1650,7 +2064,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 6 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 6 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 6 of 22",
+    "tone": "#585858"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 7 of 22.avif",
@@ -1658,7 +2074,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 7 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 7 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 7 of 22",
+    "tone": "#585858"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 8 of 22.avif",
@@ -1666,7 +2084,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 8 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 8 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 8 of 22",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 9 of 22.avif",
@@ -1674,7 +2094,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2024 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 9 of 22.webp"
+    "sdrSrc": "/images/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 9 of 22.webp",
+    "thumb": "/thumbs/2024/Events/FRC Pearadox 2024 Season/FRC Pearadox 2024 Season - 9 of 22",
+    "tone": "#585858"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 1 of 24.avif",
@@ -1682,7 +2104,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 1 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 1 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 1 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 10 of 24.avif",
@@ -1690,7 +2114,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 10 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 10 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 10 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 11 of 24.avif",
@@ -1698,7 +2124,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 11 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 11 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 11 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 12 of 24.avif",
@@ -1706,7 +2134,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 12 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 12 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 12 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 13 of 24.avif",
@@ -1714,7 +2144,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 13 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 13 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 13 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 14 of 24.avif",
@@ -1722,7 +2154,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 14 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 14 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 14 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 15 of 24.avif",
@@ -1730,7 +2164,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 15 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 15 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 15 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 16 of 24.avif",
@@ -1738,7 +2174,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 16 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 16 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 16 of 24",
+    "tone": "#888888"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 17 of 24.avif",
@@ -1746,7 +2184,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 17 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 17 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 17 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 18 of 24.avif",
@@ -1754,7 +2194,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 18 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 18 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 18 of 24",
+    "tone": "#888888"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 19 of 24.avif",
@@ -1762,7 +2204,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 19 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 19 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 19 of 24",
+    "tone": "#888888"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 2 of 24.avif",
@@ -1770,7 +2214,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 2 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 2 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 2 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 20 of 24.avif",
@@ -1778,7 +2224,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 20 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 20 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 20 of 24",
+    "tone": "#888888"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 21 of 24.avif",
@@ -1786,7 +2234,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 21 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 21 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 21 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 22 of 24.avif",
@@ -1794,7 +2244,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 22 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 22 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 22 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 23 of 24.avif",
@@ -1802,7 +2254,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 23 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 23 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 23 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 24 of 24.avif",
@@ -1810,7 +2264,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 24 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 24 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 24 of 24",
+    "tone": "#484848"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 3 of 24.avif",
@@ -1818,7 +2274,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 3 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 3 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 3 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 4 of 24.avif",
@@ -1826,7 +2284,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 4 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 4 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 4 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 5 of 24.avif",
@@ -1834,7 +2294,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 5 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 5 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 5 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 6 of 24.avif",
@@ -1842,7 +2304,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 6 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 6 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 6 of 24",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 7 of 24.avif",
@@ -1850,7 +2314,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 7 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 7 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 7 of 24",
+    "tone": "#686868"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 8 of 24.avif",
@@ -1858,7 +2324,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 8 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 8 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 8 of 24",
+    "tone": "#585858"
   },
   {
     "src": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 9 of 24.avif",
@@ -1866,7 +2334,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "FRC Pearadox 2023 Season",
     "isVideo": false,
-    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 9 of 24.webp"
+    "sdrSrc": "/images/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 9 of 24.webp",
+    "thumb": "/thumbs/2023/Events/FRC Pearadox 2023 Season/FRC Pearadox 2023 Season - 9 of 24",
+    "tone": "#686868"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 1 of 25.avif",
@@ -1874,7 +2344,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 1 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 1 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 1 of 25",
+    "tone": "#a8a8b8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 10 of 25.avif",
@@ -1882,7 +2354,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 10 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 10 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 10 of 25",
+    "tone": "#98a8b8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 11 of 25.avif",
@@ -1890,7 +2364,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 11 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 11 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 11 of 25",
+    "tone": "#180818"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 12 of 25.avif",
@@ -1898,7 +2374,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 12 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 12 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 12 of 25",
+    "tone": "#080838"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 13 of 25.avif",
@@ -1906,7 +2384,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 13 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 13 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 13 of 25",
+    "tone": "#080828"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 14 of 25.avif",
@@ -1914,7 +2394,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 14 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 14 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 14 of 25",
+    "tone": "#080818"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 15 of 25.avif",
@@ -1922,7 +2404,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 15 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 15 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 15 of 25",
+    "tone": "#080818"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 16 of 25.avif",
@@ -1930,7 +2414,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 16 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 16 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 16 of 25",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 17 of 25.avif",
@@ -1938,7 +2424,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 17 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 17 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 17 of 25",
+    "tone": "#f858b8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 18 of 25.avif",
@@ -1946,7 +2434,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 18 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 18 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 18 of 25",
+    "tone": "#080828"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 19 of 25.avif",
@@ -1954,7 +2444,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 19 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 19 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 19 of 25",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 2 of 25.avif",
@@ -1962,7 +2454,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 2 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 2 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 2 of 25",
+    "tone": "#c87838"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 20 of 25.avif",
@@ -1970,7 +2464,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 20 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 20 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 20 of 25",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 21 of 25.avif",
@@ -1978,7 +2474,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 21 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 21 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 21 of 25",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 22 of 25.avif",
@@ -1986,7 +2484,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 22 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 22 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 22 of 25",
+    "tone": "#c8b8a8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 23 of 25.avif",
@@ -1994,7 +2494,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 23 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 23 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 23 of 25",
+    "tone": "#a89878"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 24 of 25.avif",
@@ -2002,7 +2504,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 24 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 24 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 24 of 25",
+    "tone": "#887868"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 25 of 25.avif",
@@ -2010,7 +2514,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 25 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 25 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 25 of 25",
+    "tone": "#e8b888"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 3 of 25.avif",
@@ -2018,7 +2524,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 3 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 3 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 3 of 25",
+    "tone": "#88b8e8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 4 of 25.avif",
@@ -2026,7 +2534,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 4 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 4 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 4 of 25",
+    "tone": "#e8d8d8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 5 of 25.avif",
@@ -2034,7 +2544,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 5 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 5 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 5 of 25",
+    "tone": "#c8c8b8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 6 of 25.avif",
@@ -2042,7 +2554,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 6 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 6 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 6 of 25",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 7 of 25.avif",
@@ -2050,7 +2564,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 7 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 7 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 7 of 25",
+    "tone": "#f8e8d8"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 8 of 25.avif",
@@ -2058,7 +2574,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 8 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 8 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 8 of 25",
+    "tone": "#e8c898"
   },
   {
     "src": "/images/2025/Portraits/Portraits - 9 of 25.avif",
@@ -2066,7 +2584,9 @@ export const PHOTOS: Photo[] = [
     "category": "Portraits",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Portraits/Portraits - 9 of 25.webp"
+    "sdrSrc": "/images/2025/Portraits/Portraits - 9 of 25.webp",
+    "thumb": "/thumbs/2025/Portraits/Portraits - 9 of 25",
+    "tone": "#887868"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 1 of 26.avif",
@@ -2074,7 +2594,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 1 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 1 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 1 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 10 of 26.avif",
@@ -2082,7 +2604,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 10 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 10 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 10 of 26",
+    "tone": "#081818"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 11 of 26.avif",
@@ -2090,7 +2614,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 11 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 11 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 11 of 26",
+    "tone": "#d8e8e8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 12 of 26.avif",
@@ -2098,7 +2624,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 12 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 12 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 12 of 26",
+    "tone": "#789898"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 13 of 26.avif",
@@ -2106,7 +2634,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 13 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 13 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 13 of 26",
+    "tone": "#383808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 14 of 26.avif",
@@ -2114,7 +2644,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 14 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 14 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 14 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 15 of 26.avif",
@@ -2122,7 +2654,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 15 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 15 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 15 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 16 of 26.avif",
@@ -2130,7 +2664,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 16 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 16 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 16 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 17 of 26.avif",
@@ -2138,7 +2674,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 17 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 17 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 17 of 26",
+    "tone": "#081818"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 18 of 26.avif",
@@ -2146,7 +2684,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 18 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 18 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 18 of 26",
+    "tone": "#080818"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 19 of 26.avif",
@@ -2154,7 +2694,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 19 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 19 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 19 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 2 of 26.avif",
@@ -2162,7 +2704,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 2 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 2 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 2 of 26",
+    "tone": "#d8d8e8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 20 of 26.avif",
@@ -2170,7 +2714,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 20 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 20 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 20 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 21 of 26.avif",
@@ -2178,7 +2724,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 21 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 21 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 21 of 26",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 22 of 26.avif",
@@ -2186,7 +2734,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 22 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 22 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 22 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 23 of 26.avif",
@@ -2194,7 +2744,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 23 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 23 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 23 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 24 of 26.avif",
@@ -2202,7 +2754,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 24 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 24 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 24 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 25 of 26.avif",
@@ -2210,7 +2764,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 25 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 25 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 25 of 26",
+    "tone": "#585868"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 26 of 26.avif",
@@ -2218,7 +2774,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 26 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 26 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 26 of 26",
+    "tone": "#785848"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 3 of 26.avif",
@@ -2226,7 +2784,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 3 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 3 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 3 of 26",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 4 of 26.avif",
@@ -2234,7 +2794,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 4 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 4 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 4 of 26",
+    "tone": "#a8a8a8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 5 of 26.avif",
@@ -2242,7 +2804,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 5 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 5 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 5 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 6 of 26.avif",
@@ -2250,7 +2814,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 6 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 6 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 6 of 26",
+    "tone": "#081808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 7 of 26.avif",
@@ -2258,7 +2824,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 7 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 7 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 7 of 26",
+    "tone": "#0898e8"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 8 of 26.avif",
@@ -2266,7 +2834,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 8 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 8 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 8 of 26",
+    "tone": "#080808"
   },
   {
     "src": "/images/2023/Landscapes/Landscapes - 9 of 26.avif",
@@ -2274,7 +2844,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2023/Landscapes/Landscapes - 9 of 26.webp"
+    "sdrSrc": "/images/2023/Landscapes/Landscapes - 9 of 26.webp",
+    "thumb": "/thumbs/2023/Landscapes/Landscapes - 9 of 26",
+    "tone": "#a8c8d8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 1 of 27.avif",
@@ -2282,7 +2854,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 1 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 1 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 1 of 27",
+    "tone": "#282828"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 10 of 27.avif",
@@ -2290,7 +2864,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 10 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 10 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 10 of 27",
+    "tone": "#181818"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 11 of 27.avif",
@@ -2298,7 +2874,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 11 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 11 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 11 of 27",
+    "tone": "#282828"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 12 of 27.avif",
@@ -2306,7 +2884,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 12 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 12 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 12 of 27",
+    "tone": "#988878"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 13 of 27.avif",
@@ -2314,7 +2894,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 13 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 13 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 13 of 27",
+    "tone": "#989898"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 14 of 27.avif",
@@ -2322,7 +2904,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 14 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 14 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 14 of 27",
+    "tone": "#c8c8c8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 15 of 27.avif",
@@ -2330,7 +2914,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 15 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 15 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 15 of 27",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 16 of 27.avif",
@@ -2338,7 +2924,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 16 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 16 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 16 of 27",
+    "tone": "#b8a898"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 17 of 27.avif",
@@ -2346,7 +2934,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 17 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 17 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 17 of 27",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 18 of 27.avif",
@@ -2354,7 +2944,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 18 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 18 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 18 of 27",
+    "tone": "#b8b8a8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 19 of 27.avif",
@@ -2362,7 +2954,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 19 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 19 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 19 of 27",
+    "tone": "#c8c8c8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 2 of 27.avif",
@@ -2370,7 +2964,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 2 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 2 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 2 of 27",
+    "tone": "#a8a898"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 20 of 27.avif",
@@ -2378,7 +2974,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 20 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 20 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 20 of 27",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 21 of 27.avif",
@@ -2386,7 +2984,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 21 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 21 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 21 of 27",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 22 of 27.avif",
@@ -2394,7 +2994,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 22 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 22 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 22 of 27",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 23 of 27.avif",
@@ -2402,7 +3004,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 23 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 23 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 23 of 27",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 24 of 27.avif",
@@ -2410,7 +3014,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 24 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 24 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 24 of 27",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 25 of 27.avif",
@@ -2418,7 +3024,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 25 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 25 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 25 of 27",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 26 of 27.avif",
@@ -2426,7 +3034,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 26 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 26 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 26 of 27",
+    "tone": "#c8c8b8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 27 of 27.avif",
@@ -2434,7 +3044,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 27 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 27 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 27 of 27",
+    "tone": "#181818"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 3 of 27.avif",
@@ -2442,7 +3054,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 3 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 3 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 3 of 27",
+    "tone": "#a8a8a8"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 4 of 27.avif",
@@ -2450,7 +3064,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 4 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 4 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 4 of 27",
+    "tone": "#282828"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 5 of 27.avif",
@@ -2458,7 +3074,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 5 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 5 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 5 of 27",
+    "tone": "#282828"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 6 of 27.avif",
@@ -2466,7 +3084,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 6 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 6 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 6 of 27",
+    "tone": "#989898"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 7 of 27.avif",
@@ -2474,7 +3094,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 7 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 7 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 7 of 27",
+    "tone": "#282828"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 8 of 27.avif",
@@ -2482,7 +3104,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 8 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 8 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 8 of 27",
+    "tone": "#989898"
   },
   {
     "src": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 9 of 27.avif",
@@ -2490,7 +3114,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "PHFLO Officer Team",
     "isVideo": false,
-    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 9 of 27.webp"
+    "sdrSrc": "/images/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 9 of 27.webp",
+    "thumb": "/thumbs/2025/Events/PHFLO Officer Team/PHFLO Officer Team - 9 of 27",
+    "tone": "#a8a8a8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 1 of 32.avif",
@@ -2498,7 +3124,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 1 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 1 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 1 of 32",
+    "tone": "#a8e8f8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 10 of 32.avif",
@@ -2506,7 +3134,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 10 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 10 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 10 of 32",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 11 of 32.avif",
@@ -2514,7 +3144,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 11 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 11 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 11 of 32",
+    "tone": "#e8d8c8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 12 of 32.avif",
@@ -2522,7 +3154,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 12 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 12 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 12 of 32",
+    "tone": "#e89848"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 13 of 32.avif",
@@ -2530,7 +3164,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 13 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 13 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 13 of 32",
+    "tone": "#284838"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 14 of 32.avif",
@@ -2538,7 +3174,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 14 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 14 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 14 of 32",
+    "tone": "#284838"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 15 of 32.avif",
@@ -2546,7 +3184,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 15 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 15 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 15 of 32",
+    "tone": "#98a8a8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 16 of 32.avif",
@@ -2554,7 +3194,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 16 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 16 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 16 of 32",
+    "tone": "#485848"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 17 of 32.avif",
@@ -2562,7 +3204,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 17 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 17 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 17 of 32",
+    "tone": "#485848"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 18 of 32.avif",
@@ -2570,7 +3214,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 18 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 18 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 18 of 32",
+    "tone": "#485848"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 19 of 32.avif",
@@ -2578,7 +3224,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 19 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 19 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 19 of 32",
+    "tone": "#d8a898"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 2 of 32.avif",
@@ -2586,7 +3234,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 2 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 2 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 2 of 32",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 20 of 32.avif",
@@ -2594,7 +3244,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 20 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 20 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 20 of 32",
+    "tone": "#c89878"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 21 of 32.avif",
@@ -2602,7 +3254,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 21 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 21 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 21 of 32",
+    "tone": "#b88868"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 22 of 32.avif",
@@ -2610,7 +3264,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 22 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 22 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 22 of 32",
+    "tone": "#c89878"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 23 of 32.avif",
@@ -2618,7 +3274,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 23 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 23 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 23 of 32",
+    "tone": "#98b8d8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 24 of 32.avif",
@@ -2626,7 +3284,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 24 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 24 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 24 of 32",
+    "tone": "#8898b8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 25 of 32.avif",
@@ -2634,7 +3294,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 25 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 25 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 25 of 32",
+    "tone": "#586848"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 26 of 32.avif",
@@ -2642,7 +3304,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 26 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 26 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 26 of 32",
+    "tone": "#a8c8e8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 27 of 32.avif",
@@ -2650,7 +3314,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 27 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 27 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 27 of 32",
+    "tone": "#284838"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 28 of 32.avif",
@@ -2658,7 +3324,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 28 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 28 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 28 of 32",
+    "tone": "#686828"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 29 of 32.avif",
@@ -2666,7 +3334,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 29 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 29 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 29 of 32",
+    "tone": "#686828"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 3 of 32.avif",
@@ -2674,7 +3344,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 3 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 3 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 3 of 32",
+    "tone": "#e8b878"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 30 of 32.avif",
@@ -2682,7 +3354,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 30 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 30 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 30 of 32",
+    "tone": "#484818"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 31 of 32.avif",
@@ -2690,7 +3364,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 31 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 31 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 31 of 32",
+    "tone": "#484808"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 32 of 32.avif",
@@ -2698,7 +3374,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 32 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 32 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 32 of 32",
+    "tone": "#383808"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 4 of 32.avif",
@@ -2706,7 +3384,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 4 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 4 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 4 of 32",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 5 of 32.avif",
@@ -2714,7 +3394,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 5 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 5 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 5 of 32",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 6 of 32.avif",
@@ -2722,7 +3404,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 6 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 6 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 6 of 32",
+    "tone": "#989838"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 7 of 32.avif",
@@ -2730,7 +3414,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 7 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 7 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 7 of 32",
+    "tone": "#a8e8f8"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 8 of 32.avif",
@@ -2738,7 +3424,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 8 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 8 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 8 of 32",
+    "tone": "#182838"
   },
   {
     "src": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 9 of 32.avif",
@@ -2746,7 +3434,9 @@ export const PHOTOS: Photo[] = [
     "category": "Events",
     "subgroup": "IDEAAL Halloween",
     "isVideo": false,
-    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 9 of 32.webp"
+    "sdrSrc": "/images/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 9 of 32.webp",
+    "thumb": "/thumbs/2024/Events/IDEAAL Halloween/IDEAAL Halloween - 9 of 32",
+    "tone": "#a8a838"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 1 of 37.avif",
@@ -2754,7 +3444,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 1 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 1 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 1 of 37",
+    "tone": "#181808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 10 of 37.avif",
@@ -2762,7 +3454,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 10 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 10 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 10 of 37",
+    "tone": "#a8c8e8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 11 of 37.avif",
@@ -2770,7 +3464,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 11 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 11 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 11 of 37",
+    "tone": "#081828"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 12 of 37.avif",
@@ -2778,7 +3474,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 12 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 12 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 12 of 37",
+    "tone": "#e8e8e8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 13 of 37.avif",
@@ -2786,7 +3484,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 13 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 13 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 13 of 37",
+    "tone": "#a8d8f8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 14 of 37.avif",
@@ -2794,7 +3494,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 14 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 14 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 14 of 37",
+    "tone": "#98b8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 15 of 37.avif",
@@ -2802,7 +3504,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 15 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 15 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 15 of 37",
+    "tone": "#68a8c8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 16 of 37.avif",
@@ -2810,7 +3514,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 16 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 16 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 16 of 37",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 17 of 37.avif",
@@ -2818,7 +3524,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 17 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 17 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 17 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 18 of 37.avif",
@@ -2826,7 +3534,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 18 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 18 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 18 of 37",
+    "tone": "#588818"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 19 of 37.avif",
@@ -2834,7 +3544,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 19 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 19 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 19 of 37",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 2 of 37.avif",
@@ -2842,7 +3554,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 2 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 2 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 2 of 37",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 20 of 37.avif",
@@ -2850,7 +3564,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 20 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 20 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 20 of 37",
+    "tone": "#d8d8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 21 of 37.avif",
@@ -2858,7 +3574,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 21 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 21 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 21 of 37",
+    "tone": "#88b8b8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 22 of 37.avif",
@@ -2866,7 +3584,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 22 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 22 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 22 of 37",
+    "tone": "#a8b8c8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 23 of 37.avif",
@@ -2874,7 +3594,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 23 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 23 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 23 of 37",
+    "tone": "#486868"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 24 of 37.avif",
@@ -2882,7 +3604,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 24 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 24 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 24 of 37",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 25 of 37.avif",
@@ -2890,7 +3614,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 25 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 25 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 25 of 37",
+    "tone": "#987858"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 26 of 37.avif",
@@ -2898,7 +3624,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 26 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 26 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 26 of 37",
+    "tone": "#b8d8f8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 27 of 37.avif",
@@ -2906,7 +3634,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 27 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 27 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 27 of 37",
+    "tone": "#98b8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 28 of 37.avif",
@@ -2914,7 +3644,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 28 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 28 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 28 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 29 of 37.avif",
@@ -2922,7 +3654,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 29 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 29 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 29 of 37",
+    "tone": "#282838"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 3 of 37.avif",
@@ -2930,7 +3664,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 3 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 3 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 3 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 30 of 37.avif",
@@ -2938,7 +3674,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 30 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 30 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 30 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 31 of 37.avif",
@@ -2946,7 +3684,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 31 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 31 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 31 of 37",
+    "tone": "#181808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 32 of 37.avif",
@@ -2954,7 +3694,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 32 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 32 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 32 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 33 of 37.avif",
@@ -2962,7 +3704,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 33 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 33 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 33 of 37",
+    "tone": "#081828"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 34 of 37.avif",
@@ -2970,7 +3714,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 34 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 34 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 34 of 37",
+    "tone": "#282838"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 35 of 37.avif",
@@ -2978,7 +3724,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 35 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 35 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 35 of 37",
+    "tone": "#98d8f8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 36 of 37.avif",
@@ -2986,7 +3734,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 36 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 36 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 36 of 37",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 37 of 37.avif",
@@ -2994,7 +3744,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 37 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 37 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 37 of 37",
+    "tone": "#98b8c8"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 4 of 37.avif",
@@ -3002,7 +3754,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 4 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 4 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 4 of 37",
+    "tone": "#081818"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 5 of 37.avif",
@@ -3010,7 +3764,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 5 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 5 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 5 of 37",
+    "tone": "#180808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 6 of 37.avif",
@@ -3018,7 +3774,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 6 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 6 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 6 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 7 of 37.avif",
@@ -3026,7 +3784,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 7 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 7 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 7 of 37",
+    "tone": "#080808"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 8 of 37.avif",
@@ -3034,7 +3794,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 8 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 8 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 8 of 37",
+    "tone": "#081828"
   },
   {
     "src": "/images/2024/Landscapes/Landscapes - 9 of 37.avif",
@@ -3042,7 +3804,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2024/Landscapes/Landscapes - 9 of 37.webp"
+    "sdrSrc": "/images/2024/Landscapes/Landscapes - 9 of 37.webp",
+    "thumb": "/thumbs/2024/Landscapes/Landscapes - 9 of 37",
+    "tone": "#081838"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 1 of 48.avif",
@@ -3050,7 +3814,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 1 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 1 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 1 of 48",
+    "tone": "#b8b8c8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 10 of 48.avif",
@@ -3058,7 +3824,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 10 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 10 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 10 of 48",
+    "tone": "#181808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 11 of 48.avif",
@@ -3066,7 +3834,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 11 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 11 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 11 of 48",
+    "tone": "#382808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 12 of 48.avif",
@@ -3074,7 +3844,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 12 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 12 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 12 of 48",
+    "tone": "#181808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 13 of 48.avif",
@@ -3082,7 +3854,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 13 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 13 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 13 of 48",
+    "tone": "#787898"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 14 of 48.avif",
@@ -3090,7 +3864,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 14 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 14 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 14 of 48",
+    "tone": "#988888"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 15 of 48.avif",
@@ -3098,7 +3874,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 15 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 15 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 15 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 16 of 48.avif",
@@ -3106,7 +3884,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 16 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 16 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 16 of 48",
+    "tone": "#78a8d8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 17 of 48.avif",
@@ -3114,7 +3894,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 17 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 17 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 17 of 48",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 18 of 48.avif",
@@ -3122,7 +3904,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 18 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 18 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 18 of 48",
+    "tone": "#5898c8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 19 of 48.avif",
@@ -3130,7 +3914,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 19 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 19 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 19 of 48",
+    "tone": "#282808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 2 of 48.avif",
@@ -3138,7 +3924,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 2 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 2 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 2 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 20 of 48.avif",
@@ -3146,7 +3934,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 20 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 20 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 20 of 48",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 21 of 48.avif",
@@ -3154,7 +3944,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 21 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 21 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 21 of 48",
+    "tone": "#c8d8e8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 22 of 48.avif",
@@ -3162,7 +3954,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 22 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 22 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 22 of 48",
+    "tone": "#a8b8d8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 23 of 48.avif",
@@ -3170,7 +3964,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 23 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 23 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 23 of 48",
+    "tone": "#b8c8e8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 24 of 48.avif",
@@ -3178,7 +3974,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 24 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 24 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 24 of 48",
+    "tone": "#383828"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 25 of 48.avif",
@@ -3186,7 +3984,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 25 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 25 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 25 of 48",
+    "tone": "#386898"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 26 of 48.avif",
@@ -3194,7 +3994,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 26 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 26 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 26 of 48",
+    "tone": "#7888a8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 27 of 48.avif",
@@ -3202,7 +4004,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 27 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 27 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 27 of 48",
+    "tone": "#a8b8b8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 28 of 48.avif",
@@ -3210,7 +4014,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 28 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 28 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 28 of 48",
+    "tone": "#283858"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 29 of 48.avif",
@@ -3218,7 +4024,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 29 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 29 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 29 of 48",
+    "tone": "#181818"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 3 of 48.avif",
@@ -3226,7 +4034,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 3 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 3 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 3 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 30 of 48.avif",
@@ -3234,7 +4044,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 30 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 30 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 30 of 48",
+    "tone": "#b8c8d8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 31 of 48.avif",
@@ -3242,7 +4054,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 31 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 31 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 31 of 48",
+    "tone": "#484848"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 32 of 48.avif",
@@ -3250,7 +4064,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 32 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 32 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 32 of 48",
+    "tone": "#4888b8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 33 of 48.avif",
@@ -3258,7 +4074,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 33 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 33 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 33 of 48",
+    "tone": "#485868"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 34 of 48.avif",
@@ -3266,7 +4084,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 34 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 34 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 34 of 48",
+    "tone": "#280808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 35 of 48.avif",
@@ -3274,7 +4094,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 35 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 35 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 35 of 48",
+    "tone": "#5878a8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 36 of 48.avif",
@@ -3282,7 +4104,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 36 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 36 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 36 of 48",
+    "tone": "#686858"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 37 of 48.avif",
@@ -3290,7 +4114,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 37 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 37 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 37 of 48",
+    "tone": "#383848"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 38 of 48.avif",
@@ -3298,7 +4124,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 38 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 38 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 38 of 48",
+    "tone": "#f8f8f8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 39 of 48.avif",
@@ -3306,7 +4134,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 39 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 39 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 39 of 48",
+    "tone": "#081828"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 4 of 48.avif",
@@ -3314,7 +4144,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 4 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 4 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 4 of 48",
+    "tone": "#b8b8b8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 40 of 48.avif",
@@ -3322,7 +4154,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 40 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 40 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 40 of 48",
+    "tone": "#a8f8f8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 41 of 48.avif",
@@ -3330,7 +4164,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 41 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 41 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 41 of 48",
+    "tone": "#182838"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 42 of 48.avif",
@@ -3338,7 +4174,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 42 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 42 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 42 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 43 of 48.avif",
@@ -3346,7 +4184,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 43 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 43 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 43 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 44 of 48.avif",
@@ -3354,7 +4194,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 44 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 44 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 44 of 48",
+    "tone": "#180808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 45 of 48.avif",
@@ -3362,7 +4204,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 45 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 45 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 45 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 46 of 48.avif",
@@ -3370,7 +4214,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 46 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 46 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 46 of 48",
+    "tone": "#080828"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 47 of 48.avif",
@@ -3378,7 +4224,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 47 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 47 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 47 of 48",
+    "tone": "#080808"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 48 of 48.avif",
@@ -3386,7 +4234,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 48 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 48 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 48 of 48",
+    "tone": "#081828"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 5 of 48.avif",
@@ -3394,7 +4244,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 5 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 5 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 5 of 48",
+    "tone": "#3888c8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 6 of 48.avif",
@@ -3402,7 +4254,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 6 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 6 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 6 of 48",
+    "tone": "#f8d8b8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 7 of 48.avif",
@@ -3410,7 +4264,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 7 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 7 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 7 of 48",
+    "tone": "#b8a8a8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 8 of 48.avif",
@@ -3418,7 +4274,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 8 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 8 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 8 of 48",
+    "tone": "#b8b8c8"
   },
   {
     "src": "/images/2025/Landscapes/Landscapes - 9 of 48.avif",
@@ -3426,7 +4284,9 @@ export const PHOTOS: Photo[] = [
     "category": "Landscapes",
     "subgroup": null,
     "isVideo": false,
-    "sdrSrc": "/images/2025/Landscapes/Landscapes - 9 of 48.webp"
+    "sdrSrc": "/images/2025/Landscapes/Landscapes - 9 of 48.webp",
+    "thumb": "/thumbs/2025/Landscapes/Landscapes - 9 of 48",
+    "tone": "#484858"
   }
 ];
 

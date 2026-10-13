@@ -1,42 +1,20 @@
-"use client";
+import type { CSSProperties, ReactNode } from "react";
 
-import { motion, useInView, type Variants } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
-
-// Reveal sequencing rules:
-//   - `eager` → play on mount, no scroll check. Use this for above-the-fold
-//     hero text that needs to be visible immediately.
-//   - On mount, if the element is *already* in the viewport (e.g. early
-//     sections on a tall page), play immediately. This catches the race
-//     where IntersectionObserver doesn't fire because the element was
-//     visible before the observer attached.
-//   - Otherwise, follow scroll position via Framer's useInView.
+// Scroll reveals, done in CSS.
 //
-// Critically, there is no blanket "play after Nms regardless" — that was
-// causing every section to animate on page load before the user scrolled.
-function useReliableReveal<T extends HTMLElement = HTMLDivElement>(
-  eager: boolean,
-  amount: number = 0.05
-) {
-  const ref = useRef<T>(null);
-  const inView = useInView(ref, { once: true, amount });
-  const [mountVisible, setMountVisible] = useState(false);
+// These render plain markup with a `data-reveal` attribute. One shared
+// IntersectionObserver in <MotionObserver> (mounted once in the layout) sets
+// `data-in` the first time each element enters the viewport, and the
+// transitions in globals.css do the rest. No per-word React components, no
+// per-instance observers, and the components work on the server.
+//
+//   - `eager` → `data-in` is rendered up front, so the animation plays on
+//     first paint. Use for above-the-fold hero text.
+//   - Otherwise the element animates the first time it scrolls into view.
+//     An element already on screen at load animates immediately, because an
+//     IntersectionObserver reports current visibility as soon as it observes.
 
-  useEffect(() => {
-    if (eager) {
-      setMountVisible(true);
-      return;
-    }
-    const node = ref.current;
-    if (!node) return;
-    const r = node.getBoundingClientRect();
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    const onScreen = r.top < vh && r.bottom > 0;
-    if (onScreen) setMountVisible(true);
-  }, [eager]);
-
-  return { ref, visible: eager || mountVisible || inView };
-}
+type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
 type RevealProps = {
   children: ReactNode;
@@ -55,31 +33,22 @@ export function Reveal({
   duration = 0.9,
   eager = false,
 }: RevealProps) {
-  const { ref, visible } = useReliableReveal(eager);
+  const style: Vars = {
+    "--rv-delay": `${delay}s`,
+    "--rv-y": `${y}px`,
+    "--rv-dur": `${duration}s`,
+  };
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y }}
-      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y }}
-      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
+    <div
+      data-reveal="fade"
+      data-in={eager ? "" : undefined}
       className={className}
+      style={style}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
-
-const lineVariants: Variants = {
-  hidden: { y: "110%" },
-  visible: (i: number) => ({
-    y: "0%",
-    transition: {
-      duration: 1.05,
-      delay: 0.04 * i,
-      ease: [0.16, 1, 0.3, 1],
-    },
-  }),
-};
 
 // Pull styling classes out of the wrapper-level className and re-apply them
 // to the inner text-bearing span. Necessary for things like `iris-text`
@@ -124,21 +93,19 @@ export function MaskedLines({
   delay?: number;
   eager?: boolean;
 }) {
-  const { ref, visible } = useReliableReveal<HTMLSpanElement>(eager);
   const split = classApplyToInner(className);
   return (
-    <span ref={ref} className={split.wrapper}>
+    <span
+      data-reveal="mask"
+      data-in={eager ? "" : undefined}
+      className={split.wrapper}
+      style={{ "--rv-delay": `${delay}s`, "--rv-step": "0.04s", "--rv-dur": "1.05s" } as Vars}
+    >
       {lines.map((line, i) => (
         <span key={i} className="reveal-mask !block">
-          <motion.span
-            className={`block ${split.inner}`}
-            variants={lineVariants}
-            initial="hidden"
-            animate={visible ? "visible" : "hidden"}
-            custom={i + delay * 10}
-          >
+          <span className={`rv-piece block ${split.inner}`} style={{ "--i": i } as Vars}>
             {line}
-          </motion.span>
+          </span>
         </span>
       ))}
     </span>
@@ -159,24 +126,19 @@ export function SplitWords({
   eager?: boolean;
 }) {
   const words = text.split(" ");
-  const { ref, visible } = useReliableReveal<HTMLSpanElement>(eager);
   const split = classApplyToInner(className);
   return (
-    <span ref={ref} className={split.wrapper}>
+    <span
+      data-reveal="mask"
+      data-in={eager ? "" : undefined}
+      className={split.wrapper}
+      style={{ "--rv-delay": `${delay}s`, "--rv-step": `${stagger}s`, "--rv-dur": "0.9s" } as Vars}
+    >
       {words.map((w, i) => (
         <span key={i} className="reveal-mask inline-block mr-[0.22em]">
-          <motion.span
-            className={`block ${split.inner}`}
-            initial={{ y: "110%" }}
-            animate={visible ? { y: "0%" } : { y: "110%" }}
-            transition={{
-              duration: 0.9,
-              delay: delay + i * stagger,
-              ease: [0.16, 1, 0.3, 1],
-            }}
-          >
+          <span className={`rv-piece block ${split.inner}`} style={{ "--i": i } as Vars}>
             {w}
-          </motion.span>
+          </span>
         </span>
       ))}
     </span>

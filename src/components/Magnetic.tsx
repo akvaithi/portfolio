@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useRef, type ReactNode, type ComponentProps } from "react";
 
 type MagneticProps = {
@@ -10,42 +9,34 @@ type MagneticProps = {
   className?: string;
 };
 
-export function Magnetic({
-  children,
-  strength = 0.35,
-  className,
-}: MagneticProps) {
+// Pulls its content toward the pointer while hovered, then eases back.
+// Writes a transform directly; the easing is a CSS transition (.magnetic in
+// globals.css), so there is no animation loop and no React state.
+export function Magnetic({ children, strength = 0.35, className }: MagneticProps) {
   const ref = useRef<HTMLDivElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 220, damping: 18, mass: 0.4 });
-  const sy = useSpring(y, { stiffness: 220, damping: 18, mass: 0.4 });
 
-  const onMove = (e: React.MouseEvent) => {
+  const onMove = (e: React.PointerEvent) => {
     const el = ref.current;
-    if (!el) return;
+    if (!el || e.pointerType !== "mouse") return;
     const rect = el.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    x.set((e.clientX - cx) * strength);
-    y.set((e.clientY - cy) * strength);
+    const dx = (e.clientX - (rect.left + rect.width / 2)) * strength;
+    const dy = (e.clientY - (rect.top + rect.height / 2)) * strength;
+    el.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
   };
 
   const onLeave = () => {
-    x.set(0);
-    y.set(0);
+    if (ref.current) ref.current.style.transform = "";
   };
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      style={{ x: sx, y: sy }}
-      className={className}
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      className={`magnetic ${className ?? ""}`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 

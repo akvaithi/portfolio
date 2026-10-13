@@ -8,7 +8,7 @@ type Props = {
   // Tailwind className for the wrapping aspect box.
   className?: string;
   sizes?: string;
-  priority?: boolean;
+  preload?: boolean;
   // Adds a corner index label like "CASE 01".
   badge?: string;
 };
@@ -26,7 +26,7 @@ export function ProjectHero({
   screenshotBg = "ink",
   className,
   sizes = "100vw",
-  priority,
+  preload,
   badge,
 }: Props) {
   if (displayMode === "screenshot") {
@@ -62,7 +62,7 @@ export function ProjectHero({
             alt={alt}
             fill
             sizes={sizes}
-            priority={priority}
+            preload={preload}
             className="object-contain object-top"
           />
         </div>
@@ -84,7 +84,7 @@ export function ProjectHero({
         alt={alt}
         fill
         sizes={sizes}
-        priority={priority}
+        preload={preload}
         className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.04]"
       />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-ink/30 via-transparent to-transparent" />

@@ -8,7 +8,8 @@
   --color-ink-mute: #1d1f2c;
   --color-cream: #f2efe6;
   --color-cream-mute: #d8d2c2;
-  /* iris — periwinkle accent that sits between blue, green, and purple */
+  /* iris — periwinkle accent that sits between blue, green, and purple.
+     acid-cool / acid-warm exist only as the ends of the iris gradient. */
   --color-acid: #8e8aff;
   --color-acid-deep: #5c5ad6;
   --color-acid-cool: #5ce3d0;
@@ -32,6 +33,12 @@ body {
   font-feature-settings: "ss01", "ss02", "cv11";
 }
 
+html {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--color-cream) 22%, transparent) transparent;
+  scrollbar-gutter: stable;
+}
+
 /* subtle atmospheric tint on the dark canvas */
 body::before {
   content: "";
@@ -39,17 +46,11 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background:
-    radial-gradient(
-      1200px 800px at 12% 8%,
-      color-mix(in oklab, var(--color-acid) 14%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(
-      900px 700px at 90% 110%,
-      color-mix(in oklab, var(--color-acid-cool) 8%, transparent),
-      transparent 60%
-    );
+  background: radial-gradient(
+    1200px 800px at 12% 8%,
+    color-mix(in oklab, var(--color-acid) 12%, transparent),
+    transparent 60%
+  );
 }
 
 /* iridescent text — mint → periwinkle → orchid.
@@ -89,30 +90,74 @@ body::before {
   }
 }
 
-html.lenis,
-html.lenis body {
-  height: auto;
+/* ------- ambient loops pause when unseen -------
+   MotionObserver sets data-offscreen on these as they leave the viewport,
+   and the lightbox sets body[data-lightbox]. Paused loops cost no paint and
+   don't compete with gain-map HDR images (Safari can render a gain map as
+   SDR while other animations run on the page). */
+.iris-text[data-offscreen],
+.marquee-track[data-offscreen],
+.drift[data-offscreen],
+body[data-lightbox="open"] .iris-text,
+body[data-lightbox="open"] .marquee-track,
+body[data-lightbox="open"] .drift {
+  animation-play-state: paused;
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+/* ------- cursor ------- */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--color-cream);
+  mix-blend-mode: difference;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-100px, -100px, 0);
+  transition:
+    width 0.35s var(--ease-out-expo),
+    height 0.35s var(--ease-out-expo),
+    opacity 0.25s ease;
+  will-change: transform;
+}
+html[data-cursor="custom"] .cursor {
+  display: flex;
+}
+.cursor[data-visible] {
+  opacity: 1;
+}
+.cursor[data-variant="link"] {
+  width: 56px;
+  height: 56px;
+}
+.cursor[data-variant="drag"] {
+  width: 96px;
+  height: 96px;
+}
+.cursor[data-variant="media"] {
+  width: 120px;
+  height: 120px;
+}
+.cursor-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--color-ink);
 }
 
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-
-.lenis.lenis-stopped {
-  overflow: clip;
-}
-
-/* hide native cursor on devices with hover (custom cursor takes over) */
-@media (hover: hover) and (pointer: fine) {
-  body,
-  a,
-  button {
-    cursor: none;
-  }
+/* Native cursor is hidden only once the custom one is live. */
+html[data-cursor="custom"] body,
+html[data-cursor="custom"] a,
+html[data-cursor="custom"] button {
+  cursor: none;
 }
 
 /* Lightbox is open: hide the custom cursor (mix-blend-difference would
@@ -136,31 +181,24 @@ body[data-lightbox="open"] button {
 .display-mega {
   font-family: var(--font-sans);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 0.96;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
   text-wrap: balance;
 }
 
 .display-xl {
   font-family: var(--font-sans);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-
-.editorial {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  font-style: italic;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  text-wrap: balance;
 }
 
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   font-weight: 500;
 }
 
@@ -168,45 +206,144 @@ body[data-lightbox="open"] button {
   max-width: 64ch;
 }
 
-/* ------- reveals ------- */
-/* `padding-bottom` gives descenders (g, p, q, y) room so they aren't clipped
-   by `overflow: hidden`. The negative margin keeps line spacing visually
-   correct while preserving the padding. */
+p {
+  text-wrap: pretty;
+}
+
+/* ------- reveals -------
+   Elements start hidden and animate when MotionObserver sets data-in (or
+   immediately when rendered with data-in, for `eager`). */
 .reveal-mask {
   overflow: hidden;
   vertical-align: bottom;
+  /* room for descenders (g, p, y) inside overflow:hidden; the negative
+     margin keeps line spacing unchanged */
   padding-bottom: 0.12em;
   margin-bottom: -0.12em;
 }
-.reveal-mask > span {
-  display: inline-block;
+
+[data-reveal="fade"] {
+  opacity: 0;
+  transform: translate3d(0, var(--rv-y, 32px), 0);
+}
+[data-reveal="fade"][data-in] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--rv-dur, 0.9s) var(--ease-out-expo) var(--rv-delay, 0s),
+    transform var(--rv-dur, 0.9s) var(--ease-out-expo) var(--rv-delay, 0s);
 }
 
-.grain {
+[data-reveal="mask"] .rv-piece {
+  transform: translate3d(0, 110%, 0);
+}
+[data-reveal="mask"][data-in] .rv-piece {
+  transform: none;
+  transition: transform var(--rv-dur, 0.9s) var(--ease-out-expo)
+    calc(var(--rv-delay, 0s) + var(--i, 0) * var(--rv-step, 0.05s));
+}
+
+/* Without JavaScript nothing would ever set data-in: show everything. */
+@media (scripting: none) {
+  [data-reveal="fade"],
+  [data-reveal="mask"] .rv-piece {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ------- route curtain + page enter ------- */
+.curtain {
   position: fixed;
   inset: 0;
-  z-index: 60;
+  z-index: 70;
   pointer-events: none;
-  mix-blend-mode: overlay;
-  opacity: 0.07;
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background: var(--color-ink);
+  transform-origin: top;
+  animation: curtain 0.65s var(--ease-in-out-quart) forwards;
+}
+@keyframes curtain {
+  from {
+    transform: scaleY(1);
+  }
+  to {
+    transform: scaleY(0);
+  }
+}
+.page-enter {
+  animation: page-enter 0.6s var(--ease-out-expo) both;
+}
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
 }
 
-.divider {
+/* ------- small motion pieces ------- */
+.lightbox-in {
+  animation: fade-in 0.25s ease both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+.nav-enter {
+  animation: nav-enter 0.8s var(--ease-out-expo) 0.2s both;
+}
+@keyframes nav-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -40px, 0);
+  }
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.25rem;
   height: 1px;
-  width: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    color-mix(in oklab, var(--color-cream) 35%, transparent),
-    transparent
-  );
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease-out-expo);
+}
+.nav-link[data-active]::after,
+.nav-link:hover::after {
+  transform: scaleX(1);
 }
 
-/* scrollbar */
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
+.magnetic {
+  transition: transform 0.45s var(--ease-out-expo);
+  will-change: transform;
+}
+
+.mobile-menu {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0s linear 0.3s;
+}
+.mobile-menu[data-open] {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s ease;
+}
+.mobile-menu-item {
+  opacity: 0;
+  transform: translate3d(0, 40px, 0);
+}
+.mobile-menu[data-open] .mobile-menu-item {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.6s var(--ease-out-expo) calc(0.1s + var(--i, 0) * 0.05s),
+    transform 0.6s var(--ease-out-expo) calc(0.1s + var(--i, 0) * 0.05s);
 }
 
 /* native focus */
@@ -240,4 +377,32 @@ body[data-lightbox="open"] button {
 }
 .drift {
   animation: drift 14s ease-in-out infinite;
+}
+
+/* ------- reduced motion -------
+   Everything still appears; it just doesn't move. */
+@media (prefers-reduced-motion: reduce) {
+  .iris-text,
+  .marquee-track,
+  .drift,
+  .curtain,
+  .page-enter,
+  .nav-enter,
+  .lightbox-in {
+    animation: none !important;
+  }
+  .curtain {
+    display: none;
+  }
+  [data-reveal="fade"],
+  [data-reveal="mask"] .rv-piece,
+  .mobile-menu-item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .magnetic {
+    transition: none;
+    transform: none !important;
+  }
 }

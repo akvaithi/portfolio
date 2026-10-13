@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { expandFrames, type Frame, type RawFrame } from "@/data/cloud9.urls";
 
@@ -189,16 +188,13 @@ function RunLightbox({
   }, [isOpen, onClose, onStep]);
 
   return (
-    <AnimatePresence>
-      {frame && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-[90] bg-ink/95 flex flex-col"
+    frame && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Frame ${index + 1} of ${count}`}
+          className="lightbox-in fixed inset-0 z-[90] bg-ink/95 flex flex-col"
           onClick={onClose}
-          data-lenis-prevent
         >
           <div
             className="flex items-center justify-between gap-4 px-6 md:px-10 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/70"
@@ -268,8 +264,7 @@ function RunLightbox({
               Next →
             </button>
           </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+        </div>
+    )
   );
 }

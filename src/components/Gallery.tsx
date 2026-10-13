@@ -1,19 +1,19 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Lightbox } from "./Lightbox";
 import type { Photo } from "@/data/photos";
+import { thumbSrc, thumbSrcSet } from "@/lib/thumbs";
 
 type Filter = {
   year: string | "ALL";
   category: "Landscapes" | "Portraits" | "Events" | "ALL";
 };
 
-// Bounded initial batch — the single biggest factor in keeping the tab
-// responsive on lower-end devices. Each batch is small enough that even
-// slow GPUs can decode them concurrently without locking the main thread.
-const INITIAL_BATCH = 8;
+// Bounded batches keep decode work small on lower-end devices. Tiles are
+// ~40 KB pre-built thumbnails (they used to be full-size WebPs, which is
+// why this was once 4 then 8 on a timer), so a full first screen is fine.
+const INITIAL_BATCH = 12;
 const STEP_BATCH = 12;
 
 // Tiny deterministic PRNG — gives us stable shuffles per seed (no hydration
@@ -40,15 +40,11 @@ export function Gallery({
 }) {
   const [filter, setFilter] = useState<Filter>({ year: "ALL", category: "ALL" });
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(INITIAL_BATCH);
 
-  // Two-pass reveal: first row immediately, the rest after the browser
-  // has had a moment to finish painting + decoding the first batch. Also
-  // resets when the filter changes so heavy filter switches stay responsive.
+  // Back to one batch whenever the filter changes.
   useEffect(() => {
-    setVisibleCount(4);
-    const id = setTimeout(() => setVisibleCount(INITIAL_BATCH), 400);
-    return () => clearTimeout(id);
+    setVisibleCount(INITIAL_BATCH);
   }, [filter]);
 
   // Fresh random ordering on mount + on every filter change, so the gallery
@@ -101,8 +97,8 @@ export function Gallery({
   return (
     <>
       {/* Filters — opaque background, no backdrop blur (was GPU-thrashing). */}
-      <div className="sticky top-[72px] z-30 -mx-6 md:-mx-10 mb-10 border-y border-cream/10 bg-ink">
-        <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-4 flex flex-wrap gap-x-8 gap-y-3 items-center">
+      <div className="sticky top-[72px] z-30 -mx-4 sm:-mx-6 md:-mx-10 mb-10 border-y border-cream/10 bg-ink">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 md:px-10 py-4 flex flex-wrap gap-x-6 gap-y-3 items-center">
           <span className="eyebrow text-cream/45">Year</span>
           <button
             onClick={() => setFilter((f) => ({ ...f, year: "ALL" }))}
@@ -166,20 +162,23 @@ export function Gallery({
             onClick={() => setLightboxIndex(i)}
             data-cursor="media"
             data-cursor-label="View"
+            aria-label={`Open ${p.category.toLowerCase()} photo from ${p.year}`}
             className="group relative aspect-[4/5] overflow-hidden rounded-sm bg-ink-soft"
+            style={{ backgroundColor: p.tone ?? undefined }}
           >
-            {/* SDR thumbnail (.webp) served straight from /public — no
-                optimizer, no HDR pipeline. Falls back to the primary src
-                if no SDR sibling exists for some reason. */}
-            <Image
-              src={p.sdrSrc ?? p.src}
-              alt={`${p.category} ${p.year}`}
-              fill
+            {/* Pre-built SDR thumbnail (480/960w WebP) straight from /public:
+                no optimizer, no HDR pipeline. The lightbox loads the HDR
+                AVIF. The tile shows the photo's dominant colour until the
+                thumbnail arrives. */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={p.thumb ? thumbSrc(p.thumb) : (p.sdrSrc ?? p.src)}
+              srcSet={p.thumb ? thumbSrcSet(p.thumb) : undefined}
+              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+              alt=""
               loading="lazy"
               decoding="async"
-              unoptimized
-              sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
-              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
             />
             <div className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/15" />
             <div className="pointer-events-none absolute left-3 bottom-3 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] text-cream opacity-0 transition-opacity group-hover:opacity-100">
