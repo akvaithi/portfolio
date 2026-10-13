@@ -9,12 +9,12 @@ import { PHOTOS } from "@/data/photos";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Arun Vaithianathan — email, LinkedIn, GitHub, and résumé. Open to deep-tech, climate, robotics, 0→1 software, and photography commissions.",
+    "Get in touch with Arun Vaithianathan by email, LinkedIn, or GitHub. Looking for a Summer 2027 internship or Spring 2027 co-op in battery and energy-transition materials, and open to photography commissions.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact · Arun Vaithianathan",
     description:
-      "Direct lines — email, LinkedIn, GitHub, résumé. Open to deep-tech, climate, robotics, and photography commissions.",
+      "Email, LinkedIn, GitHub. Summer 2027 internships and Spring 2027 co-ops in battery and energy-transition materials; photography commissions.",
     url: "https://akvaithi.page/contact",
     type: "website",
   },
@@ -36,7 +36,7 @@ const CHANNELS = [
     label: "Email",
     value: "akvaithi.tech@gmail.com",
     href: "mailto:akvaithi.tech@gmail.com",
-    aside: "Fastest reply · drafts get a response inside 24 hours.",
+    aside: "Usually the fastest way to reach me."
   },
   {
     label: "LinkedIn",
@@ -95,12 +95,12 @@ export default function Contact() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-4 flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/65">
           <span className="flex items-center gap-2">
             <span className="size-2 rounded-full bg-acid animate-pulse" />
-            Open to: deep-tech, climate, robotics, 0→1 software, photography commissions
+            Seeking: Summer 2027 internship or Spring 2027 co-op · materials R&amp;D, process, scale-up
           </span>
           <span className="hidden md:inline">
             College Station — <Clock />
           </span>
-          <span className="ml-auto">Typical response &lt; 24 h</span>
+          <span className="ml-auto">akvaithi.tech@gmail.com</span>
         </div>
       </div>
 
@@ -173,20 +173,19 @@ export default function Contact() {
           <div className="col-span-12 md:col-span-6">
             <p className="eyebrow text-cream/50 mb-6">§ — Look for me at</p>
             <ul className="space-y-3 text-cream/85 font-serif text-2xl leading-snug">
-              <li>· Texas A&amp;M College of Engineering</li>
-              <li>· Greentown Labs · Houston</li>
-              <li>· Aggies in Tech residencies · Bay Area</li>
-              <li>· FRC competitions · season-dependent</li>
-              <li>· On a shoot · client-dependent</li>
+              <li>· The Green Lab · Texas A&amp;M Chemical Engineering</li>
+              <li>· Oceanus ThinkTank · MATE ROV</li>
+              <li>· Aggies in Tech · Mays Business School</li>
+              <li>· On a shoot · College Station and Houston</li>
             </ul>
           </div>
           <div className="col-span-12 md:col-span-6">
             <p className="eyebrow text-cream/50 mb-6">§ — Open to</p>
             <ul className="divide-y divide-cream/10 border-y border-cream/10">
               {[
-                ["Internships", "Chem-E, materials, energy, climate, robotics."],
-                ["Undergrad research", "Especially in catalysis, energy storage, or process safety."],
-                ["Photography commissions", "Brand, portrait, event, product, landscape."],
+                ["Internships & co-ops", "Summer 2027 or Spring 2027: materials R&D, process development, scale-up."],
+                ["Research programs", "Battery and energy-transition materials."],
+                ["Photography commissions", "Wedding, portrait, brand."],
               ].map(([t, s]) => (
                 <li key={t} className="py-5 grid grid-cols-[1fr_2fr] gap-6 items-baseline">
                   <span className="font-serif italic text-2xl">{t}</span>

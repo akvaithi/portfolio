@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s · Arun Vaithianathan",
   },
   description:
-    "Chemical engineering student at Texas A&M (3.918 GPA, Honors). Research in catalytic graphitization, control systems on a MATE ROV, web tools used by 3,000+ peers, and commercial photography.",
+    "Chemical engineering junior at Texas A&M (3.92 GPA, Brown Engineering Honors). Catalytic graphitization research for battery-grade graphite, ROV guidance and control, the Aggie Research Finder (3,000+ users), and photography.",
   keywords: [
     "Arun Vaithianathan",
     "akvaithi",
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     "MATE ROV",
     "Aggie Research Finder",
     "petroleum coke graphite",
+    "battery anode graphite",
     "Greentown Labs",
     "Aggies in Tech",
     "photography",
@@ -94,7 +95,7 @@ const personJsonLd = {
   url: "https://akvaithi.page",
   image: "https://akvaithi.page/opengraph-image",
   email: "mailto:akvaithi.tech@gmail.com",
-  jobTitle: "Chemical Engineering Student · Control Systems Lead · Photographer",
+  jobTitle: "Chemical Engineering Student · Undergraduate Researcher · Photographer",
   affiliation: [
     {
       "@type": "CollegeOrUniversity",
@@ -108,9 +109,11 @@ const personJsonLd = {
   },
   knowsAbout: [
     "Chemical Engineering",
-    "Control Systems",
-    "PID tuning",
+    "Battery Materials",
+    "Catalytic Graphitization",
+    "X-ray Diffraction",
     "Materials Synthesis",
+    "Control Systems",
     "Computer Vision",
     "Photography",
     "Cinematography",

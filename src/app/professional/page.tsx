@@ -11,12 +11,12 @@ import { HEROES } from "@/data/heroes";
 export const metadata: Metadata = {
   title: "Professional",
   description:
-    "Case studies in chemical engineering, control systems, materials synthesis, and 0→1 software — including underwater ROV PID control, the Aggie Research Finder, petroleum-coke-to-graphite research, and the Tube Furnace Program Calculator.",
+    "Research and engineering work: catalytic graphitization of petroleum coke into battery-grade graphite, the XRD analyzer and furnace calculator built for that lab, guidance and control for a MATE ROV, and the Aggie Research Finder.",
   alternates: { canonical: "/professional" },
   openGraph: {
     title: "Professional · Arun Vaithianathan",
     description:
-      "Built case studies: ROV control systems, Aggie Research Finder, petroleum coke → battery-grade graphite, Tube Furnace Calculator, and more.",
+      "Petroleum coke → battery-grade graphite research, the Aggie Research Finder, ROV guidance and control, lab tooling, and design competitions.",
     url: "https://akvaithi.page/professional",
     type: "website",
   },
@@ -76,13 +76,13 @@ export default function Professional() {
           <div className="grid grid-cols-12 gap-6 items-end">
             <div className="col-span-12 md:col-span-8">
               <h1 className="display-mega text-[clamp(2.6rem,8.5vw,9rem)] tracking-tighter">
-                <MaskedLines lines={["The", "Built", "Log."]} eager />
+                <MaskedLines lines={["The", "Work", "Log."]} eager />
               </h1>
             </div>
             <div className="col-span-12 md:col-span-4 md:text-right">
               <Reveal delay={0.4} eager>
                 <p className="font-serif italic text-2xl md:text-3xl leading-tight">
-                  A working record of the systems, deployments, and field trials behind the résumé.
+                  The research, projects, and competitions behind the résumé.
                 </p>
               </Reveal>
             </div>
@@ -95,10 +95,10 @@ export default function Professional() {
         <div className="mx-auto max-w-[1600px] px-6 md:px-10 py-16 md:py-20">
           <Reveal className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { v: "3.918", l: "Cumulative GPA · TAMU honors" },
-              { v: "7+", l: "Awards & recognitions" },
-              { v: "3×", l: "FRC World Championships" },
-              { v: "1M+", l: "Lifetime YouTube views" },
+              { v: "3.92", l: "Cumulative GPA · Brown Engineering Honors" },
+              { v: "$20K+", l: "Scholarships" },
+              { v: "3,000+", l: "Aggie Research Finder users" },
+              { v: "2", l: "Design competition podiums" },
             ].map((s) => (
               <div key={s.l}>
                 <p className="font-serif italic text-3xl md:text-5xl iris-text inline-block">
@@ -319,21 +319,21 @@ export default function Professional() {
           <p className="eyebrow text-cream/50 mb-6">§ — Education</p>
           <h3 className="display-xl text-3xl tracking-tight">Texas A&amp;M University</h3>
           <p className="mt-2 font-serif italic text-xl text-cream/80">
-            B.S. Chemical Engineering · Minor in Mathematics
+            B.S. Chemical Engineering
           </p>
           <p className="mt-3 font-mono text-xs uppercase tracking-[0.18em] text-cream/55">
             August 2024 — May 2028 · College Station, TX
           </p>
           <ul className="mt-8 space-y-3 text-cream/80">
             <li className="flex items-baseline gap-3">
-              <span className="font-serif italic text-acid text-xl">3.918</span>
+              <span className="font-serif italic text-acid text-xl">3.92</span>
               <span className="text-cream/70">Cumulative GPA</span>
             </li>
             <li className="text-cream/75">
-              Craig &amp; Galen Brown Engineering Honors · Aggies in Tech Business Certificate
+              Craig &amp; Galen Brown Engineering Honors · Aggies in Tech Business &amp; Technology Certificate (in progress)
             </li>
             <li className="text-cream/75">
-              Dean&apos;s List · Chem-E Dept Scholarship · Lechner Scholarship
+              Dean&apos;s Honor Roll · Lechner Scholar · Omega Chi Epsilon
             </li>
           </ul>
 
@@ -376,9 +376,9 @@ export default function Professional() {
               <p className="eyebrow text-cream/50 mb-4">Open to</p>
               <ul className="divide-y divide-cream/10 border-y border-cream/10">
                 {[
-                  ["Internships", "Chemical engineering · materials · energy · climate."],
-                  ["Research", "Undergrad research opportunities, especially in catalysis or energy storage."],
-                  ["Collaborations", "Robotics, software, or photography projects."],
+                  ["Summer 2027", "Internship or Spring 2027 co-op in materials R&D, process development, or scale-up."],
+                  ["Focus", "Battery and energy-transition materials."],
+                  ["Collaborations", "Lab software, robotics, or photography."],
                 ].map(([t, s]) => (
                   <li key={t} className="py-4 grid grid-cols-[1fr_2fr] gap-6 items-baseline">
                     <span className="font-serif italic text-2xl">{t}</span>

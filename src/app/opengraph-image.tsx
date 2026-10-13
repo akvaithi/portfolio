@@ -5,7 +5,7 @@ import { ImageResponse } from "next/og";
 // re-rasterizing on every hit (~4s cold). Social scrapers give up well before
 // that, which is how you get link previews with no image.
 export const alt =
-  "Arun Vaithianathan — Chemical engineer, control-systems builder, photographer";
+  "Arun Vaithianathan — Chemical engineering, battery materials research, photography";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -123,7 +123,7 @@ export default async function OG() {
               maxWidth: 720,
             }}
           >
-            Chemical engineer · control-systems builder · photographer
+            Chemical engineering · battery materials · photography
           </div>
           <div
             style={{

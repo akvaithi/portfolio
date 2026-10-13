@@ -90,10 +90,10 @@ export default function Home() {
               </h1>
               <Reveal delay={0.9}>
                 <p className="mt-8 max-w-2xl text-cream/80 text-base md:text-lg leading-relaxed">
-                  Chemical engineering student at Texas A&amp;M — 3.918 GPA, Craig and Galen Brown
-                  Engineering Honors. Researching catalytic graphitization in the lab, leading
-                  control systems on the MATE ROV team, co-founding the Aggie Research Finder
-                  (3,000+ users), and shooting commercial photography on the side.
+                  Chemical engineering junior at Texas A&amp;M, 3.92 GPA, Craig and Galen Brown
+                  Engineering Honors. I research catalytic graphitization of petroleum coke in
+                  the Green Lab, lead guidance and control on the MATE ROV team, co-founded the
+                  Aggie Research Finder (3,000+ users), and run a photography business.
                 </p>
               </Reveal>
             </div>
@@ -101,11 +101,11 @@ export default function Home() {
               <Reveal delay={1.1} y={0}>
                 <p className="eyebrow text-cream/50">Now</p>
                 <p className="font-serif italic text-2xl leading-snug">
-                  Catalytic graphite,
+                  Battery graphite,
                   <br />
-                  underwater PID,
+                  ROV control,
                   <br />
-                  field photography.
+                  photography.
                 </p>
               </Reveal>
             </div>
@@ -126,7 +126,7 @@ export default function Home() {
           {[
             "Chemical Engineering",
             "|",
-            "Control Systems",
+            "Battery Materials",
             "|",
             "Material Synthesis",
             "|",
@@ -134,11 +134,11 @@ export default function Home() {
             "|",
             "Climate Tech",
             "|",
-            "0 → 1 Software",
+            "Scale-Up",
             "|",
-            "Photogrammetry",
+            "Control Systems",
             "|",
-            "Self-Hosted Infra",
+            "Software Tools",
             "|",
           ].map((t, i) => {
             const isSep = t === "|";
@@ -183,9 +183,11 @@ export default function Home() {
                 system works, then build something with it.
               </p>
               <p className="text-cream/75 leading-relaxed text-lg">
-                I tend to move fast on things I want to see exist. A repo, a
-                deploy, a breadboard, a short video — whatever gets the idea
-                out of my head and into something I can show someone.
+                I started in computer science and switched to chemical
+                engineering, but kept the habit: when the lab needed a faster
+                way to read XRD scans or program a furnace, I wrote the tool.
+                The aim is battery and energy-transition materials, from the
+                bench toward scale-up.
               </p>
             </Reveal>
           </div>
@@ -206,18 +208,18 @@ export default function Home() {
             {[
               {
                 title: "Research",
-                body: "Catalytic conversion of petroleum coke into battery-grade graphite at the Texas A&M College of Engineering. Material synthesis via high-energy ball milling and iron catalyst integration; XRD characterization.",
-                stack: ["Tube furnace 1600 °C", "Fe catalyst", "XRD"],
+                body: "Catalytic graphitization of petroleum coke into battery-grade anode graphite in Dr. Micah Green's lab, an ARPA-E project with NETL and Oxbow Carbon. I run synthesis end to end, characterize by XRD, and built the analyzer the lab uses for degree of graphitization.",
+                stack: ["Tube furnace", "Fe catalyst", "XRD"],
               },
               {
                 title: "Engineering",
-                body: "Control Systems Lead on Oceanus ThinkTank's MATE ROV: closed-loop PID on a Raspberry Pi 5 + BR Navigator stack, live RTSP photogrammetry into RealityKit. Co-founder of the Aggie Research Finder.",
-                stack: ["Python · ArduSub", "Pi 5 + Navigator", "Next.js · Vercel"],
+                body: "Lead the guidance and control subteam on Oceanus ThinkTank's MATE ROV: a PID attitude loop on a Raspberry Pi 5 and Navigator, validated in simulation, plus an RTSP-to-3D photogrammetry app. Co-founder of the Aggie Research Finder.",
+                stack: ["Python · ArduSub", "Pi 5 + Navigator", "FastAPI · React"],
               },
               {
                 title: "Photography",
-                body: "Commercial photography commissions since 2020 — brand, portrait, event, product, landscape. Plus a self-hosted YouTube channel (2.2k subscribers, 1M+ views) covering Python, Linux, and hardware.",
-                stack: ["80+ client shoots", "1M+ YouTube views", "Editorial color"],
+                body: "Wedding, portrait, and brand photography and video in College Station and Houston since 2020. Also a YouTube channel (2,500+ subscribers, 1.2M+ views) on Python automation, Linux, and self-hosted infrastructure.",
+                stack: ["80+ client shoots", "1.2M+ YouTube views", "Color grading"],
               },
             ].map((scale, i) => (
               <Reveal
@@ -272,11 +274,15 @@ export default function Home() {
                 <SplitWords text="since 2020." delay={0.15} className="text-rust" />
               </h3>
               <p className="mt-8 text-ink/75 leading-relaxed text-lg measure">
-                Texas Exchange for Energy &amp; Climate Entrepreneurship fellow at Greentown Labs. Cohort member in the Aggies in Tech program at the Mays Business School. Spent four years programming for FRC Pearadox 5414 — three trips to the FRC World Championship.
+                80+ client shoots in College Station and Houston. Before that,
+                three seasons as programmer and media lead for Pearadox FRC 5414,
+                with three trips to the FRC World Championship. More recently a
+                TEX-E fellow at Greentown Labs and one of 40 in the Aggies in
+                Tech cohort at Mays.
               </p>
               <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 font-mono text-xs uppercase tracking-[0.18em] text-ink/70">
-                <span>YouTube · 2.2k subs</span>
-                <span>1M+ views</span>
+                <span>YouTube · 2.5k+ subs</span>
+                <span>1.2M+ views</span>
                 <span>80+ client shoots</span>
                 <span>FRC World Champ · 3 yrs</span>
               </div>

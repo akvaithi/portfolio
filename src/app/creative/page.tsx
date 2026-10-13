@@ -11,12 +11,12 @@ import { PHOTOS, YEARS, CATEGORIES } from "@/data/photos";
 export const metadata: Metadata = {
   title: "Creative",
   description:
-    "Commercial photography service — brand, portrait, event, product, landscape — and a self-hosted YouTube channel on Python automation, Linux home-labs, and hardware architectures. 427-frame archive from 2023–2026.",
+    "Wedding, portrait, and brand photography in College Station and Houston, and a YouTube channel on Python automation, Linux, and self-hosted infrastructure. Archive from 2023–2026.",
   alternates: { canonical: "/creative" },
   openGraph: {
     title: "Creative · Arun Vaithianathan",
     description:
-      "Photography service + YouTube channel. Brand, portrait, event, product, landscape — plus deep technical tutorials.",
+      "Photography business and YouTube channel. Wedding, portrait, and brand work, plus technical tutorials.",
     url: "https://akvaithi.page/creative",
     type: "website",
   },
@@ -65,8 +65,8 @@ export default function Creative() {
           </h1>
           <Reveal delay={0.7} eager className="mt-8 max-w-2xl">
             <p className="font-serif italic text-2xl md:text-3xl leading-snug">
-              A commercial photography practice — landscape, portrait, event, brand —
-              and the <span className="iris-text">other stuff</span> on YouTube that taught me how to ship.
+              A photography business (wedding, portrait, brand) and the{" "}
+              <span className="iris-text">other stuff</span> on YouTube.
             </p>
           </Reveal>
         </div>
@@ -76,19 +76,19 @@ export default function Creative() {
       <div className="border-y border-cream/10 bg-ink py-6">
         <Marquee speed={55}>
           {[
-            "Photography service",
+            "Photography",
             "|",
-            "Portrait · Brand · Event",
+            "Wedding · Portrait · Brand",
             "|",
             "Color grading",
             "|",
-            "Editorial sequencing",
+            "Video",
             "|",
             "80+ client shoots",
             "|",
-            "2.2k subscribers",
+            "2,500+ subscribers",
             "|",
-            "1M+ views",
+            "1.2M+ views",
             "|",
             "Self-hosted infra",
             "|",
@@ -121,15 +121,15 @@ export default function Creative() {
           </h2>
           <Reveal delay={0.2} className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
             <p className="text-cream/75 leading-relaxed text-lg">
-              Photography is the service. Brand, portrait, event, product, landscape —
-              80+ commercial engagements taught me the discipline of shipping art to
-              a deadline, and editorial sequencing taught me how images carry the story
-              past the frame.
+              I&apos;ve run the photography business since 2020: wedding, portrait,
+              and brand work in College Station and Houston, 80+ client shoots so
+              far. It taught me to deliver to a deadline and to explain technical
+              work to people outside it.
             </p>
             <p className="text-cream/75 leading-relaxed text-lg">
-              YouTube is the other stuff — a self-hosted channel of deep technical
-              tutorials that crossed 1M+ views and 2.2k subscribers, funding 100%
-              of its own operational overhead through the Partner Program.
+              YouTube is the other stuff: tutorials on Python automation, Linux,
+              and self-hosted infrastructure, now past 1.2M views and 2,500
+              subscribers.
             </p>
           </Reveal>
         </div>
@@ -159,7 +159,7 @@ export default function Creative() {
             <div>
               <p className="eyebrow text-cream/50">§ — The Other Stuff · YouTube</p>
               <h2 className="mt-4 display-xl text-[clamp(1.6rem,4vw,3.4rem)] tracking-tighter">
-                <SplitWords text="A million views" />
+                <SplitWords text="1.2 million views" />
                 <br />
                 <SplitWords
                   text="of teaching how things work."
@@ -182,10 +182,10 @@ export default function Creative() {
           {/* metrics */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-cream/10 py-10 mb-14">
             {[
-              { v: "1M+", l: "Lifetime views" },
-              { v: "2.2k", l: "Subscribers" },
-              { v: "100%", l: "Self-funded via Partner Program" },
-              { v: "2020 →", l: "Building in public" },
+              { v: "1.2M+", l: "Lifetime views" },
+              { v: "2,500+", l: "Subscribers" },
+              { v: "$2K+", l: "Channel revenue" },
+              { v: "2020 →", l: "Publishing since" },
             ].map((s) => (
               <div key={s.l}>
                 <p className="font-serif italic text-3xl md:text-5xl iris-text inline-block">
@@ -206,12 +206,12 @@ export default function Creative() {
                 body: "Scripts, schedulers, system-level glue for the things you didn't know you could automate.",
               },
               {
-                title: "Self-Hosted Linux",
-                body: "Home-lab Linux, server stacks, networking, and the sovereignty of running your own infrastructure.",
+                title: "Linux",
+                body: "Getting comfortable on the command line: servers, networking, and day-to-day Linux.",
               },
               {
-                title: "Hardware Architectures",
-                body: "Single-board computers, embedded systems, and the techno-economic tradeoffs of picking a platform.",
+                title: "Self-Hosted Infrastructure",
+                body: "Running your own services at home with Docker, and keeping them running.",
               },
             ].map((c, i) => (
               <Reveal key={c.title} delay={i * 0.08}>
@@ -293,9 +293,6 @@ export default function Creative() {
                 ↗
               </span>
             </a>
-            <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-cream/45 max-w-md">
-              Sponsorship + Partner-Program revenue fully covers the channel&apos;s operating cost.
-            </p>
           </div>
         </div>
       </section>

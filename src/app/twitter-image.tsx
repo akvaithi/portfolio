@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // Prerendered at build — see the note in opengraph-image.tsx.
 export const alt =
-  "Arun Vaithianathan — Chemical engineer, control-systems builder, photographer";
+  "Arun Vaithianathan — Chemical engineering, battery materials research, photography";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -109,7 +109,7 @@ export default async function TwitterImage() {
               maxWidth: 720,
             }}
           >
-            Chemical engineer · control-systems builder · photographer
+            Chemical engineering · battery materials · photography
           </div>
           <div
             style={{
