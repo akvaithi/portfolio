@@ -11,12 +11,12 @@ import { HEROES } from "@/data/heroes";
 export const metadata: Metadata = {
   title: "Professional",
   description:
-    "Research and engineering work: catalytic graphitization of petroleum coke into battery-grade graphite, the XRD analyzer and furnace calculator built for that lab, guidance and control for a MATE ROV, and the Aggie Research Finder.",
+    "Research and engineering work: catalytic graphitization of petroleum coke into battery-grade graphite, the XRD analyzer and furnace calculator built for that lab, guidance and control for a MATE ROV, and STEM Research Finder.",
   alternates: { canonical: "/professional" },
   openGraph: {
     title: "Professional · Arun Vaithianathan",
     description:
-      "Petroleum coke → battery-grade graphite research, the Aggie Research Finder, ROV guidance and control, lab tooling, and design competitions.",
+      "Petroleum coke → battery-grade graphite research, STEM Research Finder, ROV guidance and control, lab tooling, and design competitions.",
     url: "https://akvaithi.page/professional",
     type: "website",
   },
@@ -97,7 +97,7 @@ export default function Professional() {
             {[
               { v: "3.92", l: "Cumulative GPA · Brown Engineering Honors" },
               { v: "$20K+", l: "Scholarships" },
-              { v: "3,000+", l: "Aggie Research Finder users" },
+              { v: "3,000+", l: "STEM Research Finder users" },
               { v: "2", l: "Design competition podiums" },
             ].map((s) => (
               <div key={s.l}>

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s · Arun Vaithianathan",
   },
   description:
-    "Chemical engineering junior at Texas A&M (3.92 GPA, Brown Engineering Honors). Catalytic graphitization research for battery-grade graphite, ROV guidance and control, the Aggie Research Finder (3,000+ users), and photography.",
+    "Chemical engineering junior at Texas A&M (3.92 GPA, Brown Engineering Honors). Catalytic graphitization research for battery-grade graphite, ROV guidance and control, STEM Research Finder (3,000+ users), and photography.",
   keywords: [
     "Arun Vaithianathan",
     "akvaithi",
@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     "chemical engineering",
     "control systems",
     "MATE ROV",
+    "STEM Research Finder",
     "Aggie Research Finder",
     "petroleum coke graphite",
     "battery anode graphite",

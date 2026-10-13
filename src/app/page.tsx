@@ -92,8 +92,8 @@ export default function Home() {
                 <p className="mt-8 max-w-2xl text-cream/80 text-base md:text-lg leading-relaxed">
                   Chemical engineering junior at Texas A&amp;M, 3.92 GPA, Craig and Galen Brown
                   Engineering Honors. I research catalytic graphitization of petroleum coke in
-                  the Green Lab, lead guidance and control on the MATE ROV team, co-founded the
-                  Aggie Research Finder (3,000+ users), and run a photography business.
+                  the Green Lab, lead guidance and control on the MATE ROV team, co-founded STEM
+                  Research Finder (3,000+ users), and run a photography business.
                 </p>
               </Reveal>
             </div>
@@ -211,7 +211,7 @@ export default function Home() {
               },
               {
                 title: "Engineering",
-                body: "Lead the guidance and control subteam on Oceanus ThinkTank's MATE ROV: a PID attitude loop on a Raspberry Pi 5 and Navigator, validated in simulation, plus an RTSP-to-3D photogrammetry app. Co-founder of the Aggie Research Finder.",
+                body: "Lead the guidance and control subteam on Oceanus ThinkTank's MATE ROV: a PID attitude loop on a Raspberry Pi 5 and Navigator, validated in simulation, plus an RTSP-to-3D photogrammetry app. Co-founder of STEM Research Finder.",
                 stack: ["Python · ArduSub", "Pi 5 + Navigator", "FastAPI · React"],
               },
               {

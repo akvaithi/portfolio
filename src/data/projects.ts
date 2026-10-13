@@ -28,7 +28,7 @@ const H = HEROES;
 //   - ROV control is bench-tuned and validated in simulation, not water-tested.
 //   - Aggies Invent and SEC Ignite were design-and-pitch competitions:
 //     "designed" or "proposed", never "built" or "engineered".
-//   - Aggie Research Finder is co-founded, not solely authored.
+//   - STEM Research Finder (formerly Aggie Research Finder) is co-founded, not solely authored.
 //   - Graphitization results (DG at given conditions, additive ratios, run
 //     masses, kiln parameters) are under NDA / patent hold. Methods only.
 export const PROJECTS: Project[] = [
@@ -75,18 +75,18 @@ export const PROJECTS: Project[] = [
     },
   },
   {
-    slug: "aggie-research-finder",
-    title: "Aggie Research Finder",
+    slug: "stem-research-finder",
+    title: "STEM Research Finder",
     role: "Co-Founder",
-    org: "Aggie Research Finder",
+    org: "STEM Research Finder",
     location: "College Station, TX",
     period: "January 2026 — Present",
     scale: "digital",
     tagline:
-      "A research-discovery platform that matches students to faculty by research interest. It indexes 1,770+ Texas A&M faculty and has grown to 3,000+ users.",
+      "A research-discovery platform that matches students to faculty by research interest. It started as the Aggie Research Finder at Texas A&M and now covers 7,864 STEM faculty across 8 universities, with 3,000+ users.",
     body: [
       "Co-founded the platform: upload a résumé, enter research interests, and get matched to faculty by where you want to go rather than where you have been, with an outreach email drafted in one click.",
-      "Extended it into a multi-tenant deployment across four universities with separate branding: Texas A&M, Rice, UT Austin, and UT Dallas.",
+      "Grew it from a Texas A&M tool into a multi-tenant platform with per-school branding: Texas A&M, Rice, UT Austin, UT Dallas, MIT, Harvard, Michigan, and UCLA.",
       "Faculty profiles come from per-school crawlers; matching runs on a FastAPI backend with the Claude API.",
     ],
     stack: [
@@ -99,14 +99,14 @@ export const PROJECTS: Project[] = [
       "Tailwind",
     ],
     metrics: [
-      { label: "TAMU faculty indexed", value: "1,770+" },
+      { label: "Faculty indexed", value: "7,864" },
       { label: "Users", value: "3,000+" },
-      { label: "Universities", value: "4" },
+      { label: "Universities", value: "8" },
     ],
     heroes: H["Aggie Reseach Finder"] ?? [],
     link: {
-      label: "aggie-research-finder.vercel.app",
-      href: "https://aggie-research-finder.vercel.app",
+      label: "stemresearchfinder.tech",
+      href: "https://stemresearchfinder.tech",
     },
     displayMode: "screenshot",
     screenshotBg: "cream",
@@ -287,11 +287,11 @@ export const EXPERIENCES = [
   },
   {
     role: "Co-Founder",
-    org: "Aggie Research Finder",
+    org: "STEM Research Finder (formerly Aggie Research Finder)",
     period: "Jan 2026 — Present",
     bullets: [
-      "Co-founded a research-discovery platform indexing 1,770+ Texas A&M faculty; grew it to 3,000+ users.",
-      "Extended it to four universities: Texas A&M, Rice, UT Austin, and UT Dallas.",
+      "Co-founded a research-discovery platform; grew it to 3,000+ users.",
+      "Expanded from Texas A&M to 8 universities and 7,864 STEM faculty.",
     ],
   },
   {
