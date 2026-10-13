@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { RunGallery } from "@/components/RunGallery";
-import { RUNS, coverUrl, rawFramesFor, zipUrl } from "@/data/cloud9";
+import { RUNS, coverUrl, highlightsFor, rawFramesFor, zipUrl } from "@/data/cloud9";
 
 export const dynamicParams = false;
 
@@ -94,7 +94,12 @@ export default async function RunPage({ params }: { params: Promise<{ run: strin
       </section>
 
       <section className="mx-auto max-w-[1600px] px-6 md:px-10 pt-10 pb-10">
-        <RunGallery slug={run.slug} raw={frames} label={`Cloud 9 ${run.title}, ${run.dateLabel}`} />
+        <RunGallery
+          slug={run.slug}
+          raw={frames}
+          highlights={highlightsFor(run.slug)}
+          label={`Cloud 9 ${run.title}, ${run.dateLabel}`}
+        />
       </section>
 
       <Footer />

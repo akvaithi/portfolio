@@ -8,6 +8,10 @@
 // folders, plus the original JPEGs, are what the ZimaOS box serves at
 // photos.akvaithi.page — the photos are far too big to ship through Vercel.
 // macOS-only: dimensions come from `sips`.
+//
+// A ranked pick folder ("Best 100/001__DSC7912.jpg") derives to names like
+// 001__DSC7912. Those are copies of frames already in the run, so they become
+// the run's ordered highlights instead of frames of their own.
 import { readdirSync, writeFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { join } from "node:path";
@@ -18,13 +22,21 @@ if (!dir) {
   process.exit(1);
 }
 
+const RANKED = /^\d+__(.+)$/;
 const out = {};
+const highlights = {};
 for (const run of readdirSync(dir).filter((d) => !d.startsWith(".")).sort()) {
   const thumbs = readdirSync(join(dir, run))
     .filter((f) => f.endsWith(".thumb.webp"))
     .sort();
   const frames = [];
+  const picks = [];
   for (const t of thumbs) {
+    const ranked = t.replace(/\.thumb\.webp$/, "").match(RANKED);
+    if (ranked) {
+      picks.push(`_${ranked[1]}`);
+      continue;
+    }
     const info = execFileSync("sips", ["-g", "pixelWidth", "-g", "pixelHeight", join(dir, run, t)], {
       encoding: "utf8",
     });
@@ -33,7 +45,11 @@ for (const run of readdirSync(dir).filter((d) => !d.startsWith(".")).sort()) {
     frames.push([t.replace(/\.thumb\.webp$/, ""), w, h]);
   }
   out[run] = frames;
-  console.log(`${run}: ${frames.length} frames`);
+  const names = new Set(frames.map((f) => f[0]));
+  const orphans = picks.filter((p) => !names.has(p));
+  if (orphans.length) throw new Error(`${run}: highlights not in the run: ${orphans.join(", ")}`);
+  if (picks.length) highlights[run] = picks;
+  console.log(`${run}: ${frames.length} frames, ${picks.length} highlights`);
 }
 
 const body = Object.entries(out)
@@ -50,5 +66,8 @@ writeFileSync(
 export const FRAMES: Record<string, [name: string, w: number, h: number][]> = {
 ${body}
 };
+
+// Hand-picked frames, best first, by file name.
+export const HIGHLIGHTS: Record<string, string[]> = ${JSON.stringify(highlights, null, 2)};
 `
 );

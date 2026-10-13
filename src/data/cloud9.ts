@@ -1,4 +1,4 @@
-import { FRAMES } from "./cloud9.frames";
+import { FRAMES, HIGHLIGHTS } from "./cloud9.frames";
 import { PHOTO_HOST, type RawFrame } from "./cloud9.urls";
 
 export { PHOTO_HOST };
@@ -31,6 +31,10 @@ export const RUNS: Run[] = [
 
 export function rawFramesFor(slug: string): RawFrame[] {
   return FRAMES[slug] ?? [];
+}
+
+export function highlightsFor(slug: string): string[] {
+  return HIGHLIGHTS[slug] ?? [];
 }
 
 export function coverUrl(run: Run) {

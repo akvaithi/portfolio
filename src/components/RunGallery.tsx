@@ -26,17 +26,33 @@ function useColumnCount() {
 export function RunGallery({
   slug,
   raw,
+  highlights,
   label,
 }: {
   slug: string;
   raw: RawFrame[];
+  highlights: string[];
   label: string;
 }) {
-  const frames = useMemo(() => expandFrames(slug, raw), [slug, raw]);
+  const all = useMemo(() => expandFrames(slug, raw), [slug, raw]);
+  const picks = useMemo(() => {
+    const byName = new Map(all.map((f) => [f.name, f]));
+    return highlights.flatMap((n) => byName.get(n) ?? []);
+  }, [all, highlights]);
+  // Open on the hand-picked set when there is one, like a client gallery's
+  // Highlights tab; everything else is one click away in shooting order.
+  const [view, setView] = useState<"highlights" | "all">(picks.length ? "highlights" : "all");
+  const frames = view === "highlights" ? picks : all;
   const cols = useColumnCount();
   const [visible, setVisible] = useState(BATCH);
   const [open, setOpen] = useState<number | null>(null);
   const sentinel = useRef<HTMLDivElement>(null);
+
+  const switchView = (v: "highlights" | "all") => {
+    setView(v);
+    setVisible(BATCH);
+    setOpen(null);
+  };
 
   useEffect(() => {
     const el = sentinel.current;
@@ -75,6 +91,26 @@ export function RunGallery({
 
   return (
     <>
+      {picks.length > 0 && (
+        <div className="mb-8 flex items-center gap-8 border-b border-cream/10 pb-4 font-mono text-xs uppercase tracking-[0.18em]">
+          {(
+            [
+              ["highlights", "Highlights", picks.length],
+              ["all", "All frames", all.length],
+            ] as const
+          ).map(([v, text, n]) => (
+            <button
+              key={v}
+              type="button"
+              onClick={() => switchView(v)}
+              data-cursor="link"
+              className={view === v ? "text-acid" : "text-cream/65 hover:text-cream transition-colors"}
+            >
+              {text} <span className="text-cream/35">({n})</span>
+            </button>
+          ))}
+        </div>
+      )}
       <div className="flex gap-3 md:gap-4">
         {columns.map((col, c) => (
           <div key={c} className="flex-1 min-w-0 flex flex-col gap-3 md:gap-4">
