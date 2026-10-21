@@ -270,8 +270,11 @@ p {
     transform: scaleY(0);
   }
 }
+/* `backwards`, not `both`: a forwards fill keeps a transform on the wrapper
+   after the animation ends, which makes it the containing block for every
+   `position: fixed` descendant (lightboxes) for as long as the page is open. */
 .page-enter {
-  animation: page-enter 0.6s var(--ease-out-expo) both;
+  animation: page-enter 0.6s var(--ease-out-expo) backwards;
 }
 @keyframes page-enter {
   from {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { expandFrames, type Frame, type RawFrame } from "@/data/cloud9.urls";
 
 // A run is 700–1,100 frames. Mounting them all at once stalls the main thread
@@ -103,7 +104,9 @@ export function RunGallery({
               type="button"
               onClick={() => switchView(v)}
               data-cursor="link"
-              className={view === v ? "text-acid" : "text-cream/65 hover:text-cream transition-colors"}
+              className={
+                view === v ? "text-acid" : "text-cream/65 hover:text-cream transition-colors"
+              }
             >
               {text} <span className="text-cream/35">({n})</span>
             </button>
@@ -137,7 +140,10 @@ export function RunGallery({
         ))}
       </div>
       {visible < frames.length && (
-        <div ref={sentinel} className="py-16 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-cream/40">
+        <div
+          ref={sentinel}
+          className="py-16 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-cream/40"
+        >
           Loading frames · {visible} / {frames.length}
         </div>
       )}
@@ -187,84 +193,86 @@ function RunLightbox({
     };
   }, [isOpen, onClose, onStep]);
 
-  return (
-    frame && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Frame ${index + 1} of ${count}`}
-          className="lightbox-in fixed inset-0 z-[90] bg-ink/95 flex flex-col"
-          onClick={onClose}
-        >
-          <div
-            className="flex items-center justify-between gap-4 px-6 md:px-10 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/70"
-            onClick={(e) => e.stopPropagation()}
+  // Portalled to <body> for the same reason as Lightbox: inside the page
+  // transition wrapper `fixed` stops meaning the viewport.
+  if (!frame) return null;
+  return createPortal(
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={`Frame ${index + 1} of ${count}`}
+      className="lightbox-in fixed inset-0 z-[90] bg-ink/95 flex flex-col"
+      onClick={onClose}
+    >
+      <div
+        className="flex items-center justify-between gap-4 px-6 md:px-10 py-5 font-mono text-[11px] uppercase tracking-[0.22em] text-cream/70"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <span>
+          {String(index + 1).padStart(String(count).length, "0")} / {count}
+        </span>
+        <div className="flex items-center gap-6">
+          <a
+            href={frame.download}
+            className="rounded-full bg-cream text-ink px-4 py-2 hover:bg-acid transition-colors"
           >
-            <span>
-              {String(index + 1).padStart(String(count).length, "0")} / {count}
-            </span>
-            <div className="flex items-center gap-6">
-              <a
-                href={frame.download}
-                className="rounded-full bg-cream text-ink px-4 py-2 hover:bg-acid transition-colors"
-              >
-                Download ↓
-              </a>
-              <button type="button" onClick={onClose} className="hover:text-acid">
-                Close ✕
-              </button>
-            </div>
-          </div>
-          <div
-            className="relative flex-1 min-h-0 px-4 md:px-20 pb-10 md:pb-16"
-            onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
-            onTouchEnd={(e) => {
-              if (touchX.current === null) return;
-              const dx = e.changedTouches[0].clientX - touchX.current;
-              touchX.current = null;
-              if (Math.abs(dx) > 50) onStep(dx < 0 ? 1 : -1);
-            }}
-          >
-            {/* Thumbnail underneath as an instant placeholder; the 2400px
-                frame paints over it once it arrives. */}
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={frame.thumb}
-              alt=""
-              aria-hidden
-              className="absolute inset-0 m-auto h-full w-full object-contain px-4 md:px-20 pb-10 md:pb-16"
-              onClick={(e) => e.stopPropagation()}
-            />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              key={frame.web}
-              src={frame.web}
-              alt={`Frame ${index + 1} of ${count}`}
-              className="relative h-full w-full object-contain"
-              onClick={(e) => e.stopPropagation()}
-            />
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onStep(-1);
-              }}
-              className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-            >
-              ← Prev
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                onStep(1);
-              }}
-              className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
-            >
-              Next →
-            </button>
-          </div>
+            Download ↓
+          </a>
+          <button type="button" onClick={onClose} className="hover:text-acid">
+            Close ✕
+          </button>
         </div>
-    )
+      </div>
+      <div
+        className="relative flex-1 min-h-0 px-4 md:px-20 pb-10 md:pb-16"
+        onTouchStart={(e) => (touchX.current = e.touches[0].clientX)}
+        onTouchEnd={(e) => {
+          if (touchX.current === null) return;
+          const dx = e.changedTouches[0].clientX - touchX.current;
+          touchX.current = null;
+          if (Math.abs(dx) > 50) onStep(dx < 0 ? 1 : -1);
+        }}
+      >
+        {/* Thumbnail underneath as an instant placeholder; the 2400px
+                frame paints over it once it arrives. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={frame.thumb}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 m-auto h-full w-full object-contain px-4 md:px-20 pb-10 md:pb-16"
+          onClick={(e) => e.stopPropagation()}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          key={frame.web}
+          src={frame.web}
+          alt={`Frame ${index + 1} of ${count}`}
+          className="relative h-full w-full object-contain"
+          onClick={(e) => e.stopPropagation()}
+        />
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onStep(-1);
+          }}
+          className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
+        >
+          ← Prev
+        </button>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.stopPropagation();
+            onStep(1);
+          }}
+          className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 font-mono text-xs uppercase tracking-[0.22em] text-cream/70 hover:text-acid"
+        >
+          Next →
+        </button>
+      </div>
+    </div>,
+    document.body
   );
 }

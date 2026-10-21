@@ -1,8 +1,8 @@
 // No manifest import here: the client gallery pulls this in, and the full
 // frame list for every run has no business in the browser bundle.
 
-// The Cloud 9 run photos live on the ZimaOS box, not in this repo: 1,786
-// originals are ~10.7 GB, far past what a Vercel Hobby deploy can carry.
+// The Cloud 9 run photos live on the ZimaOS box, not in this repo: 2,190
+// originals are ~12.7 GB, far past what a Vercel Hobby deploy can carry.
 // The box serves them through the Cloudflare tunnel. Override the host for
 // local testing (e.g. the box's tailnet address) with NEXT_PUBLIC_CLOUD9_HOST.
 export const PHOTO_HOST =

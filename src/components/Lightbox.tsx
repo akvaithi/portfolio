@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { HDRImage } from "./HDRImage";
 
 export type LightboxPhoto = {
@@ -71,7 +72,11 @@ export function Lightbox({
 
   if (!photo) return null;
 
-  return (
+  // Portalled to <body>: after a client-side navigation the page sits inside
+  // PageTransition's animated wrapper, and an ancestor with a transform turns
+  // `position: fixed` into "fixed to that wrapper", so the lightbox spanned
+  // the whole page and the photo landed off-screen.
+  return createPortal(
     <div
       role="dialog"
       aria-modal="true"
@@ -143,6 +148,7 @@ export function Lightbox({
           Next →
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

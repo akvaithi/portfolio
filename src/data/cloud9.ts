@@ -14,6 +14,13 @@ export type Run = {
 
 export const RUNS: Run[] = [
   {
+    slug: "oct-18",
+    title: "Evening Run",
+    date: "2026-10-18",
+    dateLabel: "October 18th, 2026",
+    cover: "_DSC8820",
+  },
+  {
     slug: "sept-27",
     title: "Evening Run",
     date: "2026-09-27",
