@@ -5,8 +5,8 @@
 //
 // <derived-dir> holds one folder per run (sept-11/, sept-27/), each with
 // <name>.webp (2400px) and <name>.thumb.webp (800px) per frame. The same
-// folders, plus the original JPEGs, are what the ZimaOS box serves at
-// photos.akvaithi.page — the photos are far too big to ship through Vercel.
+// folders, plus the original JPEGs, are what akvcloud serves at
+// akvaithi.page/cloud9/ (deploy/akvcloud/Caddyfile), straight from disk.
 // macOS-only: dimensions come from `sips`.
 //
 // A ranked pick folder ("Best 100/001__DSC7912.jpg") derives to names like

@@ -1,0 +1,79 @@
+# akvaithi.page on akvcloud: one Caddy in front of the Next.js server, which also
+# serves the Cloud 9 photos from disk (they used to be a separate photos.akvaithi.page).
+# The akvcloud cloudflared tunnel points akvaithi.page, www. and photos. at :8100.
+{
+	admin off
+}
+
+(client_ip) {
+	header_up X-Forwarded-For {header.CF-Connecting-IP}
+}
+
+http://:8080 {
+	@www host www.akvaithi.page
+	redir @www https://akvaithi.page{uri} 308
+
+	# old photo host: same files, now same-origin under /cloud9
+	@photos host photos.akvaithi.page
+	redir @photos https://akvaithi.page/cloud9{uri} 301
+
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	# akvcloud analytics: cookieless page views (beacon on the docker bridge)
+	handle /api/e {
+		request_body {
+			max_size 4KB
+		}
+		reverse_proxy 172.17.0.1:8099 {
+			import client_ip
+		}
+	}
+	handle /a.js {
+		reverse_proxy 172.17.0.1:8099
+	}
+
+	# Cloud 9 gallery images: thumbnails + 2400px web versions. Never change once written.
+	@web path_regexp web ^/cloud9/([a-z0-9-]+)/web/([A-Za-z0-9_.-]+\.webp)$
+	handle @web {
+		root * /srv/photos
+		rewrite * /{re.web.1}/web/{re.web.2}
+		header Cache-Control "public, max-age=31536000, immutable"
+		file_server
+	}
+
+	# Full-resolution original, downloaded under a readable name.
+	@jpg path_regexp jpg ^/cloud9/dl/([a-z0-9-]+)/([A-Za-z0-9_-]+)\.jpg$
+	handle @jpg {
+		root * /srv/photos
+		rewrite * /{re.jpg.1}/{re.jpg.2}.jpg
+		header Content-Disposition "attachment; filename=\"Cloud9-{re.jpg.1}-{re.jpg.2}.jpg\""
+		header Cache-Control "public, max-age=604800"
+		file_server
+	}
+
+	# A whole run as one zip.
+	@zip path_regexp zip ^/cloud9/dl/([a-z0-9-]+)\.zip$
+	handle @zip {
+		root * /srv/photos
+		rewrite * /zips/Cloud9-{re.zip.1}.zip
+		header Content-Disposition "attachment; filename=\"Cloud9-{re.zip.1}.zip\""
+		header Cache-Control "no-store"
+		file_server
+	}
+
+	# nothing else under /cloud9 (no listings)
+	handle /cloud9/* {
+		respond 404
+	}
+
+	handle {
+		reverse_proxy app:3000 {
+			header_up X-Forwarded-Proto https
+		}
+	}
+}

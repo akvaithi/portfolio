@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Self-hosted on akvcloud: a self-contained server in .next/standalone
+  // (deploy/akvcloud/update.sh packages it with static files and public/).
+  output: "standalone",
   images: {
     // WebP only — AVIF compresses better but decode is much slower, and we
     // were getting JS-thread freezes when many tiles entered the viewport at

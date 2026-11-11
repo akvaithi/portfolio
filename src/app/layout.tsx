@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Inter_Tight, Fraunces, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { MotionObserver } from "@/components/MotionObserver";
@@ -152,6 +153,10 @@ export default function RootLayout({
         <Nav />
         <PageTransition>{children}</PageTransition>
         <HDRDebug />
+        {/* Cookieless page views for akvcloud's own analytics (no IPs stored,
+            daily-rotating visitor hash, respects DNT/GPC). Served same-origin
+            by the site's Caddy from the akvcloud beacon. */}
+        <Script src="/a.js" strategy="afterInteractive" />
       </body>
     </html>
   );

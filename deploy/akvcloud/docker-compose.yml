@@ -1,0 +1,42 @@
+# akvaithi.page on akvcloud. Lives in the repo; run from it:
+#   docker compose -f /srv/fast/apps/portfolio/repo/deploy/akvcloud/docker-compose.yml up -d
+# /srv/fast/apps/portfolio holds:
+#   repo/                git checkout (read-only deploy key), built by deploy/akvcloud/update.sh
+#   releases/<sha>/      self-contained Next.js server (standalone + static + public)
+#   releases/current     symlink to the live release
+#   photos/              Cloud 9 runs: <run>/*.jpg originals, <run>/web/*.webp, zips/
+name: portfolio
+
+x-logging: &logging
+  driver: json-file
+  options: { max-size: "10m", max-file: "3" }
+
+services:
+  app:
+    image: node:24-bookworm-slim
+    container_name: portfolio-app
+    restart: unless-stopped
+    logging: *logging
+    user: "1000:1000"
+    environment:
+      NODE_ENV: production
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+      NEXT_TELEMETRY_DISABLED: "1"
+    # releases/ is writable only so Next can keep its image-optimizer cache
+    volumes:
+      - /srv/fast/apps/portfolio/releases:/srv/releases
+    command: sh -c 'cd /srv/releases/current && exec node server.js'
+    mem_limit: 1g
+
+  web:
+    image: caddy:2-alpine
+    container_name: portfolio-web
+    restart: unless-stopped
+    logging: *logging
+    ports:
+      - "127.0.0.1:8100:8080"
+    volumes:
+      - /srv/fast/apps/portfolio/repo/deploy/akvcloud/Caddyfile:/etc/caddy/Caddyfile:ro
+      - /srv/fast/apps/portfolio/photos:/srv/photos:ro
+    depends_on: [app]

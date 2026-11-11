@@ -50,7 +50,19 @@ After dropping in new variants, re-run `node scripts/build-catalog.mjs`. The cat
 
 ## Deployment
 
-Production deployment runs on Vercel.
+Self-hosted on **akvcloud**. One Caddy container (`portfolio-web`, `127.0.0.1:8100`) fronts the Next.js
+standalone server (`portfolio-app`). The same Caddy serves the Cloud 9 photos straight from disk under
+`/cloud9/`, plus the cookieless analytics script from the akvcloud beacon. Cloudflare Tunnel routes
+`akvaithi.page`, `www.` and `photos.` to it. `photos.` permanently redirects to `/cloud9/…`, so old links
+keep working.
+
+```bash
+ssh akvcloud /srv/fast/apps/portfolio/repo/deploy/akvcloud/update.sh   # pull, build, ship
+```
+
+`deploy/akvcloud/` holds the Caddyfile, the compose file and `update.sh`. Each build becomes
+`releases/<sha>/`, and `releases/current` points at the live one. The script keeps the last three
+releases, so rolling back is a symlink change plus `docker restart portfolio-app`.
 
 ## License
 
